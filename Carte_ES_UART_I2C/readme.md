@@ -1,4 +1,4 @@
-# Carte Entrée Sortie UART et I2C
+# Carte Entrées Sorties UART et I2C
 
 Ce projet est la raison d'être pour re-sortir l'Oric-1 de son armoire.
 
