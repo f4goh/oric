@@ -10,4 +10,3 @@
 
 ![PCB](images/pcb.png "Allure du PCB")
 
-
