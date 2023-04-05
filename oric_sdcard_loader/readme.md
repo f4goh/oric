@@ -1,7 +1,7 @@
 # oric_sdcard_loader
 ## _Alternative à l'Erebus en utilisant le port imprimante_
 
-# [EdL42](https://forum.defence-force.org/viewtopic.php?t=1860) 
+# [D'après EdL42](https://forum.defence-force.org/viewtopic.php?t=1860) 
 
 
 Ce projet reprend le schéma d'origine, mais avec la réalisation d'un circuit imprimé
@@ -46,26 +46,26 @@ Il vous faudra aussi une eprom 27128 (16 Ko) et un moyen de la programmer.
 - 14 entrées/sorties numériques (D0..D13):
 - TX(D)1 et RX(D)0 sont déjà utilisés par le module pour la communication USB. Heureusement ils ont chacun une résistance de rappel de 1 Ko. Donc j'ai réutilisé ces broches pour les signaux Strobe et Ack avec l'Oric. MAIS IL FAUT PENSER A DECONNECTER TEMPORAIREMENT RX0 DE LA BROCHE STROBE POUR POUVOIR PROGRAMMER L'ARDUINO autrement cela produit une erreur ! On peut ajouter un interrupteur sur cette broche.
 - D2 à D7 sont utilisés pour l'afficheur LCD.
-'''c
+```c
       #define pinLCD_E  2               // Enable
       #define pinLCD_RS 3               // Register Select
       #define pinLCD_D4 4               // Data 4 (4 bits configuration)
       #define pinLCD_D5 5               // Data 5 (4 bits configuration)
       #define pinLCD_D6 6               // Data 6 (4 bits configuration)
       #define pinLCD_D7 7               // Data 7 (4 bits configuration)
-'''
+```
 - D8 et D9 sont utilisés pour les données à transmettre via le port imprimante (voir ci-dessous pourquoi).
 - D10 à D13 sont utilisées pour la communication avec la carte SD.
-'''c
+```c
       #define pinCS 10                  // pin CS (SS) SD card (SPI)
       // Pin 11                            pin MOSI pour SD card (SPI) by default
       // Pin 12                            pin MISO pour SD card (SPI) by default
       // Pin 13                            pin SCK pour SD card (SPI) by default
-'''
+```
 -> 8 entrées analogiques (A0..A7):
 - Heureusement elles peuvent aussi être configurées en entrées/sorties numériques, MAIS PAS POUR A6 et A7 ! Donc A0 et A5 sont utilisées pour les données (bits) Data 0 à Data 5 et D8 et D9 sont utilisées en plus pour Data 6 et Data 7.
 - A6 et A7 sont les seules entrés/sorties restantes pour les buttons mais elles sont analogiques. Donc elles sont connectées sur un diviseur de tension. 2 résistances divisent la tension de 5V. Les boutons sont regroupés par 2. Lorsqu'aucun bouton n'est enfonçé, A6 et A7 recoivent approximativement 1,9V. Si "UP" est enfonçé par exemple, alors une résistance est court-circuitée et la tension augmente à 3.4V (pas 5V car il y'a un résistance additionnelle de protection). Si "DOWN" est enfonçé alors c'est l'autre résistance qui est court-circuitée et la tension descend à 0V.
-'''c
+```c
       #define pinOUT0 A0                 // Data 0 (output)
       #define pinOUT1 A1                 // Data 1 (output)
       #define pinOUT2 A2                 // Data 2 (output)
@@ -76,7 +76,7 @@ Il vous faudra aussi une eprom 27128 (16 Ko) et un moyen de la programmer.
       #define pinOUT7 9                  // Data 7 (output. Using D9 as A7 an analog input only)
       #define pinACK 1                   // "Ack" Oric = CA1. TX1 (OUT). If = 0 then data ready to be read by Oric
       #define pinSTROBE 0                // "Strobe" Oric = PB4. RX0 (IN). Used as a more simple "Busy" signal actually. If = 0 then Oric is ready to receive data
-'''
+```
 - Pour l'instant le montage est alimenté par le cable USB. Il faudra ajouter un fil pour récupérer le +5V du port d'extension de l'Oric.
 
 ## Le port imprimante de l'Oric:
