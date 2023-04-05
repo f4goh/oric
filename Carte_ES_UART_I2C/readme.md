@@ -2,8 +2,7 @@
 
 Ce projet est la raison d'être pour re-sortir l'Oric-1 de son armoire.
 
-![PCB](images/pcb.png "Allure du PCB")
-
+![ES](images/carte_es.jpg "la carte ES")
 
 ## Caractéristiques:
 
@@ -25,6 +24,10 @@ Ce projet est la raison d'être pour re-sortir l'Oric-1 de son armoire.
 | Afficheur | #3FC |
 | Led test | #3FC |
 
+![LCD](images/lcd.jpg "Avec l'afficheur LCD")
+
 ```c
 Bientôt des exemples...en basic et en c
 ```
+
+![PCB](images/pcb.png "Allure du PCB")

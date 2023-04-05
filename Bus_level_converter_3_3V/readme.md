@@ -8,5 +8,7 @@
 
 Projet en cours de construction
 
+![PCB](images/adapter33.jpg "Adaptateur 3.3V pour FPGA")
+
 ![PCB](images/pcb.png "Allure du PCB")
 

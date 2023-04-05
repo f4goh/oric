@@ -6,7 +6,8 @@
 
 Ce projet reprend le schéma d'origine, mais avec la réalisation d'un circuit imprimé
 
-![PCB](images/pcb.png "Allure du PCB")
+
+![PCB](images/sdcardloader.jpg "Carte tap loader avec le port imprimante")
 
 
 ## MATERIEL NECESSAIRE:
@@ -136,6 +137,6 @@ LEFT (GAUCHE)  => désactive la carte SD card proprement.
 
 [Voici une démo](https://youtu.be/KIy44OiyAuc)
 
-
+![PCB](images/pcb.png "Allure du PCB")
 
 
