@@ -8,6 +8,6 @@
 - le programmateur utilisé est un [XGECU - pro](https://www.aliexpress.com/premium/XGecu.html)
 - Il est capable de programmer les EEPROM et la GAL22V10 de Lattice
 
-![PCB](/images/pcb.png  "Allure du PCB")
+![PCB](images/pcb.png "Allure du PCB")
 
 
