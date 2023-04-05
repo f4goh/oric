@@ -1,0 +1,23 @@
+ORIC-1 patched ROM for ORIC SDCARD
+----------------------------------
+All values are in hexadecimal
+
+E4B3			0E			; Call 6522 VIA setup (see blow)
+E4B4			E7
+
+E4CC			35			; Save found filename for "Loading..." display
+
+E4D1			35			; And also the '0' at the end of the filename
+
+E4D2...E4D7		EA...EA		; Don't test if the filename match (as no filename has been entered)
+
+E4F9			EA			; Ignore format error
+E4FA			EA
+
+							; Read a byte: set Strobe to 0, wait for CA1 = 1, wait, read A port, set Strobe = 1 
+E634			AD, 00, 03, 29, EF, 8D, 00, 03, AD, 0D, 03, 29, 02, F0, F9, EA, AD, 01, 03, 85, 2F, AD, 00, 03, 09, 10, 8D, 00, 03, 68, AA, 68, A8, A5, 2F, 60, EA, EA, EA, EA, EA, EA
+
+E6DD			50			; Fix an existing bug ! Do NOT generate a Strobe when configuring the VIA 
+
+							; Setup the 6522 VIA: set CA1 detection on falling edge, port A as input. Sorry Peter Halford and Andy Brown but I need some space ;-)
+E70E			AD, 0C, 03, 29, FE, 8D, 0C, 03, A9, 00, 8D, 03, 03, 60, EA, EA, EA, EA, EA, EA

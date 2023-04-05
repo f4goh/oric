@@ -1,0 +1,33 @@
+GAL22V10
+22V10
+
+Clock A7     A6   A5 A4 A3    A2  RW  RESB IO    PHI2    GND
+D0    IOCtrl RESH RD WR PHI2F CS0 CS1 CS2  CS3   LED1   VCC
+
+
+/WR    = PHI2 * /RW		; WR Intel 8255 
+
+/RD    = PHI2 * RW	        ; RD Intel 8255
+
+PHI2F = PHI2            ; Mise en forme de PHI2
+
+RESH  = /RESB           ; inversion du reset pour Intel 8255
+
+/CS0   = /IO * A7 * A6 * A5 * A4 * /A3 * /A2 	; CS0
+
+/CS1   = /IO * A7 * A6 * A5 * A4 * /A3 * A2 	; CS1
+
+/CS2   = /IO * A7 * A6 * A5 * A4 * A3 * /A2 	; CS2
+
+CS3   = /IO * A7 * A6 * A5 * A4 * A3 * A2	; CS3 pour la led 1 rebouclage sur Clock phi ou phi/ ?? test fait avec phi/
+
+LED1.R = D0	; LED1   
+
+/IOCtrl =   /IO * A7 * A6 * A5 * A4 * /A3 * /A2
+          + /IO * A7 * A6 * A5 * A4 * /A3 * A2
+          + /IO * A7 * A6 * A5 * A4 * A3 * /A2
+          + /IO * A7 * A6 * A5 * A4 * A3 * A2
+
+DESCRIPTION
+ORIC1 address decoder
+

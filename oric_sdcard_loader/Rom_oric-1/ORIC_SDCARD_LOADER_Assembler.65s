@@ -1,0 +1,134 @@
+; ================= Oric SDcard reader =================
+; (c) Edl 2018 V1
+;
+;
+; Read a .TAP file from a SDcard connected on the 
+; printer port, load it into memory and run it
+;
+;=======================================================
+
+	*= $400
+
+;VIA 6522:
+VIA	= $300
+VIADRB  = $300
+VIADRA  = $301
+VIADDRB = $302
+VIADDRA = $303
+VIAPCR  = $30C
+VIAIFR	= $30D
+
+;ROM Oric-1:
+Interpreteur	= $C96B
+Basic_run	= $C98B
+SearchingHigh   = $E5
+SearchingLow    = $03
+LoadingHigh	= $E5
+LoadingLow	= $12
+Efface_statut	= $E563
+Affiche_nom	= $E56E
+Affiche_texte	= $E576
+Config_via_reg	= $E6E2
+Config_via_data	= $E6E9
+Cload_suite	= $E7C0
+Reactive_int	= $E804
+Interdit_irq_t1	= $EBFD
+
+;----------------------------
+.main
+	JSR Interdit_irq_t1		; Desactive les interruptions (NB: ne pas utiliser E6CA car bug avec Strobe)
+	LDY #$06
+	SEI
+.table
+	LDX Config_via_reg,Y
+	LDA Config_via_data,Y
+	STA VIA,X
+	DEY
+	BPL .table
+	
+	LDA VIAPCR
+	AND #$FE			; Force detection sur front DESCENDANT de CA1 (FA) (%11111110)
+	STA VIAPCR
+
+	LDA #$00			; Mets le port A en entree
+	STA VIADDRA
+	
+	JSR .charge_programme
+	JSR Reactive_int		; Reactive interruptions
+	JMP Cload_suite			; Lance le programme charge
+
+	
+;----------------------------
+.charge_programme
+	JSR Efface_statut		; Affiche "Searching..."
+	LDA #SearchingLow
+	LDY #SearchingHigh
+	JSR Affiche_texte
+.amorce
+	JSR .charge_octet
+	CMP #$24
+	BNE .amorce			; Saute amorce ($16 x 3 + $24 x 1)
+	
+	LDX #$09			; Charge entete
+.entete
+	JSR .charge_octet
+	STA $5D,X
+	DEX
+	BNE .entete
+.nom
+	JSR .charge_octet		; Charge nom fichier
+	BEQ .fin_nom
+	STA $49,X
+	STA $35,X
+	INX
+	BNE .nom
+.fin_nom
+	STA $49,X
+	STA $35,X
+	JSR Efface_statut		; Affiche "Loading..."
+	LDA #LoadingLow
+	LDY #LoadingHigh
+	JSR Affiche_texte
+	JSR Affiche_nom			; Affiche nom fichier
+	
+	LDA $5F				; Charge programme
+	LDY $60
+	STA $33
+	STY $34				; Adresse de debut
+	LDY #$00
+.octet_suivant
+	JSR .charge_octet		; Charge un octet
+	STA ($33),Y			; Sauve octet en memoire
+	LDA $33				; Test si adresse de fin atteinte
+	CMP $61
+	LDA $34
+	SBC $62
+	INC $33
+	BNE .suite
+	INC $34
+.suite
+	BCC .octet_suivant
+	RTS
+	
+;----------------------------
+.charge_octet
+	LDA VIADRB
+	AND #$EF			; Mets Strobe (PB4) a 0 (%11101111) = ready
+	STA VIADRB
+
+.attends_ack
+	LDA VIAIFR
+	AND #$02			; Teste si flag CA1 = 1 (%00000010)
+	BEQ .attends_ack
+	
+	NOP				; Attends valeur stable
+	LDA VIADRA			; Recupere l'octet (et remets flag CA1 à 0)
+	STA $2F				; Sauve l'octet
+
+	LDA VIADRB
+	ORA #$10			; Mets Strobe (PB4) a 1 (%00010000) = busy
+	STA VIADRB
+
+	LDA $2F				; Recupere l'octet
+	
+	RTS

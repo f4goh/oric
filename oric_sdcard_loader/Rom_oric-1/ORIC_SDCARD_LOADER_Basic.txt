@@ -1,0 +1,39 @@
+===================== ORIC SDCARD LOADER =====================
+
+As in Impossible Mission, this record will (very probably) be destroyed at the end by the loaded program !
+
+Type in this little BASIC program (ORIC-1 only for the moment sorry!):
+10 T=0
+20 FORA=#400TO#49F
+30 READD$:D=VAL("#"+D$)
+50 T=T+D:NEXTA
+100 DATA 20,FD,EB,A0,06,78,BE,E2,E6,B9,E9,E6,9D,00,03,88
+110 DATA 10,F4,AD,0C,03,29,FE,8D,0C,03,A9,00,8D,03,03,20
+120 DATA 28,04,20,04,E8,4C,C0,E7,20,63,E5,A9,03,A0,E5,20
+130 DATA 76,E5,20,80,04,C9,24,D0,F9,A2,09,20,80,04,95,5D
+140 DATA CA,D0,F8,20,80,04,F0,07,95,49,95,35,E8,D0,F4,95
+150 DATA 49,95,35,20,63,E5,A9,12,A0,E5,20,76,E5,20,6E,E5
+160 DATA A5,5F,A4,60,85,33,84,34,A0,00,20,80,04,91,33,A5
+170 DATA 33,C5,61,A5,34,E5,62,E6,33,D0,02,E6,34,90,EB,60
+180 DATA AD,00,03,29,EF,8D,00,03,AD,0D,03,29,02,F0,F9,EA
+190 DATA AD,01,03,85,2F,AD,00,03,09,10,8D,00,03,A5,2F,60
+
+Run the program:
+RUN
+PRINT T        => Should be 17751 otherwise a data has not been entered correctly !
+
+When it's OK add the following line:
+40 POKEA,D
+
+and run again the program:
+RUN
+
+Then you are ready to start the loader with:
+CALL #400
+
+Now "Searching..." should be displayed on your screen. You can still press the Oric reset key at the back if your ORIC SDCARD is not ready to send a file. 
+
+And now send the file from the ORIC SDCARD with the button "RIGHT".
+
+Good luck !
+ 
