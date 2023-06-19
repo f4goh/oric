@@ -1,0 +1,25 @@
+GAL22V10
+22V10
+
+COL0 COL1 COL2 COL3 COL4 COL5 COL6 COL7  A B C   GND
+EN A0 B0 C0 NC NC NC KEY Q0  Q1  Q2   VCC
+
+
+Q0 = /COL1 + /COL3 + /COL5 + /COL7
+Q1 = /COL2 + /COL3 + /COL6 + /COL7
+Q2 = /COL4 + /COL5 + /COL6 + /COL7
+
+/KEY =  /C * /B * /A * /C0 * /B0 * /A0 * EN
+      + /C * /B * A * /C0 * /B0 * A0 * EN
+      + /C * B * /A * /C0 * B0 * /A0 * EN
+      + /C * B * A * /C0 * B0 * A0 * EN
+      + C * /B * /A * C0 * /B0 * /A0 * EN
+      + C * /B * A * C0 * /B0 * A0 * EN
+      + C * B * /A * C0 * B0 * /A0 * EN
+      + C * B * A * C0 * B0 * A0 * EN
+
+
+
+DESCRIPTION
+ORIC1 keyboard arduino interface
+

@@ -1,0 +1,23 @@
+GAL22V10
+22V10
+
+PHI  SELROM ROMCS A7     A6     A5     A4     A3     A2     A1  A0   GND
+IO   Q1     Q2   RW      MISOIN MISOUT CSROM0 CSROM1 IOCtrl CS  CLK  VCC
+
+IOCtrl= IO + /A7 + /A6 + /A5 + /A4 + A3 + A2 + /A1 + /A0
+
+MISOUT.T = MISOIN
+MISOUT.E = /IOCtrl * PHI * RW
+
+CLK = /IOCtrl * PHI * /RW
+
+/CSROM0 = /SELROM * /ROMCS
+
+/CSROM1 = SELROM * /ROMCS
+
+CS = /Q1 + /Q2
+
+   
+DESCRIPTION
+ORIC1 address decoder ken oric
+
