@@ -1,0 +1,29 @@
+
+
+ Pin # | Name     | Pin Type
+-----------------------------
+   1   | Clock    | Clock/Input
+   2   | A7       | Input
+   3   | A6       | Input
+   4   | A5       | Input
+   5   | A4       | Input
+   6   | A3       | Input
+   7   | A2       | Input
+   8   | RW       | Input
+   9   | RESB     | Input
+  10   | IO       | Input
+  11   | PHI2     | Input
+  12   | GND      | GND
+  13   | D0       | Input
+  14   | IOCtrl   | Output
+  15   | RESH     | Output
+  16   | RD       | Output
+  17   | WR       | Output
+  18   | PHI2F    | Output
+  19   | CS0      | Output
+  20   | CS1      | Output
+  21   | CS2      | Output
+  22   | CS3      | Output
+  23   | LED1     | Output
+  24   | VCC      | VCC
+

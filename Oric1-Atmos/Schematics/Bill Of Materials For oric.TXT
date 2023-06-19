@@ -1,0 +1,94 @@
+Bill Of Materials
+=================
+Design:   HCS RAM
+Doc. no.: 
+Revision: 
+Author:   
+Created:  02/02/23
+Modified: 06/19/23
+
+QTY  PART-REFS           VALUE               CODE                          
+---  ---------           -----               ----                          
+Resistors
+---------
+6    R1,R3,R4,R15,R17,   2.2k                                              
+     R28
+4    R5,R18,R19,R23      1k                                                
+2    R6,R13              4.7k                                              
+1    R7                  470                                               
+3    R8-R10              47k                                               
+1    R11                 22k                                               
+1    R12                 10                                                
+2    R14,R16             10k                                               
+3    R20,R21,R30         1.8K                                              
+1    R22                 1M                                                
+4    R24-R27             220                                               
+1    R29                 3.3k                                              
+
+Capacitors
+----------
+1    C1                  220uF                                             
+1    C2                  47nF                                              
+1    C3                  2.2uF                                             
+1    C4                  10nF                                              
+2    C5,C38              1uF                                               
+2    C6,C7               22pF                                              
+6    C8-C11,C36,C37      100uF                                             
+24   C12-C35             100nF                                             
+1    C39                 1000uF                                            
+
+Integrated Circuits
+-------------------
+1    U1                  27512                                             
+3    U2,U15,U22          AM22V10                                           
+2    U3,U4               74LS73                                            
+1    U5                  27C256                                            
+1    U6                  HCS10017                                          
+1    U7                  74LS365                                           
+1    U8                  74LS04                                            
+2    U9,U10              74LS257                                           
+2    U11,U12             41464                                             
+1    U13                 TCXO 12MHz                                        
+1    U14                 AY-3-8910A                                        
+1    U16                 ARDUINO NANO                                      
+1    U17                 LM386                                             
+1    U18                 6502                                              
+1    U19                 6522                                              
+1    U20                 LEVEL CONVERTER                                   
+1    U21                 ESP32 WROOM                                       
+1    U23                 8255A                                             
+1    U24                 6551                                              
+1    U25                 FTDI232                                           
+
+Transistors
+-----------
+2    Q1,Q2               BC848B                                            
+1    Q3                  BC847B                                            
+
+Diodes
+------
+4    D1,D2,D4,D6         1N4148                                            
+2    D3,D5               LED1206                                           
+
+Miscellaneous
+-------------
+1    BP1                 BP                                                
+2    J1,J22              CONN-SIL6                                         
+6    J2,J10,J16,J23-J25  SIL-100-02                                        
+2    J3,J18              SIL-100-15                                        
+1    J4                  SIL-100-06                                        
+1    J5                  PS/2                                              
+1    J6                  SIL-100-10                                        
+1    J7                  CONN-SIL3                                         
+1    J8                  EXT                 NorComp 26643401RP2           
+1    J9                  PRINTER             NorComp 26642001RP2           
+2    J11,J12             CONN-SIL4                                         
+2    J13,J14             SIL-100-03                                        
+1    J15                 26642601RP2         NorComp 26642601RP2           
+1    J17                 CONN-SIL5                                         
+3    J19-J21             PADS                                              
+4    PT1-PT4             ENTRETOISE                                        
+3    PT5-PT7 PHI0        POINT TEST                                        
+1    RL1                 G5V-1                                             
+1    X1                  1.8432MHz                                         
+
