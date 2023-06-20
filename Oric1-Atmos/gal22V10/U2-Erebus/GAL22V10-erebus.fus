@@ -5,7 +5,7 @@ AR
 
 Pin 23 = CLK          S0 = 1   S1 = 1
   1  ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
-  2  x--- ---- ---x ---- ---- ---- ---- ---x ---- ---- ----
+  2  ---- ---- ---x ---- ---- ---- ---- ---x ---- ---- x---
   3  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
   4  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
   5  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
@@ -37,14 +37,14 @@ Pin 21 = IOCtrl       S0 = 1   S1 = 1
  27  ---- ---- ---- ---- ---- ---- ---- x--- ---- ---- ----
  28  ---- ---- ---- ---- ---- ---- ---- ---- x--- ---- ----
  29  ---- ---- ---- ---- ---- ---- ---- ---- ---- -x-- ----
- 30  ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- -x--
+ 30  -x-- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
  31  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
  32  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
  33  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
 
 Pin 20 = CSROM1       S0 = 0   S1 = 1
  34  ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
- 35  ---- x--- -x-- ---- ---- ---- ---- ---- ---- ---- ----
+ 35  x--- x--- -x-- ---- ---- ---- ---- ---- ---- ---- ----
  36  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
  37  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
  38  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
@@ -61,7 +61,7 @@ Pin 20 = CSROM1       S0 = 0   S1 = 1
 
 Pin 19 = CSROM0       S0 = 0   S1 = 1
  49  ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
- 50  ---- -x-- -x-- ---- ---- ---- ---- ---- ---- ---- ----
+ 50  x--- -x-- -x-- ---- ---- ---- ---- ---- ---- ---- ----
  51  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
  52  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
  53  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
@@ -79,7 +79,7 @@ Pin 19 = CSROM0       S0 = 0   S1 = 1
  65  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
 
 Pin 18 = MISOUT       S0 = 1   S1 = 1
- 66  x--- ---- ---x ---- ---- ---- ---- --x- ---- ---- ----
+ 66  ---- ---- ---x ---- ---- ---- ---- --x- ---- ---- x---
  67  ---- ---- ---- ---- ---- ---- --x- ---- ---- ---- ----
  68  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
  69  xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx

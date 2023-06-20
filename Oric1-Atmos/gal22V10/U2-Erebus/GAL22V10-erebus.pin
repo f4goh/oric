@@ -2,7 +2,7 @@
 
  Pin # | Name     | Pin Type
 -----------------------------
-   1   | PHI      | Clock/Input
+   1   | DIS      | Clock/Input
    2   | SELROM   | Input
    3   | ROMCS    | Input
    4   | A7       | Input
@@ -12,7 +12,7 @@
    8   | A3       | Input
    9   | A2       | Input
   10   | A1       | Input
-  11   | A0       | Input
+  11   | PHI      | Input
   12   | GND      | GND
   13   | IO       | Input
   14   | Q1       | Input

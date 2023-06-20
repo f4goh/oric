@@ -1,19 +1,19 @@
 GAL22V10
 22V10
 
-PHI  SELROM ROMCS A7     A6     A5     A4     A3     A2     A1  A0   GND
+DIS  SELROM ROMCS A7     A6     A5     A4     A3     A2     A1  PHI   GND
 IO   Q1     Q2   RW      MISOIN MISOUT CSROM0 CSROM1 IOCtrl CS  CLK  VCC
 
-IOCtrl= IO + /A7 + /A6 + /A5 + /A4 + A3 + A2 + /A1 + /A0
+IOCtrl= IO + /A7 + /A6 + /A5 + /A4 + A3 + A2 + /A1 + /DIS
 
 MISOUT.T = MISOIN
 MISOUT.E = /IOCtrl * PHI * RW
 
 CLK = /IOCtrl * PHI * /RW
 
-/CSROM0 = /SELROM * /ROMCS
+/CSROM0 = /SELROM * /ROMCS * DIS
 
-/CSROM1 = SELROM * /ROMCS
+/CSROM1 = SELROM * /ROMCS * DIS
 
 CS = /Q1 + /Q2
 
