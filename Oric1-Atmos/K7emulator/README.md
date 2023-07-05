@@ -1,6 +1,6 @@
-# oric K7 emulator
+# Oric K7 emulator
 
-## Automatic installation [firmwares](https://f4goh.github.io/oric/index.html) 
+## Automatic installation in esp32 [firmwares](https://f4goh.github.io/oric/index.html) 
 
 K7 Emulator Features
 - CLOAD function
