@@ -1,0 +1,296 @@
+/*
+ Success formatting
+
+===== Flash File System Info =====
+Total space:      1378241 octets
+Total space used: 0 octets
+ https://github.com/smford/esp32-asyncwebserver-fileupload-example
+ https://randomnerdtutorials.com/esp32-over-the-air-ota-programming/
+ https://github.com/G6EJD/G6EJD-ESP-File-Server
+ http://www.iotsharing.com/2019/07/how-to-turn-esp-with-sdcard-or-spiffs-a-web-file-server.html
+ *https://notisrac.github.io/FileToCArray
+ * 
+ 
+ */
+#include <Arduino.h>
+#include "SPIFFS.h"
+#include <console.h>
+#include "Oric.h"
+
+
+#define LED 12 //green led 
+#define TAILLE 155
+#define TEMPO 204
+
+Console laConsole;
+Oric loric(LED);
+
+void test();
+void emit_bit(int bit);
+void emit_byte(int val);
+void emit_gap();
+void test_file();
+/**/
+
+static const byte HW[155] PROGMEM = {
+    0x16, 0x16, 0x16, 0x24, 0x00, 0x00, 0x00, 0x80, 0x05, 0x88, 0x05, 0x01, 0x00,
+    0x20, 0x4d, 0x41, 0x49, 0x4e, 0x00,
+    0x07, 0x05, 0x0a, 0x00, 0x27, 0x00, 0x24, 0x05, 0x14, 0x00, 0x27, 0x1b, 0x42,
+    0x20, 0x54, 0x68, 0x69, 0x73, 0x20, 0x69, 0x73, 0x20, 0x74, 0x68, 0x65, 0x20, 0x73, 0x74, 0x61,
+    0x6e, 0x64, 0x61, 0x72, 0x64, 0x00, 0x41, 0x05, 0x1e, 0x00, 0x27, 0x1b, 0x42, 0x20, 0x22, 0x48,
+    0x45, 0x4c, 0x4c, 0x4f, 0x20, 0x57, 0x4f, 0x52, 0x4c, 0x44, 0x22, 0x20, 0x73, 0x61, 0x6d, 0x70,
+    0x6c, 0x65, 0x00, 0x5a, 0x05, 0x28, 0x00, 0x27, 0x1b, 0x42, 0x20, 0x77, 0x72, 0x69, 0x74, 0x74,
+    0x65, 0x6e, 0x20, 0x69, 0x6e, 0x20, 0x42, 0x41, 0x53, 0x49, 0x43, 0x00, 0x60, 0x05, 0x32, 0x00,
+    0x27, 0x00, 0x86, 0x05, 0x3c, 0x00, 0xba, 0x20, 0x22, 0x48, 0x65, 0x6c, 0x6c, 0x6f, 0x20, 0x57,
+    0x6f, 0x72, 0x6c, 0x64, 0x20, 0x21, 0x20, 0x28, 0x42, 0x41, 0x53, 0x49, 0x43, 0x20, 0x76, 0x65,
+    0x72, 0x73, 0x69, 0x6f, 0x6e, 0x29, 0x22, 0x00, 0x00, 0x00, 0x00
+};
+
+
+
+//0x00, 0x00, 
+//0x00,
+//0x80,
+//0x05, 0x88, end   0588
+//0x05, 0x01, start 0501 88-1+1=136
+//0x00,
+
+
+void _ls_(ArgList& L, Stream& S);
+void _run_(ArgList& L, Stream& S);
+void _info_(ArgList& L, Stream& S);
+void _help_(ArgList& L, Stream& S);
+void _unknown(String& L, Stream& S);
+
+void setup() {
+    //nvs_flash_erase(); // erase the NVS partition and...
+    //nvs_flash_init(); // initialize the NVS partition.
+    Serial.begin(115200);
+    while (!Serial)
+        yield(); // yield() Passe le contrôle à d'autres tâches
+
+    pinMode(LED, OUTPUT);
+    /*
+    bool formatted = SPIFFS.format();
+        if(formatted){
+            Serial.println("\n\nSuccess formatting");
+        }else{
+            Serial.println("\n\nError formatting");
+        }	
+     */
+
+    // Démarre le système de fichier SPIFFS
+    if (!SPIFFS.begin()) {
+        Serial.println("An Error has occurred while mounting SPIFFS");
+        return;
+    }
+
+
+    Serial.println(F("--- test console start"));
+
+    // Console setup
+    laConsole.onCmd("ls", _ls_);
+    laConsole.onCmd("run", _run_);
+    laConsole.onCmd("info", _info_);
+    laConsole.onCmd("help", _help_);
+    laConsole.onUnknown(_unknown);
+
+    laConsole.setPrompt("oric> "); // Pas de prompt
+    laConsole.start();
+
+
+
+    //test_file();
+
+
+    //test();
+    /*
+    int i;
+    for (i=0;i<155;i++){
+        Serial.println(pgm_read_byte(&(HW[i])));
+    }
+     */
+}
+
+void test_file(String fileName) {
+    int ptr, i, size, fileSize,cpt;
+    byte header[9];
+    fileName = "/" + fileName;
+    File file = SPIFFS.open(fileName, "r");
+    if (!file) {
+        // File not found | le fichier de test n'existe pas
+        Serial.print("Failed to open ");
+        Serial.println(fileName);
+        return;
+    }
+    byte *buffer;
+    fileSize = file.size();
+    Serial.print(fileSize);
+    buffer = (byte *) malloc(fileSize * (sizeof (byte)));
+    ptr = 0;
+    while (file.available()) {
+        buffer[ptr++] = file.read();
+    }
+    file.close();
+
+
+    // Envoie le contenu du fichier index.html sur le port série
+    Serial.println();
+    Serial.println("Read file content :");
+    ptr = 0;
+    while (ptr<fileSize) {
+        while (buffer[ptr++] == 0x16) {
+        }
+        Serial.println("Tap txing...");
+        Serial.println("Sending sync bytes");
+        for (i = 0; i < 256; i++) emit_byte(0x16);
+        emit_byte(0x24);
+        Serial.println("Sending header");
+        for (i = 0; i < 9; i++) emit_byte(header[i] = buffer[ptr++]);
+        do {
+            i = buffer[ptr++];
+            emit_byte(i);
+            if (i != 0) {
+                Serial.print((char) i);
+            }
+        } while (i != 0);
+        size = (header[4]*256 + header[5])-(header[6]*256 + header[7]) + 1;
+        Serial.print("\n\rSize :");
+        Serial.println(size);
+        emit_gap();
+        cpt = 0;
+        for (i = 0; i < size; i++) {
+            emit_byte(buffer[ptr++]);
+            Serial.print(i);
+            Serial.print("\r");
+
+            // cpt++;
+            // Serial.print('-');
+            // if (cpt==32){
+            //     Serial.println();
+            //     cpt=0;
+            // }
+
+        }
+        Serial.println("\n\rdone\n");
+    }
+    Serial.println("\nfinished\n");
+
+    free(buffer);
+
+}
+
+
+void test() {
+    int ptr, i, size;
+    byte header[9];
+    ptr = 0;
+    while (pgm_read_byte(&(HW[ptr++])) == 0x16) {
+    }
+    for (i = 0; i < 256; i++) emit_byte(0x16);
+    emit_byte(0x24);
+
+    for (i = 0; i < 9; i++) emit_byte(header[i] = pgm_read_byte(&(HW[ptr++])));
+    do {
+        i = pgm_read_byte(&(HW[ptr++]));
+        emit_byte(i);
+    } while (i != 0);
+    size = (header[4]*256 + header[5])-(header[6]*256 + header[7]) + 1;
+    emit_gap();
+    for (i = 0; i < size; i++) emit_byte(pgm_read_byte(&(HW[ptr++])));
+    Serial.println("\ndone\n");
+    Serial.println(size);
+}
+
+
+void emit_bit(int bit) {
+    if (bit) {
+        digitalWrite(LED, HIGH);
+        delayMicroseconds(TEMPO);
+        digitalWrite(LED, LOW);
+        delayMicroseconds(TEMPO);
+    } else {
+        digitalWrite(LED, HIGH);
+        delayMicroseconds(TEMPO);
+        digitalWrite(LED, LOW);
+        delayMicroseconds(TEMPO * 2);
+
+    }
+}
+
+void emit_byte(int val) {
+    int i, parity = 1;
+    emit_bit(0);
+    for (i = 0; i < 8; i++, val >>= 1) {
+        parity += val & 1;
+        emit_bit(val & 1);
+    }
+    emit_bit(parity & 1);
+    emit_bit(1);
+    emit_bit(1);
+    emit_bit(1);
+    emit_bit(1);
+}
+
+void emit_gap() {
+    int i;
+    /* un paquet de bits stop pour laisser le temps d'afficher la ligne de statut */
+    for (i = 0; i < 100; i++) emit_bit(1);
+}
+
+void loop() {
+    laConsole.run();
+}
+
+void _run_(ArgList& L, Stream& S) {
+
+    String p;
+
+    if (!(p = L.getNextArg()).isEmpty()) {
+        test_file(p);
+        //test();
+        
+    } else {
+        S.printf("Usage run filename.tap\r\n");
+    }
+}
+
+void _ls_(ArgList& L, Stream& S) {
+    File root = SPIFFS.open("/");
+    File file = root.openNextFile();
+    while (file) {
+        Serial.println(file.name());
+        file = root.openNextFile();
+    }
+}
+
+void _unknown(String& L, Stream & S) {
+    S.print("Unknown command ");
+    S.println(L);
+}
+
+void _info_(ArgList& L, Stream& S) {
+    // Affiche les tailles totale et utilisée
+    unsigned int totalBytes = SPIFFS.totalBytes();
+    unsigned int usedBytes = SPIFFS.usedBytes();
+
+    Serial.println();
+    Serial.println("===== Flash File System Info =====");
+
+    Serial.print("Total space:      ");
+    Serial.print(totalBytes);
+    Serial.println(" octets");
+
+    Serial.print("Total space used: ");
+    Serial.print(usedBytes);
+    Serial.println(" octets");
+
+    Serial.println();
+}
+
+void _help_(ArgList& L, Stream& S) {
+    S.println("ls               : list tap file in spiffs message");
+    S.println("info             : spiffs info space size");
+    S.println("run filename.tap : play fsk to oric");
+    S.println("help             : this menu");
+}
