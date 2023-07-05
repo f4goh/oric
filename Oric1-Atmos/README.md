@@ -11,4 +11,4 @@ Oric Features
 - 3.5 Jack Sound output
 - External 5V power supply
 
-![ORIC](/images/total_low.jpg  "Oric-1 and Atmos")
+![ORIC](images/total_low.jpg)

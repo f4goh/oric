@@ -1,4 +1,4 @@
-# oric
+# oric K7 emulator
 
 ## Automatic installation [firmwares](https://f4goh.github.io/oric/index.html) 
 
@@ -11,9 +11,9 @@ K7 Emulator Features
 - Convert BMP monochrome file to tap
 - TELNET Serial function for 6551 UART
 
-## Serial console 115200 bauds
+# Serial console 115200 bauds
 
-# Initialization
+## Initialization
 
 ```console
 INIT-------------------------------------
@@ -31,7 +31,7 @@ Wifi Enable
 - Telnet: running
 ```
 
-# Help 
+## Help 
 
 ```console
 Oric> help
@@ -56,7 +56,7 @@ Reboot ESP32                    : reboot
 help                            : this menu
 F4GOH : Version 1.0
 ```
-# Show configuration
+## Show configuration
 
 ```console
 Oric> show
@@ -66,7 +66,7 @@ Serial is           : Disable
 Internet is         : Enable
 TCP Access point is : Disable
 ```
-# List files in ESP32 SPIFFS
+## List files in ESP32 SPIFFS
 
 ```console
 Oric> ls
@@ -92,7 +92,7 @@ lolo.tap               85
 essai.tap              87
 image.bmp              6462
 ```
-# Play tap file to Oric
+## Play tap file to Oric
 
 ```console
 Oric> cload essai.tap
@@ -106,7 +106,7 @@ Size: 74
 73
 finished
 ```
-# Print Basic tap program
+## Print Basic tap program
 
 ```console
 Oric> basic essai.tap
@@ -117,7 +117,7 @@ Oric> basic essai.tap
  40 NEXT N
  50 EXPLODE
 ```
-# Save tap file from Oric
+## Save tap file from Oric
 ```console
 Oric> csave test.tap
 En Attente du CSAVE...
@@ -126,7 +126,7 @@ Synchro found, decoding bytes...
 
 taille du fichier : 87
 ```
-# Check if is good with basic command
+## Check if is good with basic command
 ```console
 Oric> basic test.tap
  10 PRINT "HELLO"
@@ -136,7 +136,7 @@ Oric> basic test.tap
  40 NEXT N
  50 EXPLODE
 ```
-# Convert BMP image to tap file
+## Convert BMP image to tap file
 ```console
 Oric> conv
 Usage conv source.bmp dest.tap
@@ -151,7 +151,7 @@ conversion
 1
 62
 ```
-# Check if the tap fil is here and load it to Oric
+## Check if the tap fil is here and load it to Oric
 ```console
 Oric> ls
 ...
@@ -173,7 +173,7 @@ Size: 8000
 7999
 finished
 ```
-# View file in HEX/ASCII
+## View file in HEX/ASCII
 ```console
 Oric> view lolo.tap
 16 16 16 24 00 00 00 00 05 48 05 01 00 00 07 05    ...$.....H......
@@ -183,7 +183,7 @@ Oric> view lolo.tap
 20 37 CD 4E 00 3E 05 32 00 A5 00 46 05 3C 00 90     7.N.>.2...F.<..
 20 4E 00 00 00                                      N...
 ```
-# Show total space in ESP32 SPIFFS
+## Show total space in ESP32 SPIFFS
 ```console
 Oric> free
 
@@ -191,7 +191,7 @@ Oric> free
 Total space:      1378241 octets
 Total space used: 288650 octets
 ```
-## Telnet console
+# Telnet console
 ```console
 Welcome 192.168.1.111
 
