@@ -210,3 +210,21 @@ F4GOH : Version 1.0
 
 Oric>
 ```
+
+# FTP under windows (Winscp)
+FTP transfert with Winscp
+
+![FTPLOG](images/ftp_login.png)
+
+Password : ftp
+
+![FTPCNX](images/ftp_mdp.png)
+
+![FTPMAIN](images/ftp_main.png)
+
+# FTP under linux
+
+![FTPCNX2](images/ftp_linux_cnx.png)
+
+![FTPMAIN2](images/ftp_linux.png)
+
