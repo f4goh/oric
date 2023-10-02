@@ -41,7 +41,7 @@ Keyboard shortcuts
 - F11: Increments memory bank number by 10
 - F12 : Swap ROM Oric-1 <-> Oric Atmos, then reset.
 
-#note
+# Note
 
 The Arduino nano bootloader has been reprogrammed to disable flashing of the LED connected to GPIO 13.
 
@@ -51,7 +51,7 @@ to reprogram the arduino nano bootloader, use optiboot flash and minicore addon
 
 https://github.com/mcudude/optiboot_flash
 
-the commande
+the command
 ```console
 make atmega328p AVR_FREQ=16000000L BAUD_RATE=115200 LED=B5 LED_START_FLASHES=0 UART=0
 ```
@@ -61,6 +61,11 @@ optiboot_flash_atmega328p_UART0_115200_16000000L_B5.hex
 
 to program the hex file into the Arduino nano follow this [tutorial](https://electropeak.com/learn/use-arduino-as-isp-to-burn-bootloader-on-avr-microcontrollers/) 
 
+don't forget to replace optiboot_flash_atmega328p_UART0_115200_16000000L_B5.hex into 
+
+/.arduino15/packages/MiniCore/hardware/avr/2.2.2/bootloaders/optiboot_flash/atmega328p/16000000L
+
+before programming
 
 
 
