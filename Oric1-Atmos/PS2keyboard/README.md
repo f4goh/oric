@@ -59,7 +59,7 @@ generate this file
 
 optiboot_flash_atmega328p_UART0_115200_16000000L_B5.hex
 
-to program this bootloader folow this [tutorial](https://electropeak.com/learn/use-arduino-as-isp-to-burn-bootloader-on-avr-microcontrollers/) 
+to program the hex file into the Arduino nano follow this [tutorial](https://electropeak.com/learn/use-arduino-as-isp-to-burn-bootloader-on-avr-microcontrollers/) 
 
 
 
