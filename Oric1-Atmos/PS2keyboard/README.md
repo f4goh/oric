@@ -26,3 +26,17 @@ Press F7 to switch to joystick recording mode. Use the F9, F10 and F11 keys to s
 Press a key on the keyboard, then move the joystick in the desired direction. Repeat for the other keys.
 To exit recording mode, press F8. I was able to test Ghost Gobbler successfully.
 
+Keyboard shortcuts
+
+- F1 : ZAP
+- F2 : EXPLODE
+- F3: SHOOT
+- F4: PING
+- F5:LOAD
+- F6: CSAVE
+- F7: Joystick recording mode 
+- F8: Exit joystick recording mode 
+- F9: Decrements memory bank number by x1
+- F10: Increments memory bank number by x1
+- F11: Increments memory bank number by 10
+- F12 : Swap ROM Oric-1 <-> Oric Atmos, then reset.
