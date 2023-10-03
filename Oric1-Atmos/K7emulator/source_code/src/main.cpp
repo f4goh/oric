@@ -20,6 +20,8 @@
 #include "TelnetMenu.h"
 
 
+//const char *ssid = "SFR_6C4F";
+//const char *password = "x19p24bunnjzc8vqnx9n";
 
 FTPServer ftpSrv(SPIFFS);
 
@@ -38,9 +40,9 @@ void erreur(String msg);
 void erreur(String msg){
     Serial.print("Sartup Error on ");
     Serial.println(msg);
-    Serial.println("Check configuration, Program stopped");    
+    Serial.println("Check configuration ");    
     while(1){
-        
+        leMenu->run();
     }    
 }
 

@@ -85,9 +85,8 @@ bool GestionWifi::setup(const char* _ssid, const char* _password, wifiMode _wMod
 
 
 void GestionWifi::WiFiEvent(WiFiEvent_t event, WiFiEventInfo_t info) {
-
+    Serial.printf("[WiFi-event] event: %d\n", event);
     switch (event) {
-            Serial.printf("[WiFi-event] event: %d\n", event);
         case SYSTEM_EVENT_WIFI_READY:
             Serial.println("WiFi interface ready");
             break;
@@ -196,10 +195,13 @@ bool GestionWifi::connexion() {
     {
         delay(500);
         Serial.print(".");
+        //pas de reset en boucle
+        /*
         if ((millis() - startTime) >= TIMEOUT) {
             Serial.println("Resetting due to Wifi not connecting...");
             ESP.restart();
         }
+         */
     }
 
     if (WiFi.status() == WL_CONNECTED) {
