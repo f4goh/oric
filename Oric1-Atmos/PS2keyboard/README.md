@@ -8,6 +8,10 @@ As far as column selection is concerned, the GAL 'reduces' the 8 wires to 3 bits
 
 The trick with the code in the nano is to place the right instruction (line) in the right column depending on the character pressed.
 
+Sample for ctrl+g key
+
+![scope](ctrl+g.PNG "scope")
+
 I produced two versions of code for the Arduino Nano:
 
 - Without Timer interrupt: (no repetition if a key is pressed for a long time)
