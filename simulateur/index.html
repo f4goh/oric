@@ -5,15 +5,38 @@
         <link href="bootstrap.min.css" rel="stylesheet" />
         <link href="style.css" rel="stylesheet" type="text/css" />
         <title>6502 assembler/simulator</title>
+		<style>
+        table {
+            border-collapse: collapse;
+            width: 50%;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
     </head>
     <body>
 
         <div class="container-fluid h-100 d-flex flex-column">
             <nav class="row navbar navbar-dark bg-dark navbar-expand-lg">
                 <div class="navbar-brand"><img style="height: 40px; padding-right: 15px;" src="images/avatar.jpg"></div>
-                <div class="navbar-brand mr-auto d-none d-xl-block">Assembleur 6502</div>
+                <div class="navbar-brand mr-auto d-none d-xl-block">Assembleur 6502 &emsp13; 
+				<a href="https://www.masswerk.at/6502/6502_instruction_set.html"> Instruction set</a> 
+				<a href="http://www.6502.org/tutorials/6502opcodes.html"> Op Codes </a> 
+				
+				
+				
+				</div>
                 <div class="navbar-brand mr-auto d-none d-sm-block d-xl-none">Assembleur 6502</div>
+				
             </nav>
+			
+			
             <div class="widget">
                 <div class="buttons">
                     <input type="button" value="Assembler" class="assembleButton btn btn-primary" />
@@ -83,10 +106,68 @@ $d: Light green
 $e: Light blue
 $f: Light grey
     </div>
+ </br></br>
+ 
+ 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/PxZGoiWvA4A?si=2WAgnktoXt9F0kwa" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+<h2>Convertisseur Décimal-Hexadécimal</h2>
+    
+    <label for="decimalInput">Décimal: </label>
+    <input type="text" id="decimalInput">
+    <button onclick="decimalToHex()">Convertir en Hexadécimal</button>
+    <br>
+    <label for="hexInput">Hexadécimal: </label>
+    <input type="text" id="hexInput">
+    <button onclick="hexToDecimal()">Convertir en Décimal</button>
+
+    <script>
+        function decimalToHex() {
+            const decimalInput = document.getElementById("decimalInput");
+            const hexInput = document.getElementById("hexInput");
+            const decimalValue = parseInt(decimalInput.value);
+            const hexValue = decimalValue.toString(16).toUpperCase();
+            hexInput.value = hexValue;
+        }
+
+        function hexToDecimal() {
+            const decimalInput = document.getElementById("decimalInput");
+            const hexInput = document.getElementById("hexInput");
+            const hexValue = hexInput.value;
+            const decimalValue = parseInt(hexValue, 16);
+            decimalInput.value = decimalValue;
+        }
+    </script>
+	
+ <h2>Table ASCII</h2>
+
+<table>
+    <tr>
+        <th>Caractère</th>
+        <th>Décimal</th>
+        <th>Hexadécimal</th>
+    </tr>
+</table>
+	
+	<script>
+    var table = document.querySelector("table");
+
+    for (var i = 0; i < 128; i++) {
+        var row = table.insertRow(-1);
+        var charCell = row.insertCell(0);
+        var decimalCell = row.insertCell(1);
+        var hexCell = row.insertCell(2);
+
+        charCell.textContent = String.fromCharCode(i);
+        decimalCell.textContent = i;
+        hexCell.textContent = "$" + i.toString(16).toUpperCase();
+    }
+</script>
+
 
     <script src="es5-shim.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script src="assembler.js"></script>
-<a href="https://www.masswerk.at/6502/6502_instruction_set.html">6502 instruction set</a>
+
   </body>
 </html>
