@@ -141,28 +141,41 @@ $f: Light grey
 	
  <h2>Table ASCII</h2>
 
-<table>
-    <tr>
-        <th>Caractère</th>
-        <th>Décimal</th>
-        <th>Hexadécimal</th>
-    </tr>
-</table>
-	
-	<script>
-    var table = document.querySelector("table");
-
-    for (var i = 0; i < 128; i++) {
-        var row = table.insertRow(-1);
-        var charCell = row.insertCell(0);
-        var decimalCell = row.insertCell(1);
-        var hexCell = row.insertCell(2);
-
-        charCell.textContent = String.fromCharCode(i);
-        decimalCell.textContent = i;
-        hexCell.textContent = "$" + i.toString(16).toUpperCase();
-    }
-</script>
+<table border="1">
+        <tr>
+            <th></th>
+            <th>0</th>
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+            <th>4</th>
+            <th>5</th>
+            <th>6</th>
+            <th>7</th>
+            <th>8</th>
+            <th>9</th>
+            <th>A</th>
+            <th>B</th>
+            <th>C</th>
+            <th>D</th>
+            <th>E</th>
+            <th>F</th>
+        </tr>
+        <!-- Boucle pour les 8 premières rangées (0-15) -->
+        <script>
+            for (let i = 0; i < 8; i++) {
+                document.write('<tr>');
+                document.write('<th>' + i.toString(16) + '</th>'); // Affiche la rangée en hexadécimal
+                for (let j = 0; j < 16; j++) {
+                    const asciiValue = i * 16 + j;
+                    const char = String.fromCharCode(asciiValue);
+                    const hexValue = asciiValue.toString(16).toUpperCase();
+                    document.write('<td>' + char + '<br>' + hexValue + '</td>');
+                }
+                document.write('</tr>');
+            }
+        </script>
+    </table>
 
 
     <script src="es5-shim.js"></script>
