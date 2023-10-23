@@ -120,6 +120,9 @@ $f: Light grey
     <label for="hexInput">Hexadécimal: </label>
     <input type="text" id="hexInput">
     <button onclick="hexToDecimal()">Convertir en Décimal</button>
+<br>
+<img src="images/6502_archi.jpg" alt="6502 archi" style="width: 90%;" />
+<br>
 
     <script>
         function decimalToHex() {
@@ -176,7 +179,161 @@ $f: Light grey
             }
         </script>
     </table>
+ </br></br>
+  <h2>Exemples de programmes</h2>
+    <ol>
+        <li>
+            <pre>
+LDA #$01
+STA $0200
+LDA #$05
+STA $0201
+LDA #$08
+STA $0202
+            </pre>
+        </li>
+ 
+    <hr>
+ 
+        <li>
+            <pre>
+LDA #1
+LDX #0
+start:
+STA $200, X
+INX
+JMP start
+            </pre>
+        </li>
+    
+    <hr>
+    
+        <li>
+            <pre>
+LDX #0
+start:
+LDA $fe
+STA $200, X
+STA $300, X
+STA $400, X
+STA $500, X
+INX
+JMP start
+            </pre>
+        </li>
+   
+    <hr>
+   
+        <li>
+            <pre>
+start:
+JSR random
+STA $200, X
+JSR random
+STA $300, X
+JSR random
+STA $400, X
+JSR random
+STA $500, X
+INX
+JMP start
 
+random:
+LDA $fe
+LDX $fe
+rts
+            </pre>
+        </li>
+   
+    <hr>
+   
+        <li>
+            <pre>
+LDX #0
+start:
+right:
+LDA $FF
+CMP #$64
+BNE left
+LDA #0
+STA $200,X
+STA $FF
+INX
+JMP display
+
+left:
+LDA $FF
+CMP #$61
+BNE display
+LDA #0
+STA $200,X
+STA $FF
+DEX
+
+display:
+LDA #1
+STA $200, X
+JMP start
+            </pre>
+        </li>
+   
+    <hr>
+   
+        <li>
+            <pre>
+LDX #0
+start:
+right:
+LDA $FF
+CMP #$64 ;key d
+BNE left
+LDA #0
+STA $200,X
+STA $FF
+INX
+JMP display
+
+left:
+LDA $FF
+CMP #$71 ;key q
+BNE down
+LDA #0
+STA $200,X
+STA $FF
+DEX
+JMP display
+
+down:
+LDA $FF
+CMP #$73 ;key s
+BNE up
+LDA #0
+STA $200,X
+STA $FF
+TXA
+ADC #31
+TAX
+jmp display
+
+up:
+LDA $FF
+CMP #$7A ;key z
+BNE display
+LDA #0
+STA $200,X
+STA $FF
+TXA
+SBC #32
+TAX
+
+display:
+LDA #1
+STA $200, X
+JMP start
+            </pre>
+        </li>
+    </ol>
+	
 
     <script src="es5-shim.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
