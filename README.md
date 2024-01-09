@@ -1,6 +1,8 @@
 # oric
 
-## 6502 [simulator](https://f4goh.github.io/oric/simulateur/index.html) 
+## 6502 [simulator](https://f4goh.github.io/oric/simulateur6502/index.html) 
+
+## ORIC text [simulator](https://f4goh.github.io/oric/simulateurOric/index.html) 
 
 ## Oric hardware
 

@@ -1,0 +1,197 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link href="bootstrap.min.css" rel="stylesheet" />
+        <link href="style.css" rel="stylesheet" type="text/css" />
+        <title>6502 assembler/ Oric text simulator</title>
+    </head>
+    <body>
+        <div class="container-fluid h-100 d-flex flex-column">
+            <nav class="row navbar navbar-dark bg-dark navbar-expand-lg">
+                <div class="navbar-brand"><img style="height: 40px; padding-right: 15px;" src="images/avatar.jpg"></div>
+                <div class="navbar-brand mr-auto d-none d-xl-block">6502 Oric Assembler</div>
+                <div class="navbar-brand mr-auto d-none d-sm-block d-xl-none">6502 Oric Assembler</div>
+                <a href="http://thespider.oric.org/oric_hires_colour.html"> Oric attributes &emsp13;</a> 
+                <a href="https://osdk.org/index.php?page=articles&ref=ART9"> Oric graphics &emsp13;</a> 
+                <a href="https://www.masswerk.at/6502/6502_instruction_set.html"> Instruction set &emsp13;</a> 
+                <a href="http://www.6502.org/tutorials/6502opcodes.html"> Op Codes &emsp13;</a> 
+                <a href="https://github.com/DJChloe/taptap/blob/master/Tape%20format%20documentation/Oric%20tap%20file%20format.pdf"> Tap format &emsp13;</a>
+            </nav>
+        </div>				
+        <div class="widget">
+            <div class="buttons">
+                <input type="button" value="Assembler" class="assembleButton btn btn-primary" />
+                <input type="button" value="Démarrer" class="runButton btn btn-primary" />
+                <input type="button" value="Réinitialiser" class="resetButton btn btn-secondary" />
+                <input type="button" value="Hexdump" class="hexdumpButton  btn btn-secondary" />
+                <input type="button" value="Désassembler" class="disassembleButton btn btn-secondary" />
+                <input type="button" value="Notes" class="notesButton btn btn-secondary" />
+            </div>
+
+            <textarea class="code">
+LDX #$00 
+loop:
+    LDA #20 
+    STA $BBD0,X
+    INX
+    LDA #21 
+    STA $BBD0,X
+    INX
+    CPX #$28 
+    BNE loop
+LDA #18
+STA $BBF8
+LDA #1
+STA $BBF9
+LDA #$4f
+STA $BBFA
+LDA #$52
+STA $BBFB
+LDA #$49
+STA $BBFC
+LDA #$43
+STA $BBFD
+RTS
+            </textarea>
+            <br>
+            <canvas class="screen" width="240" height="224"></canvas>
+
+            <div class="debugger">
+                <input type="checkbox" class="debug" name="debug" />
+                <label for="debug">Debugger</label>
+                <div class="minidebugger"></div>
+                <div class="buttons">
+                    <input type="button" value="Step" class="stepButton" />
+                    <input type="button" value="Jump to ..." class="gotoButton" />
+                    <br> <br>
+                    <input type="button" value="TAP file download" class="downloadButton" />
+                </div>
+            </div>
+
+            <div class="monitorControls">
+                <label for="monitoring">Monitor</label>
+                <input type="checkbox" class="monitoring" name="monitoring" />
+
+                <label for="start">Start: $</label>
+                <input type="text" value="bb80" class="start" name="start" />
+                <label for="length">Length: $</label>
+                <input type="text" value="460" class="length" name="length" />
+            </div>
+            <div class="monitor"><pre><code></code></pre></div>
+      <div class="messages"><pre><code></code></pre></div>
+
+      <div class="notes" style="display: none">Notes:
+
+Change Ink (foreground) color (supported)
+0		Change INK to BLACK	
+1		Change INK to RED	
+2		Change INK to GREEN	
+3		Change INK to YELLOW	
+4		Change INK to BLUE	
+5		Change INK to MAGENTA	
+6		Change INK to CYAN	
+7		Change INK to WHITE	
+
+Character Set modifier	(not supported)
+8		Use Standard Charset	
+9		Use Alternate Charset	
+10		Use Double Size Standard Charset	
+11		Use Double Size Alternate Charset	
+12		Use Blinking Standard Charset	
+13		Use Blinking Alternate Charset	
+14		Use Double Size Blinking Standard Charset	
+15		Use Double Size Blinking Alternate Charset	
+
+Change Paper (background) color (supported)	
+16=$10		Change PAPER to BLACK	
+17=$11		Change PAPER to RED	
+18=$12		Change PAPER to GREEN	
+19=$13		Change PAPER to YELLOW	
+20=$14		Change PAPER to BLUE	
+21=$15		Change PAPER to MAGENTA	
+22=$16		Change PAPER to CYAN	
+23=$17		Change PAPER to WHITE
+    </div>
+
+ <br><br>
+ 
+ 
+<h2>Convertisseur Décimal-Hexadécimal</h2>
+    
+    <label for="decimalInput">Décimal: </label>
+    <input type="text" id="decimalInput">
+    <button onclick="decimalToHex()">Convertir en Hexadécimal</button>
+    <br>
+    <label for="hexInput">Hexadécimal: </label>
+    <input type="text" id="hexInput">
+    <button onclick="hexToDecimal()">Convertir en Décimal</button>
+<br>
+<img src="images/6502_archi.jpg" alt="6502 archi" style="width: 90%;" />
+<br>
+<img src="images/6502_system.png" alt="6502 system" style="width: 90%;" />
+<br>
+
+    <script>
+        function decimalToHex() {
+            const decimalInput = document.getElementById("decimalInput");
+            const hexInput = document.getElementById("hexInput");
+            const decimalValue = parseInt(decimalInput.value);
+            const hexValue = decimalValue.toString(16).toUpperCase();
+            hexInput.value = hexValue;
+        }
+
+        function hexToDecimal() {
+            const decimalInput = document.getElementById("decimalInput");
+            const hexInput = document.getElementById("hexInput");
+            const hexValue = hexInput.value;
+            const decimalValue = parseInt(hexValue, 16);
+            decimalInput.value = decimalValue;
+        }
+            </script>
+	
+ <h2>Table ASCII</h2>
+
+<table>
+        <tr>
+            <th></th>
+            <th>0</th>
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+            <th>4</th>
+            <th>5</th>
+            <th>6</th>
+            <th>7</th>
+            <th>8</th>
+            <th>9</th>
+            <th>A</th>
+            <th>B</th>
+            <th>C</th>
+            <th>D</th>
+            <th>E</th>
+            <th>F</th>
+        </tr>
+        <!-- Boucle pour les 8 premières rangées (0-15) -->
+        <script>
+            for (let i = 0; i < 8; i++) {
+                document.write('<tr>');
+                document.write('<th>' + i.toString(16) + '</th>'); // Affiche la rangée en hexadécimal
+                for (let j = 0; j < 16; j++) {
+                    const asciiValue = i * 16 + j;
+                    const char = String.fromCharCode(asciiValue);
+                    const hexValue = asciiValue.toString(16).toUpperCase();
+                    document.write('<td>' + char + '<br>' + hexValue + '</td>');
+                }
+                document.write('</tr>');
+            }
+                </script>  
+    </table>
+
+
+    <script src="es5-shim.js"></script>
+    <script src="jquery.min.js"></script>
+    <script src="assembler.js"></script>
+
+  </body>
+</html>
