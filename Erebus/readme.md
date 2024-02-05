@@ -8,6 +8,8 @@
 - le programmateur utilisé est un [XGECU - pro](https://www.aliexpress.com/premium/XGecu.html)
 - Il est capable de programmer les EEPROM et la GAL22V10 de Lattice
 
+Autre version de l'Erebus par [Fred72](https://github.com/Fred72z/ORIC/tree/main/BUS_ORIC/Extensions/Erebus)
+
 ![EREBUS](images/erebus.jpg "carte Erebus avec la GAL")
 
 ![PCB](images/pcb.png "Allure du PCB")
