@@ -1,0 +1,14 @@
+#import "build/symbols"
+
+10 ' ARDUINO Exemple
+55 HIMEM#7FFF:CLOAD"" ' Load module
+60 PRINT "I2C ARDUINO Write"
+70 PRINT "Plug I2C module and press any key."
+80 GET A$
+100 FOR N=1 TO 10
+110 POKE ARDUINOctrl,N
+120 PRINT N
+130 CALL ARDUINOwrite
+140 WAIT 100
+150 NEXT N
+160 GOTO 100
