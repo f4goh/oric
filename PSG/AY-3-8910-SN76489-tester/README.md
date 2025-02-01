@@ -9,6 +9,7 @@ For SN76489 you will need to use VGM files. the program MD_SN76489_VGM_Player_CL
 I haven't yet found the bug to read midi files with the SN76489.
 
 The two integrated circuits should never be used at the same time.
+The J8 strap must be closed and the J7 strap open.
 
 
 ![interface](images/compil.jpg "interface")
