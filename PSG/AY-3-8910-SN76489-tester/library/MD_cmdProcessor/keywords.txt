@@ -1,0 +1,25 @@
+#######################################
+# Syntax Coloring Map
+#######################################
+
+#######################################
+# Classes and datatypes (KEYWORD1)
+#######################################
+MD_cmdProcessor	KEYWORD1
+cmdHandler_t	KEYWORD1
+cmdItem_t	KEYWORD1
+
+#######################################
+# Methods and functions (KEYWORD2)
+#######################################
+begin	KEYWORD2
+process	KEYWORD2
+run	KEYWORD2
+getLastCmdLine	KEYWORD2
+
+######################################
+# Constants/defines (LITERAL1)
+#######################################
+CMD_TXT_SIZE	LITERAL1
+CMD_PARAM_SIZE	LITERAL1
+CMD_HELP_SIZE	LITERAL1

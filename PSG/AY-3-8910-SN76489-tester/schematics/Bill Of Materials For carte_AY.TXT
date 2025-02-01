@@ -1,0 +1,36 @@
+Bill Of Materials
+=================
+
+QTY  PART-REFS           VALUE               CODE                          
+---  ---------           -----               ----                          
+Resistors
+---------
+1    R1                  1K       	1206                                         
+1    R2                  100K           1206                               
+
+Capacitors
+----------
+2    C1,C2               100nF          1206
+1    C3                  1uF                                               
+1    C4                  4.7nF          1206                                   
+
+Integrated Circuits
+-------------------
+1    U1                  SN76489    	DIP 16                                       
+1    U2                  AY-3-8910A     DIP 40                                   
+
+Miscellaneous
+-------------
+1    AR1                 IOL                                               
+1    AR2                 IOH                                               
+1    AR3                 POWER                                             
+1    AR4                 AD                                                
+1    BP1                 LEFT                                              
+1    J1                  CONN-SIL6                                         
+1    J2                  SIL-100-15                                        
+2    J3,J5               CONN-SIL4                                         
+1    J4                  OLED          SSD1306
+1    J6                  CONN-SIL3                                         
+2    J7,J8               CONN-SIL2                                         
+1    PT1                 POINT TEST                                        
+

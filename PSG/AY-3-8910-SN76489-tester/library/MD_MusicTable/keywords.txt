@@ -1,0 +1,29 @@
+#######################################
+# Syntax Coloring Map
+#######################################
+
+#######################################
+# Classes and datatypes (KEYWORD1)
+#######################################
+MD_MusicTable	KEYWORD1
+
+#######################################
+# Methods and functions (KEYWORD2)
+#######################################
+addChar	KEYWORD2
+findId	KEYWORD2
+findName	KEYWORD2
+findNoteOctave	KEYWORD2
+lookupNoteId	KEYWORD2
+getFrequency	KEYWORD2
+getName	KEYWORD2
+getNote	KEYWORD2
+getNoteId	KEYWORD2
+getOctave	KEYWORD2
+getId	KEYWORD2
+
+######################################
+# Constants/defines (LITERAL1)
+#######################################
+NOTES_COUNT	LITERAL1
+NOTES_IN_OCTAVE	LITERAL1
