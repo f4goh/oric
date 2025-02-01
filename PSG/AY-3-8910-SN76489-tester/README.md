@@ -1,5 +1,5 @@
 # AY-3-8910 or SN76489
-AY-3-8910 or SN76489 Sound Generator PCB controlled by Arduino Nano
+AY-3-8910 or SN76489 Sound Generator PCB controlled by Arduino Uno
 
 This project aims to test integrated circuits very quickly. just put some YM files into mSD card.
 The arduino uno reads the YM file and sends the notes to the ay-3-8910.
