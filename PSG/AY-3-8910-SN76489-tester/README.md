@@ -6,10 +6,10 @@ AY-3-8910 or SN76489 Sound Generator PCB controlled by Arduino Nano
 # Schematics
 ![sch](schematics/carte_AY.png "board")
 
-#PCB
+# PCB
 ![pcb](images/pcb.png "pcb")
 
-#Software
+# Software
 
 Beware the sdfat library for sn76489 is the version [1.1.1] https://github.com/greiman/SdFat/releases?page=2
 
@@ -44,15 +44,15 @@ trib: 0x0001
 have fun with AY38910_Demo_YM_Player.ino
 
 
-#Links
+# Links
 
 [YM format](http://leonard.oxg.free.fr/ymformat.html)
 
-[Some YM files ] https://www.dazeland.com/Dazeland2000/Musica.html
+[Some YM files ](https://www.dazeland.com/Dazeland2000/Musica.html)
 
-[Some YM flies again] https://pacidemo.planet-d.net/html.html
+[Some YM flies again](https://pacidemo.planet-d.net/html.html)
 
-[Initial source project] https://github.com/GadgetReboot/AY-3-8910/
+[Initial source project](https://github.com/GadgetReboot/AY-3-8910/)
 
 
 
