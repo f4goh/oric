@@ -1,6 +1,16 @@
 # AY-3-8910 or SN76489
 AY-3-8910 or SN76489 Sound Generator PCB controlled by Arduino Nano
 
+This project aims to test integrated circuits very quickly. just put some YM files into mSD card.
+The arduino uno reads the YM file and sends the notes to the ay-3-8910.
+have fun with AY38910_Demo_YM_Player.ino
+
+For SN76489 you will need to use VGM files. the program MD_SN76489_VGM_Player_CLI.ino is functional.
+I haven't yet found the bug to read midi files with the SN76489.
+
+The two integrated circuits should never be used at the same time.
+
+
 ![interface](images/compil.jpg "interface")
 
 # Schematics
@@ -41,16 +51,13 @@ trib: 0x0001
  Comment: Converted by Alain Derpin
 ```
 
-have fun with AY38910_Demo_YM_Player.ino
-
-
 # Links
 
 [YM format](http://leonard.oxg.free.fr/ymformat.html)
 
 [Some YM files ](https://www.dazeland.com/Dazeland2000/Musica.html)
 
-[Some YM flies again](https://pacidemo.planet-d.net/html.html)
+[Some YM files again](https://pacidemo.planet-d.net/html.html)
 
 [Initial source project](https://github.com/GadgetReboot/AY-3-8910/)
 
