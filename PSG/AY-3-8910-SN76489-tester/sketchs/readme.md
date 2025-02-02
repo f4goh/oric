@@ -4,10 +4,12 @@ Quick programming with [AVRDUDESS 2.18](https://github.com/ZakKemble/AVRDUDESS/r
 
 ![avrdudess](avrdudess.png "prog")
 
-AY-3-8910.hex is  AY38910_Demo_YM_Player.ino
+AY-3-8910.hex is  AY38910_Demo_YM_Player.ino.
+
 Push button to skip YM file in the mSD card.
 
-SN76489.hex is MD_SN76489_VGM_Player_CLI.ino
+SN76489.hex is MD_SN76489_VGM_Player_CLI.ino.
+
 in serial terminal 57600 bauds
 
 ```console
