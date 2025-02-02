@@ -10,7 +10,7 @@ Push button to skip YM file in the mSD card.
 
 SN76489.hex is MD_SN76489_VGM_Player_CLI.ino.
 
-in serial terminal 57600 bauds
+Serial terminal 57600 bauds
 
 ```console
 [MD_SN74689 VGM Player CLI]
