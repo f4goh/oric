@@ -22,7 +22,7 @@ The J8 strap must be closed and the J7 strap open.
 
 # Software
 
-Beware the sdfat library for sn76489 is the version [1.1.1] https://github.com/greiman/SdFat/releases?page=2
+Beware the sdfat library for sn76489 is the version [1.1.1] (https://github.com/greiman/SdFat/releases?page=2)
 
 
 ym files downloaded from the internet need to be decompressed
