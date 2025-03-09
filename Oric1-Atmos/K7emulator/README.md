@@ -4,23 +4,20 @@
 
 ![main](images/mainBoard.jpg)
 
-![OLED](images/OLED.png)
-
 K7 Emulator Features
 - CLOAD function
 - CSAVE function
 - Stand alone function with rotary encoder
 - FTP transfert tap files into ESP32 (login ftp, password ftp)
-- Serial and TELNET Console admin
+- Serial 115200 and TELNET Console admin
 - Show Basic tap program
 - Convert BMP monochrome file to tap
 - TELNET Serial function for 6551 UART
-- Access point 
+- Access point (SSID : ORIC_AP , password : oricatmos)
 - Gerber file available
 - Low cost (ESP32duino and LM358)
 
-
-# Serial console 115200 bauds
+![OLED](images/OLED.png)
 
 # Schematics
 
@@ -34,6 +31,8 @@ K7 Emulator Features
 
 ![esp32duino](images/esp32duino.png)
 
+
+# Serial console 115200 bauds
 
 ## Initialization
 
