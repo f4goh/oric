@@ -1,0 +1,75 @@
+#include "Desassembleur.h"
+
+Desassembleur desassembleur;
+
+void setup() {
+  Serial.begin(115200);
+
+  int byte_count = 0;
+  char tmpstr[100];
+  uint16_t pc; /* Program counter */
+
+   uint8_t buffer[] = {0xa2, 0x00, 0xa9, 0x14, 0x9d, 0xd0, 0xbb, 0xe8, 0xa9, 0x15, 0x9d, 0xd0, 0xbb, 0xe8, 0xe0, 0x28, 0xd0, 0xf0, 0xa9, 0x12, 0x8d, 0xf8, 0xbb, 0xa9, 0x01, 0x8d,
+                      0xf9, 0xbb, 0xa9, 0x4f, 0x8d, 0xfa, 0xbb, 0xa9, 0x52, 0x8d, 0xfb, 0xbb, 0xa9, 0x49, 0x8d, 0xfc, 0xbb, 0xa9, 0x43, 0x8d, 0xfd, 0xbb, 0x60
+                     };
+
+  byte_count = sizeof(buffer);  //nb bytes dans le buffer
+
+
+  /* Disassemble contents of buffer */
+  //emit_header(&options, byte_count); //a ajouter ?
+
+  
+    desassembleur.setCycleCounting(1);
+    desassembleur.setHexOutput(1);
+    desassembleur.setOricMode(1);
+    desassembleur.setOrg(0x600);
+    desassembleur.setMaxNumBytes(48U * 1024U);
+    desassembleur.setOffset(0U);
+
+  
+  pc=desassembleur.getOrg();
+  
+  while ((pc <= 0xFFFFu) && ((pc - desassembleur.getOrg()) < byte_count)) {
+    desassembleur.disassemble(tmpstr, buffer, &pc);
+    Serial.println(tmpstr);
+    pc++;
+  }
+
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+
+}
+/*
+  0600: a2 00 a9 14 9d d0 bb e8 a9 15 9d d0 bb e8 e0 28 d0 f0 a9 12 8d f8 bb a9 01 8d f9 bb a9 4f 8d fa bb a9 52 8d fb bb a9 49
+  0628: 8d fc bb a9 43 8d fd bb 60
+  Address  Hexdump   Dissassembly
+
+  -------------------------------
+  $0600    a2 00     LDX #$00
+  $0602    a9 14     LDA #$14
+  $0604    9d d0 bb  STA $bbd0,X
+  $0607    e8        INX
+  $0608    a9 15     LDA #$15
+  $060a    9d d0 bb  STA $bbd0,X
+  $060d    e8        INX
+  $060e    e0 28     CPX #$28
+  $0610    d0 f0     BNE $0602
+  $0612    a9 12     LDA #$12
+  $0614    8d f8 bb  STA $bbf8
+  $0617    a9 01     LDA #$01
+  $0619    8d f9 bb  STA $bbf9
+  $061c    a9 4f     LDA #$4f
+  $061e    8d fa bb  STA $bbfa
+  $0621    a9 52     LDA #$52
+  $0623    8d fb bb  STA $bbfb
+  $0626    a9 49     LDA #$49
+  $0628    8d fc bb  STA $bbfc
+  $062b    a9 43     LDA #$43
+  $062d    8d fd bb  STA $bbfd
+  $0630    60        RTS
+
+
+*/

@@ -44,6 +44,7 @@ void Oric::begin(){
     timerAlarmEnable(timer);
     timerStart(timer);
     cptLed=0;
+    desassembleur= new Desassembleur();
     //attachInterrupt(K7_IN, Oric::marshall, CHANGE);  //activé dans la sauvegarde
 }
 
@@ -353,7 +354,7 @@ void Oric::sendFile(String fileName) {
 
 void Oric::tap2Bas(String fileName) {
     unsigned int ptr, car;
-    byte header[9];
+    byte header[9];  //??
     fileName = "/" + fileName;
     File file = SPIFFS.open(fileName, "r");
     if (!file) {
@@ -414,12 +415,12 @@ void Oric::conversion(String fileSource, String fileDest) {
         fileDest = "/" + fileDest;
         File file = SPIFFS.open(fileDest, "w");
         if (!file) {
-            printString("erreur d'ouverture", 1);
+            printString("File open error", 1);
         } else {
             size_t octetEcrit;
             octetEcrit = file.write(header, sizeof (header)); //idem buffer,size
             if (octetEcrit != sizeof (header)) {
-                printString("erreur d'ecriture", 1);
+                printString("Error file write", 1);
 
             } else {
                 for (int y = 0; y < 200; y++) {
@@ -442,6 +443,136 @@ void Oric::conversion(String fileSource, String fileDest) {
         }
     }
 }
+
+uint16_t Oric::readBigEndianUint16(uint16_t value) {
+  return (value >> 8) | (value << 8);
+}
+
+bool Oric::checkHeader(uint8_t *buffer) {
+    if (buffer[0] == 0x16 &&
+            buffer[1] == 0x16 &&
+            buffer[2] == 0x16 &&
+            buffer[3] == 0x24)
+        //buffer[4] == 0x00 &&  //des fois des 0xFF ?
+        //buffer[5] == 0x00 &&
+        //buffer[12] == 0x00)  //inutile
+    {
+        return true;
+    }
+    return false;
+}
+
+void Oric::getInfo(uint8_t *buffer, TAPHeader *header, uint16_t offset) {
+  // Extraire le filename
+  for (int i = 0; i < 16; i++) {
+    header->filename[i] = buffer[13 + i]; // Le filename commence à l'offset 13
+    if (buffer[13 + i] == '\0') { // Arrêter si un zéro est rencontré
+      break;
+    }
+  }
+  header->filename[15] = '\0';
+  // Extraire offsetCode
+  int filename_length = strlen(header->filename) + 1; // Inclut le zéro final
+  header->offsetCode = 13 + filename_length + offset;
+  memcpy(header, buffer + 6, 6);
+  //conversion big endian
+  header->endAddress = readBigEndianUint16(header->endAddress);
+  header->startAddress = readBigEndianUint16(header->startAddress);
+  header->sizeCode = header->endAddress - header->startAddress;
+}
+
+void Oric::printHeader(TAPHeader *header) {
+    Serial.printf("Start Address : %04x\n\r", header->startAddress);
+    Serial.printf("End Address : %04x\n\r", header->endAddress);
+    Serial.printf("File name : %s\n\r",header->filename);
+    Serial.printf("Offset code : %04x\n\r", header->offsetCode);
+    Serial.printf("Size code : %04x\n\r", header->sizeCode);
+}
+
+
+void Oric::desassemble(String fileSource, String fileDest) {
+    int byte_count;
+    char tmpstr[100];
+    uint16_t pc; /* Program counter */
+    TAPHeader header;
+    bool desFlag = false;
+    Serial.println("Try to desassemble tap file");
+    fileSource = "/" + fileSource;
+    File file = SPIFFS.open(fileSource, "r");
+    if (!file) {
+        // File not found | le fichier de test n'existe pas
+        printString("Failed to open ",0);
+        printString(fileSource,1);
+        return;
+    }
+    memset(buffer, 0, TAILLE_BUFFER);
+    byte_count = file.size();
+    Serial.printf("File size : %04x\n\r",byte_count);
+    file.read(buffer,byte_count);
+    file.close();
+    
+    if (!checkHeader(buffer)) {
+        Serial.println("Not a tap file");
+        return;
+    }
+    
+    getInfo(buffer, &header, 0);
+
+    printHeader(&header);
+    uint16_t partieSuivante;
+    if (header.language == 0x00) {
+        Serial.println("Basic detected");
+        partieSuivante = header.offsetCode + header.sizeCode + 1;
+        if (byte_count > partieSuivante) {
+            Serial.println("Try to find asm code");
+            if (!checkHeader(buffer + partieSuivante)) {
+                Serial.println("No header found");
+                return;
+            } else {
+                getInfo(buffer + partieSuivante, &header, partieSuivante);
+                printHeader(&header);
+                if (header.language == 0x80) {
+                    Serial.println("Asm find");
+                    desFlag = true;
+                } else {
+                    Serial.println("No asm code");
+                    return;
+                }
+            }
+        }
+    } else {
+        desFlag = true;
+    }
+    
+    if (desFlag) {
+        desassembleur->setCycleCounting(0);
+        desassembleur->setHexOutput(1);
+        desassembleur->setOricMode(1);
+        desassembleur->setOrg(header.startAddress);
+        desassembleur->setMaxNumBytes(48U * 1024U);
+        desassembleur->setOffset(0U);
+
+
+        pc = desassembleur->getOrg();
+        fileDest = "/" + fileDest;
+        file = SPIFFS.open(fileDest, "w");
+        if (!file) {
+            printString("Error file write", 1);
+            return;
+        }
+
+        while ((pc <= 0xFFFFu) && ((pc - desassembleur->getOrg()) < header.sizeCode)) {
+            desassembleur->disassemble(tmpstr, buffer + header.offsetCode, &pc);
+            //Serial.println(tmpstr);
+            file.println(tmpstr);
+            pc++;
+        }
+        Serial.printf("File %s generated\n\r",fileDest);
+        file.close();
+    }
+  
+}
+
 
 void Oric::printHex(byte value) {
     if (value < 0x10) {

@@ -181,8 +181,13 @@ bool GestionWifi::connected(){
     return (WiFi.status() == WL_CONNECTED);
 }
 
-String GestionWifi::getIP(){
-    return String(WiFi.localIP());
+String GestionWifi::getIP() {
+    if (wMode == CLIENT) {
+        return "C:"+WiFi.localIP().toString();
+    } else {
+        return "A:"+WiFi.softAPIP().toString();
+        
+    }
 }
 
 // est-ce nécéssaire ?

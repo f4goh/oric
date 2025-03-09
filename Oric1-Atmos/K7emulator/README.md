@@ -2,16 +2,38 @@
 
 ## Automatic installation in esp32 [firmwares](https://f4goh.github.io/oric/index.html) 
 
+![main](images/mainBoard.jpg)
+
+![OLED](images/OLED.png)
+
 K7 Emulator Features
 - CLOAD function
 - CSAVE function
-- FTP transfert tap files into ESP32
+- Stand alone function with rotary encoder
+- FTP transfert tap files into ESP32 (login ftp, password ftp)
 - Serial and TELNET Console admin
 - Show Basic tap program
 - Convert BMP monochrome file to tap
 - TELNET Serial function for 6551 UART
+- Access point 
+- Gerber file available
+- Low cost (ESP32duino and LM358)
+
 
 # Serial console 115200 bauds
+
+# Schematics
+
+![sch](schematics/sheild_k7.png)
+
+# Rotary encoder wiring
+
+![main](images/sheildK7.png)
+
+# ESP32DUINO
+
+![esp32duino](images/esp32duino.png)
+
 
 ## Initialization
 
@@ -46,6 +68,7 @@ csave filename.tap              : save fsk from oric to esp32
 view filename.tap               : view file content in HEX/ASCII format
 basic filename.tap              : view file content in BASIC
 conv source.bmp dest.tap        : convert bmp monochrome image to tap file
+des source.tap dest.txt         : dessasemble tap file to txt file
 Enable serial for telnet        : serial 1
 Enable wifi                     : internet 1
 Enable local wifi Access Point  : internet 0
@@ -54,7 +77,8 @@ Reset default configuration     : raz
 Format SPIFFS                   : format
 Reboot ESP32                    : reboot
 help                            : this menu
-F4GOH : Version 1.0
+F4GOH : Version 2.0
+Oric>
 ```
 ## Show configuration
 
@@ -173,6 +197,67 @@ Size: 8000
 7999
 finished
 ```
+## desassemble tap file if 0x80 in 1st header
+```console
+Oric> des test.tap test.txt
+Try to desassemble tap file
+File size : 0043
+Start Address : 0600
+End Address : 0631
+File name : FILE
+Offset code : 0012
+Size code : 0031
+File /test.txt generated
+Oric>
+```
+## Result in test.txt
+```console
+$0600> A2 00:   LDX #$00        ;
+$0602> A9 14:   LDA #$14        ;
+$0604> 9D D0BB: STA $BBD0,X     ; SCREEN
+$0607> E8:      INX             ;
+$0608> A9 15:   LDA #$15        ;
+$060A> 9D D0BB: STA $BBD0,X     ; SCREEN
+$060D> E8:      INX             ;
+$060E> E0 28:   CPX #$28        ;
+$0610> D0 F0:   BNE $0602       ;
+$0612> A9 12:   LDA #$12        ;
+$0614> 8D F8BB: STA $BBF8       ; SCREEN
+$0617> A9 01:   LDA #$01        ;
+$0619> 8D F9BB: STA $BBF9       ; SCREEN
+$061C> A9 4F:   LDA #$4F        ;
+$061E> 8D FABB: STA $BBFA       ; SCREEN
+$0621> A9 52:   LDA #$52        ;
+$0623> 8D FBBB: STA $BBFB       ; SCREEN
+$0626> A9 49:   LDA #$49        ;
+$0628> 8D FCBB: STA $BBFC       ; SCREEN
+$062B> A9 43:   LDA #$43        ;
+$062D> 8D FDBB: STA $BBFD       ; SCREEN
+$0630> 60:      RTS             ;
+```
+## desassemble tap file if 0x80 in 2nd header
+```console
+Oric> des lm75read.tap lm75read.txt
+desassemble tap file
+File size : 0505
+Start Address : 0501
+End Address : 05bf
+File name :  main
+Offset code : 0013
+Size code : 00be
+Basic detected
+Try to find asm code
+Start Address : 8000
+End Address : 8420
+File name : OSDK
+Offset code : 00e4
+Size code : 0420
+asm find
+```
+
+
+
+
 ## View file in HEX/ASCII
 ```console
 Oric> view lolo.tap

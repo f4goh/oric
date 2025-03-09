@@ -51,6 +51,7 @@ void Menu::setup() {
     con->onCmd("basic", _basic_);
     con->onCmd("free", _free_);
     con->onCmd("conv", _conv_);
+    con->onCmd("des", _des_);   
     con->onUnknown(_unknown);
     
 
@@ -82,8 +83,9 @@ void Menu::_help_(ArgList& L, Stream& S) {
     S.println(F("cload filename.tap              : load fsk from esp32 to oric"));   //telnet
     S.println(F("csave filename.tap              : save fsk from oric to esp32"));   //telnet
     S.println(F("view filename.tap               : view file content in HEX/ASCII format")); //telnet
-    S.println(F("basic filename.tap              : view file content in BASIC")); //telnet **
-    S.println(F("conv source.bmp dest.tap        : convert bmp monochrome image to tap file")); //telnet **
+    S.println(F("basic filename.tap              : view file content in BASIC")); //telnet
+    S.println(F("conv source.bmp dest.tap        : convert bmp monochrome image to tap file")); //telnet non
+    S.println(F("des source.tap dest.txt         : dessasemble tap file to txt file")); //telnet non
     S.println(F("Enable serial for telnet        : serial 1")); //if enable telnet cmd is disable
     S.println(F("Enable wifi                     : internet 1"));
     S.println(F("Enable local wifi Access Point  : internet 0"));
@@ -213,6 +215,18 @@ void Menu::_conv_(ArgList& L, Stream& S) {
     }else {
         S.printf("Usage conv source.bmp dest.tap\r\n");
         S.printf("Must be 240x200 in monochome BMP\r\n");
+    }
+}
+
+void Menu::_des_(ArgList& L, Stream& S) {
+    String p,fileSource,fileDest;
+    if (!(p = L.getNextArg()).isEmpty()) {        
+        fileSource=p;
+    } if (!(p = L.getNextArg()).isEmpty()) {        
+        fileDest=p;
+        anchor->loric->desassemble(fileSource,fileDest);
+    }else {
+        S.printf("Usage des source.tap dest.txt\r\n");
     }
 }
 

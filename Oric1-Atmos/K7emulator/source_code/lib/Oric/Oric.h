@@ -17,6 +17,8 @@
 #include "SPIFFS.h"
 #include "ESPTelnet.h"
 #include "ImageBmpMono.h"
+#include "Desassembleur.h"
+
 
 #define TEMPO 204
 
@@ -37,6 +39,19 @@
      DEMI_BIT2,
      FIN
  }typeMesure;
+
+typedef struct {
+  uint8_t language;
+  uint8_t autostart;
+  uint16_t endAddress;
+  uint16_t startAddress;
+  char filename[20];
+  uint16_t offsetCode;
+  uint16_t sizeCode;
+} TAPHeader;
+
+
+ 
 class Oric {
 public:
     Oric();
@@ -53,12 +68,15 @@ public:
     void formatSpiffs();
     void tap2Bas(String fileName);
     void conversion(String fileSource, String fileDest);
+    void desassemble(String fileSource, String fileDest);
      
 private:
     void emitBit(int bit);
     void emitByte(int val);
     void emitGap();
 
+    
+    
     void IRAM_ATTR sensePinIsr();
     static void marshallPin();
     static void marshallTimer();
@@ -67,13 +85,17 @@ private:
     void waitIrqTimer();
     
     byte getBit();
-    byte getByte(); 
+    byte getByte();
     void synchronize();
     void clignoteLed();
     bool waitRemote(String info);
-    
-    
-    
+
+    uint16_t readBigEndianUint16(uint16_t value);
+    bool checkHeader(uint8_t *buffer);
+    void getInfo(uint8_t *buffer, TAPHeader *header, uint16_t offset);
+    void printHeader(TAPHeader *header);
+
+
     void printHex(byte value);
     void printHexAndAscii(byte* buffer, size_t length);
     void printSpaces(int count);
@@ -117,9 +139,9 @@ private:
         0x4C, 0x4F, 0x41, 0x44, 0x00, 0x07, 0x05, 0x0A, 0x00, 0xA2, 0x00, 0x0F, 0x05, 0x14, 0x00, 0xB6,
         0x22, 0x22, 0x00, 0x00, 0x00, 0x55, 0x16, 0x16, 0x16, 0x24, 0x00, 0x00, 0x80, 0x00, 0xBF, 0x3F,
         0xA0, 0x00, 0x00, 0x00};
-
+    Desassembleur *desassembleur;
    static Oric * anchor;
-
+    
 };
 
 #endif /* ORIC_H */

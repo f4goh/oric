@@ -12,7 +12,7 @@
 #include <Preferences.h>        // Classe pour écrire et lire la configuration
 #include "SPIFFS.h"
 #include "Oric.h"
-#define VERSION "F4GOH : Version 1.0"
+#define VERSION "F4GOH : Version 2.0"
 class Menu {
 public:
     Menu(Oric *p);
@@ -40,12 +40,10 @@ public:
     static void _format_(ArgList& L, Stream& S);
     static void _basic_(ArgList& L, Stream& S);
     static void _conv_(ArgList& L, Stream& S);
-
+    static void _des_(ArgList& L, Stream& S);
 
     static void _help_(ArgList& L, Stream& S);
     static void _unknown(String& L, Stream& S);
-
-
 
 
 private:

@@ -6,7 +6,7 @@
  * pio lib install https://github.com/dplasa/FTPClientServer
  * pio lib install https://github.com/lennarthennigs/espTelnet
  * pio lib install akoro/Console@^1.2.1
- * 
+ * https://github.com/MaffooClock/ESP32RotaryEncoder
  */
 #include <Arduino.h>
 #include "SPIFFS.h"
@@ -19,7 +19,9 @@
 #include "Oric.h"
 #include "TelnetMenu.h"
 
+#include "StandAlone.h"
 
+#define WIFI_LOCAL_PIN_DIS 26
 //const char *ssid = "SFR_6C4F";
 //const char *password = "x19p24bunnjzc8vqnx9n";
 
@@ -31,8 +33,11 @@ GestionWifi *gsWifi;
 TelnetMenu *monTelnet;
 Preferences configuration;
 
-bool flagWifi=false;
+StandAlone *standalone;
 
+
+
+bool flagWifi=false;
 
 void erreur(String msg);
 
@@ -53,14 +58,19 @@ void setup() {
     while (!Serial)
         yield(); // yield() Passe le contrôle à d'autres tâches
     
-    loric = new Oric();    
+    pinMode(WIFI_LOCAL_PIN_DIS,INPUT_PULLUP);
+   
+
+    loric = new Oric();
     loric->begin();
-    
-    leMenu = new Menu(loric);  // Menu de configuration
+
+    leMenu = new Menu(loric); // Menu de configuration
     leMenu->setup();
+
+    monTelnet = new TelnetMenu(loric);  
     
-    monTelnet= new TelnetMenu(loric);
-    
+    standalone = new StandAlone(loric);
+        
     gsWifi = new GestionWifi;
      
     
@@ -80,9 +90,15 @@ void setup() {
             erreur("\n\nError formatting");            
         }
     }
+     
+    uint8_t wifiCnx=digitalRead(WIFI_LOCAL_PIN_DIS);  //1 wifi connected, 0 :access point
+    
+    Serial.println(configuration.getBool("internet"));
+    Serial.println(wifiCnx);
+    
     
     configuration.begin("oric", false);    
-    if (!configuration.getBool("internet")) {  //access point, internet disable
+    if (!configuration.getBool("internet") || !wifiCnx) {  //access point, internet disable
         Serial.println("ORIC in Access point");
         flagWifi = gsWifi->setup("ORIC_AP", "oricatmos", ACCES_POINT);
         if (flagWifi) {
@@ -107,11 +123,15 @@ void setup() {
         ftpSrv.begin(F("ftp"), F("ftp"));
         monTelnet->setup();     
     }
-     
+
+    standalone->setIpAddress(gsWifi->getIP());
+    
+      
 }
 
 
 void loop() {
+    standalone->rotary_loop();
     leMenu->run();
 
     if (flagWifi == true) { //pas de wifi console seulement

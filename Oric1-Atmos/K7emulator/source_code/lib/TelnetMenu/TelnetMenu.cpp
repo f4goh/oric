@@ -126,7 +126,7 @@ void TelnetMenu::onTelnetInput(String str) {
             anchor->telnet->println(F("cload filename.tap : load fsk from esp32 to oric"));
             anchor->telnet->println(F("csave filename.tap : save fsk from oric to esp32"));
             anchor->telnet->println(F("view filename.tap  : view file content in HEX/ASCII format"));
-            anchor->telnet->println(F("basic filename.tap : view file content in BASIC")); ;
+            anchor->telnet->println(F("basic filename.tap : view file content in BASIC"));
             anchor->telnet->println(F("help               : this menu"));
             anchor->telnet->println(F("bye                : exit telnet"));
             anchor->telnet->println(F(VERSION));
