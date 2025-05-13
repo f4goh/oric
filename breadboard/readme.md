@@ -22,7 +22,29 @@
 # Test avec un PIA 6821
 ![6821](images/6821.jpg "6821")
 
+```console
+ 10 POKE #381,0
+ 20 POKE #380,1
+ 30 POKE #381,4
+ 40 POKE #380,0
+ 50 WAIT 10
+ 60 POKE #380,1
+ 70 WAIT 10
+ 80 GOTO 40
+```
+
+
 # Test avec un PIA 8255
 ![8255](images/8255.jpg "8255")
 
+![sch](schematics/pia.png "8255")
+
+```console
+ 10 POKE #383,#8B
+ 20 POKE #380,1
+ 30 WAIT 10
+ 40 POKE #380,0
+ 50 WAIT 10
+ 60 GOTO 20
+```
 
