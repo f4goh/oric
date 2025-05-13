@@ -22,6 +22,9 @@
 # Test avec un PIA 6821
 ![6821](images/6821.jpg "6821")
 
+PORT PA0 en sortie, PORT B en entrée
+Clignote la led sur PA0
+
 ```console
  10 POKE #381,0
  20 POKE #380,1
@@ -38,6 +41,9 @@
 ![8255](images/8255.jpg "8255")
 
 ![sch](schematics/pia.png "8255")
+
+PORT A en sortie, PORT B en entrée , PORT C en entrée 
+Clignote la led sur PA0
 
 ```console
  10 POKE #383,#8B
