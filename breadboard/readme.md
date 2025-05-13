@@ -53,4 +53,5 @@ Clignote la led sur PA0
  50 WAIT 10
  60 GOTO 20
 ```
+[Voir 24_ES_Numeriques FRED72](https://github.com/Fred72z/ORIC/tree/main/BUS_ORIC/Extensions/24_ES_Numeriques)
 
