@@ -1,4 +1,4 @@
-# Cartouche pour Oric
+# Cartouche ZIF pour Oric
 
 ![RENDU](images/cartouche_zif.jpg "Rendu5")
 
