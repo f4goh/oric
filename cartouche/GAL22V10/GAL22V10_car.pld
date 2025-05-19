@@ -1,0 +1,28 @@
+GAL22V10
+22V10
+
+CLK  A14 A15   IO  PHI2   A4     A5    A6     A7     RW     A3  GND
+RSDA D1  DSDA  SCL SDA    CK273 CSROM  IOCtrl CSREG  RDSDA D0  VCC
+
+
+
+/CSROM = A14 * A15 * PHI2 * RW
+
+RDSDA = /IO * PHI2 * /A3 * A4 * /A5 * /A6 * /A7 * RW  ; 0 0 0 1 0 x x x 310 317 
+
+/CSREG = /IO * PHI2 * /A3 * A4 * /A5 * /A6 * /A7 * /RW  ;rebouclage sur clk pour scl et sda
+
+/CK273 = /IO * PHI2 * A3 * A4 * /A5 * /A6 * /A7 * /RW   ; 0 0 0 1 1 x x x 318 31f 
+
+SDA.R = /D0
+SCL.R = D1
+
+DSDA.T = RSDA    ;rsda switch avec gnd, dsda switch d0 pour compatible 20v8
+DSDA.E = RDSDA
+
+
+/IOCtrl = /IO * A4 * /A5 * /A6 * /A7
+
+DESCRIPTION
+ORIC cartouche
+
