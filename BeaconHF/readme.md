@@ -3,6 +3,15 @@ Retrocomputing is back in style with a handcrafted HF beacon driven by an ORIC A
 
 # HF BEACON with an ORIC ATMOS
 
+- WSPR, RTTY, PS31, CW
+- GPS
+- PIA 6821
+- ATTiny85 (parse NMEA)
+- Power 500mW
+- VCC supply 5V
+- Software : Basic and ASM 6502 4Ko
+
+
 ![RENDU](images/txlow.jpg "Rendu")
 
 ![DDS](images/ddslow.jpg "Rendu")
