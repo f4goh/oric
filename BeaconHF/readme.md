@@ -4,6 +4,7 @@ Retrocomputing is back in style with a handcrafted HF beacon driven by an ORIC A
 # HF BEACON with an ORIC ATMOS
 
 - WSPR, RTTY, PS31, CW
+- DDS AD9850
 - GPS
 - PIA 6821
 - ATTiny85 (parse NMEA)
