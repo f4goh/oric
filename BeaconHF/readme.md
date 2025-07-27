@@ -28,6 +28,6 @@ Retrocomputing is back in style with a handcrafted HF beacon driven by an ORIC A
 # First WSPR test
 ![first](images/firstwspr.png "pcb")
 
-# The OLD an great pia 6821
+# The OLD and great pia 6821
 ![6821](images/6821.png "Rendu")
 
