@@ -1,0 +1,126 @@
+#import "build/symbols"
+
+
+100 REM F4GOH Juin 2025 CC-NC-SA
+110 HIMEM#7FFF:CLOAD"" ' Load module
+115 PWR = 4294967296
+118 CLK = 125000000
+120 REM Affichage du menu
+130 PRINT "**************************"
+140 PRINT "*   MENU RADIO ORIC     *"
+150 PRINT "**************************"
+160 PRINT "1 - Calibration DDS"
+170 PRINT "2 - WSPR"
+180 PRINT "3 - RTTY"
+190 PRINT "4 - PSK 31"
+200 PRINT "5 - CW"
+210 PRINT "6 - Quitter"
+220 PRINT "**************************"
+230 PRINT
+240 REM Saisie utilisateur
+250 INPUT "Votre choix "; C
+260 REM Gestion du choix
+270 IF C=1 THEN GOSUB 1000
+280 IF C=2 THEN GOTO 2000
+290 IF C=3 THEN GOTO 3000
+300 IF C=4 THEN GOTO 4000
+310 IF C=5 THEN GOTO 4500
+320 IF C=6 THEN END
+330 IF C<1 OR C>6 THEN PRINT "Choix invalide. Recommencez." : GOTO 250
+
+
+
+1000 REM --- Calibration DDS ---
+1010 F = 7100000
+1015 ADR = regDds
+1020 PRINT "Calibration DDS"
+1030 PRINT "Appuyez sur A (+50 Hz), Z (-50 Hz), Q pour quitter"
+1040 PRINT "Frequence actuelle : "; F ; " Hz"
+1045 GOSUB 6000: CALL ddsOn
+1050 GET K$
+1060 IF K$ = "A" THEN F = F + 50 : PRINT "Frequence : "; F : GOSUB 6000: CALL ddsOn
+1070 IF K$ = "Z" THEN F = F - 50 : PRINT "Frequence : "; F : GOSUB 6000: CALL ddsOn
+1080 IF K$ = "Q" THEN CALL ddsOff : RETURN
+1110 GOTO 1050
+
+
+2000 REM WSPR
+2010 PRINT "Mode WSPR active..."
+2020 ADR = regDds
+2030 F = 7040152
+2040 GOSUB 6000
+2050 F = F + 1.4548
+2060 GOSUB 6000
+2070 F = F + 1.4548
+2080 GOSUB 6000
+2090 F = F + 1.4548
+2100 GOSUB 6000
+2110 PRINT "WSPR TXING"
+2120 CALL sendWspr
+2130 GOTO 2110
+
+
+3000 REM RTTY
+3010 PRINT "Mode RTTY active..."
+3020 ADR = regDds
+3030 F = 7041000
+3040 GOSUB 6000
+3050 F = F + 170
+3060 GOSUB 6000
+3070 PRINT "RTTY TXING"
+3080 CALL sendRtty
+3090 GOTO 3070
+
+
+4000 REM PSK31
+4010 PRINT "Mode PSK31 active..."
+4020 ADR = regDds
+4030 F = 7036000
+4040 GOSUB 6000
+4050 PRINT "PSK31 TXING"
+4060 CALL sendPsk
+4070 WAIT 100
+4080 GOTO 4050
+
+4500 REM CW
+4510 PRINT "Mode CW active..."
+4520 ADR = regDds
+4530 F = 7020000
+4540 GOSUB 6000
+4550 PRINT "CW TXING"
+4560 CALL sendCw
+4570 WAIT 100
+4580 GOTO 4550
+
+5000 REM --- Stockage d'une chaine en mémoire ---
+5010 INPUT "Entrez le texte a envoyer : "; A$
+5020 ADRBUF = beaconText
+5030 ADR = ADRBUF
+5040 FOR N = 1 TO LEN(A$)
+5050   B$ = MID$(A$, N, 1)
+5060   POKE ADR, ASC(B$)
+5070   ADR = ADR + 1
+5080 NEXT N
+5090 POKE ADR, 0 : REM Ajout du caractere NULL
+5100 PRINT "Texte stocke en memoire à partir de "; HEX$(ADRBUF)
+5110 RETURN
+
+
+
+6000 REM --- Calcul du registre DDS ---
+6010 DDS = F * PWR / CLK
+6020 PRINT DDS
+6030 RH = DDS / 65536
+6040 RL = DDS - (INT(DDS / 65536) * 65536)
+6050 R3 = INT(RH / 256)
+6060 R2 = RH - (INT(RH / 256) * 256)
+6070 R1 = INT(RL / 256)
+6080 R0 = RL - (INT(RL / 256) * 256)
+6090 POKE ADR, R3 : ADR = ADR + 1
+6100 POKE ADR, R2 : ADR = ADR + 1
+6110 POKE ADR, R1 : ADR = ADR + 1
+6120 POKE ADR, R0 : ADR = ADR + 1
+6130 PRINT HEX$(R3); HEX$(R2); HEX$(R1); HEX$(R0)
+6140 RETURN
+
+

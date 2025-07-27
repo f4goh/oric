@@ -1,0 +1,24 @@
+# HF BEACON with an ORIC ATMOS
+
+Retrocomputing is back in style with a handcrafted HF beacon driven by an ORIC ATMOS. Equipped with a PI6821 and DDS9850, it proudly transmits its signals, powered by a compact 4KB 6502 assembly code. This technical feat highlights the elegance of an era when every byte mattered. In contrast to today’s memory-hungry machines, it proves that brilliance lies not in excess, but in ingenuity.
+
+# Cartouche ZIF pour Oric
+
+![RENDU](images/txlow.jpg "Rendu")
+
+![DDS](images/ddslow.jpg "Rendu")
+
+![PIA](images/pialow.jpg "Rendu")
+
+# Schematics
+![sch](schematics/PIA_6821.png "sch")
+
+![sch](schematics/baliseHF_oric.png "sch")
+
+![6821](images/6821.png "Rendu")
+
+# First WSPR test
+![first](images/firstwspr.png "pcb")
+
+
+

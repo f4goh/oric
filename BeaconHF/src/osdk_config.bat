@@ -1,0 +1,9 @@
+@ECHO OFF
+
+::
+:: Set the build paremeters
+::
+SET OSDKNAME=WSPR
+SET OSDKLINK=-B
+SET OSDKADDR=$8000
+SET OSDKFILE=wspr main
