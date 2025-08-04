@@ -36,6 +36,7 @@ public:
     static void _free_(ArgList& L, Stream& S);    
     static void _config_(ArgList& L, Stream& S);
     static void _internet_(ArgList& L, Stream& S);
+    static void _speed_(ArgList& L, Stream& S);
     static void _reboot_(ArgList& L, Stream& S);
     static void _format_(ArgList& L, Stream& S);
     static void _basic_(ArgList& L, Stream& S);

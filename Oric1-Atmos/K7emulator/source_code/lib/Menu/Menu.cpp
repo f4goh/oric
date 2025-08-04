@@ -44,6 +44,7 @@ void Menu::setup() {
     con->onCmd("csave", _save_);
     con->onCmd("free", _free_);
     con->onCmd("internet", _internet_);
+    con->onCmd("speed", _speed_);
     con->onCmd("show", _config_);
     con->onCmd("reboot", _reboot_);
     con->onCmd("format", _format_);
@@ -59,13 +60,20 @@ void Menu::setup() {
 
     anchor->configuration->begin("oric", false);
 
+    
+    
     if (anchor->configuration->getBool("config", false) == false) {
         anchor->configuration->putString("ssid", "nossid");
         anchor->configuration->putString("pass", "nopassword");
         anchor->configuration->putBool("serial", false);
         anchor->configuration->putBool("internet", false);
         anchor->configuration->putBool("config", true);
+        anchor->configuration->putBool("speed", false);
     }
+    
+    typeSpeed speed=anchor->configuration->getBool("speed") ? FAST16 : FAST;
+    anchor->loric->setSpeed(speed);
+
     anchor->configuration->end();
     this->run();
     con->setPrompt("Oric> ");
@@ -78,7 +86,7 @@ void Menu::_help_(ArgList& L, Stream& S) {
     S.println(F("Set ssid                        : ssid mywifi"));
     S.println(F("Set password                    : pass toto"));
     S.println(F("ls                              : list tap files in SPIFFS"));  //telnet
-    S.println(F("info                            : SPIFFS info space size"));    //telnet
+    S.println(F("free                            : SPIFFS info space size"));    //telnet
     S.println(F("rm filename.tap                 : remove tap files in SPIFFS"));  //telnet
     S.println(F("cload filename.tap              : load fsk from esp32 to oric"));   //telnet
     S.println(F("csave filename.tap              : save fsk from oric to esp32"));   //telnet
@@ -89,6 +97,7 @@ void Menu::_help_(ArgList& L, Stream& S) {
     S.println(F("Enable serial for telnet        : serial 1")); //if enable telnet cmd is disable
     S.println(F("Enable wifi                     : internet 1"));
     S.println(F("Enable local wifi Access Point  : internet 0"));
+    S.println(F("CLOAD speed 0:Normal 1:FAST16   : speed 1"));
     S.println(F("Show configuration              : show"));
     S.println(F("Reset default configuration     : raz"));
     S.println(F("Format SPIFFS                   : format"));
@@ -251,6 +260,7 @@ void Menu::_config_(ArgList& L, Stream& S) {
     Serial.printf("Serial is           : %s\n\r", anchor->configuration->getBool("serial") ? "Enable" : "Disable");
     Serial.printf("Internet is         : %s\n\r", anchor->configuration->getBool("internet") ? "Enable" : "Disable");
     Serial.printf("TCP Access point is : %s\n\r", anchor->configuration->getBool("internet") ? "Disable" : "Enable");
+    Serial.printf("CLOAD speed is      : %s\n\r", anchor->configuration->getBool("speed") ? "FAST16" : "FAST");
     anchor->configuration->end();
 }
 
@@ -284,6 +294,22 @@ void Menu::_internet_(ArgList& L, Stream& S) {
         anchor->configuration->putBool("internet", (int8_t) p.toInt());
         Serial.printf("Internet is : %s\n\r", anchor->configuration->getBool("internet") ? "Enable" : "Disable");
         Serial.printf("TCP Access point is : %s\n\r", anchor->configuration->getBool("internet") ? "Disable" : "Enable");
+        anchor->configuration->end();
+    }
+}
+
+void Menu::_speed_(ArgList& L, Stream& S) {
+    String p;
+    bool ret;
+    typeSpeed speed;
+    p = L.getNextArg();
+    ret = anchor->acceptCmd(p, 1, 1);
+    if (ret == true) {
+        anchor->configuration->begin("oric", false);
+        anchor->configuration->putBool("speed", (int8_t) p.toInt());
+        Serial.printf("CLOAD speed is : %s\n\r", anchor->configuration->getBool("speed") ? "FAST16" : "FAST");
+        speed=anchor->configuration->getBool("speed") ? FAST16 : FAST;
+        anchor->loric->setSpeed(speed);
         anchor->configuration->end();
     }
 }

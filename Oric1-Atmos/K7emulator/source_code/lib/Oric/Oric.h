@@ -21,6 +21,7 @@
 
 
 #define TEMPO 204
+#define TEMPO_F16 70  //gain x1.4
 
 #define K7_OUT 19 //k7 out
 #define K7_IN 18  ///k7 int
@@ -40,6 +41,12 @@
      FIN
  }typeMesure;
 
+ typedef enum{
+     FAST,
+     FAST16
+ }typeSpeed;
+
+ 
 typedef struct {
   uint8_t language;
   uint8_t autostart;
@@ -69,6 +76,7 @@ public:
     void tap2Bas(String fileName);
     void conversion(String fileSource, String fileDest);
     void desassemble(String fileSource, String fileDest);
+    void setSpeed(typeSpeed speed);
      
 private:
     void emitBit(int bit);
@@ -119,6 +127,7 @@ private:
     byte cptLed;
     ESPTelnet *telnet;
     bool telnetState;
+    typeSpeed cloadSpeed;
     const char *keywords[119]={"END","EDIT","STORE","RECALL","TRON","TROFF","POP","PLOT", // 128-246: BASIC keywords
     
   "PULL","LORES","DOKE","REPEAT","UNTIL","FOR","LLIST","LPRINT","NEXT","DATA",

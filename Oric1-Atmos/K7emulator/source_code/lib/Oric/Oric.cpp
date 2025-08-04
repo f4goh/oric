@@ -40,7 +40,10 @@ void Oric::begin(){
     timerMux = portMUX_INITIALIZER_UNLOCKED;
     timer = timerBegin(0, 80, true);
     //timerAttachInterrupt(timer, Oric::marshallTimer, true);
-    timerAlarmWrite(timer, TEMPO, true);   // 1s périodique
+  
+    cloadSpeed=FAST;
+    timerAlarmWrite(timer, TEMPO, true);   // defaut FAST NORMAL mode
+    //timerAlarmWrite(timer, TEMPO_F16, true);   // FAST16 TEST
     timerAlarmEnable(timer);
     timerStart(timer);
     cptLed=0;
@@ -80,6 +83,16 @@ void IRAM_ATTR Oric::sensePinIsr() {
     timerWrite(timer, 0);    
 }
 
+void Oric::setSpeed(typeSpeed speed){
+    cloadSpeed=speed;
+    if (cloadSpeed == FAST16) {
+        Serial.println("CLOAD FAST16 MODE");
+        timerAlarmWrite(timer, TEMPO_F16, true);   // 1s périodique
+    }else{
+        Serial.println("CLOAD FAST NORMAL MODE");
+        timerAlarmWrite(timer, TEMPO, true);
+    }
+}
 
 
 void Oric::clignoteLed(){
@@ -217,6 +230,45 @@ void Oric::waitIrqTimer() {
 
 
 void Oric::emitBit(int bit) {
+    if (cloadSpeed == FAST16) {
+        if (bit) {
+            digitalWrite(K7_OUT, HIGH);
+            waitIrqTimer();
+            digitalWrite(K7_OUT, LOW);
+            waitIrqTimer();
+        } else {
+            digitalWrite(K7_OUT, HIGH);
+            waitIrqTimer();
+            waitIrqTimer();
+            waitIrqTimer();
+            waitIrqTimer();
+            digitalWrite(K7_OUT, LOW);
+            waitIrqTimer();
+            waitIrqTimer();
+            waitIrqTimer();
+            waitIrqTimer();
+            waitIrqTimer();
+        }
+    } else {
+        if (bit) {
+            digitalWrite(K7_OUT, HIGH);
+            waitIrqTimer();
+            digitalWrite(K7_OUT, LOW);
+            waitIrqTimer();
+        } else {
+            digitalWrite(K7_OUT, HIGH);
+            waitIrqTimer();
+            digitalWrite(K7_OUT, LOW);
+            waitIrqTimer();
+            waitIrqTimer();
+        }
+    }
+    clignoteLed();
+}
+
+//previous without FAST16
+/*
+void Oric::emitBit(int bit) {
     if (bit) {
         digitalWrite(K7_OUT, HIGH);
         waitIrqTimer();
@@ -231,7 +283,7 @@ void Oric::emitBit(int bit) {
     }
     clignoteLed();
 }
-
+ */
 
 // without irq
 /*
