@@ -13,7 +13,7 @@
 #define PRB_ADDRESS $38E
 #define DDRB_ADDRESS $38F
 
-#define NB_SYMB 163
+#define NB_SYMB 162
 
 ;deplacer les flags en page 0
 
@@ -256,7 +256,8 @@ loop:
 	lda offsetReg,y
 	tay
 	jsr _writeDds
-	jsr _waitNext
+	;jsr _waitNext		;la tempo delivrée par l'attiny85 est variable à revoir
+	jsr waitTempoWspr
 	pla
 	tax
 	pla
@@ -271,6 +272,27 @@ loop:
 	rts
 .)	
 
+waitTempoWspr		;tempo de 682ms
+.(
+    lda #$03        ; 3 itérations externes
+    sta outer       ; compteur externe
+outer_loop:
+    ldx #$B1
+loop_x:
+    ldy #$FF        ; 255
+loop_y:
+    dey             ; 2 cycles
+    bne loop_y      ; 3 cycles
+    dex             ; 2 cycles
+    bne loop_x      ; 3 cycles
+    dec outer         ; 5 cycles
+    bne outer_loop  ; 3 cycles
+    rts             ; 6 cycles
+.)
+
+outer
+	.byt 0
+
 offsetReg
 	.byt 0,4,8,12
 
@@ -281,7 +303,7 @@ wsprSymb
     .byt 2, 1, 0, 1, 2, 0, 3, 3, 2, 2, 0, 2, 2, 2, 2, 1, 3, 2, 1, 0, 1, 1, 2, 0, 0, 3, 1, 2, 2, 2
 
 ;-------------------------
-; WSPR functions
+; RTTY functions
 ;-------------------------
 
 
