@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <title>Oric GFX - Version Web</title>
+    <link rel="stylesheet" href="stylegfx.css" />
+</head>
+<body>
+    <h1>Oric GFX - Version Web</h1>
+
+    <div id="toolbar">
+        <div class="toolbar-group">
+            <button id="btnToggleAttrib">Afficher pixels</button>
+        </div>
+
+        <div class="toolbar-group">
+            <span class="group-title">Mode attribut</span>
+            <button id="btnInk">INK</button>
+            <button id="btnPaper">PAPER</button>
+            <button id="btnNoip">NOIP</button>
+            <button id="btnInvert">Invert: OFF</button>
+        </div>
+
+        <div class="toolbar-group">
+            <span class="group-title">Couleur attribut (0–7)</span>
+            <div id="colorButtons"></div>
+        </div>
+        <div class="toolbar-group">
+		<input type="checkbox" id="header" name="header" checked />
+			<label for="header">header</label>
+            <span class="group-title">Fichier</span>
+            <button id="btnSaveTap">Sauver TAP</button>
+            <label class="file-label">
+                Charger BIN
+                <input type="file" id="inputLoadBin" accept=".bin" />
+            </label>
+        </div>
+    </div>
+
+    <div id="canvasContainer">
+        <canvas id="oricCanvas" width="720" height="600"></canvas>
+    </div>
+
+    <p class="hint">
+        Clique gauche : dessiner / attribuer – Clique droit : effacer / reset attribut  
+        Utilise les boutons au-dessus pour changer le mode.
+    </p>
+
+    <script type="module" src="main.js"></script>
+</body>
+</html>

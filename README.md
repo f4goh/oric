@@ -4,6 +4,8 @@
 
 ## ORIC text [simulator](https://f4goh.github.io/oric/simulateurOric/) 
 
+## ORIC [gfxPaint](https://f4goh.github.io/oric/indexgfx.html) 
+
 ## Oric hardware
 
 ## How to download ?

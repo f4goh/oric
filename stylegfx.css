@@ -1,0 +1,118 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #202124;
+    color: #f1f3f4;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+h1 {
+    text-align: center;
+    margin: 12px 0;
+    font-weight: 500;
+}
+
+#toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 8px 16px;
+    border-bottom: 1px solid #3c4043;
+    background: #2b2c2f;
+}
+
+.toolbar-group {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 8px;
+    border-radius: 6px;
+    background: #303134;
+}
+
+.group-title {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #bdc1c6;
+}
+
+button {
+    cursor: pointer;
+    border: 1px solid #5f6368;
+    background: #3c4043;
+    color: #e8eaed;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    transition: background 0.1s, transform 0.05s;
+}
+
+button:hover {
+    background: #5f6368;
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+button.active {
+    border-color: #8ab4f8;
+    background: #1a73e8;
+    color: #fff;
+}
+
+#colorButtons {
+    display: flex;
+    gap: 4px;
+}
+
+.color-btn {
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    border-radius: 4px;
+    border-width: 2px;
+}
+
+.file-label {
+    position: relative;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 8px;
+    border-radius: 4px;
+    border: 1px solid #5f6368;
+    background: #3c4043;
+    cursor: pointer;
+    font-size: 0.85rem;
+}
+
+.file-label input[type="file"] {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+#canvasContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+}
+
+#oricCanvas {
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    border: 2px solid #5f6368;
+    background: #000;
+}
+
+.hint {
+    text-align: center;
+    font-size: 0.85rem;
+    color: #9aa0a6;
+    margin-bottom: 12px;
+}
