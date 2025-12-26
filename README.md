@@ -4,7 +4,7 @@
 
 ## ORIC text [simulator](https://f4goh.github.io/oric/simulateurOric/) 
 
-## ORIC [gfxPaint](https://f4goh.github.io/oric/indexgfx.html) 
+## ORIC [gfxPaint](https://f4goh.github.io/oric/gfxPaint) 
 
 ## Oric hardware
 
