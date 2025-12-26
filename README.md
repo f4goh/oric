@@ -6,6 +6,8 @@
 
 ## ORIC [gfxPaint](https://f4goh.github.io/oric/gfxPaint) 
 
+![GFXPAINT](gfxPaint/gfxPaint.png)
+
 ## Oric hardware
 
 ## How to download ?
