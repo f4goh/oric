@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Convertisseur YM entrelacé → brut (14 registres)</title>
+
+  <script src="ym_to_raw.js"></script>
+
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; background: #f4f4f4; }
+    button { padding: 10px 20px; font-size: 18px; margin-right: 10px; cursor: pointer; }
+    #log { margin-top: 20px; white-space: pre; background: #eee; padding: 10px; border-radius: 6px; }
+    #info { margin-top: 25px; background: #fff; padding: 15px; border-radius: 6px; border-left: 5px solid #888; }
+    a { color: #0066cc; }
+  </style>
+</head>
+
+<body>
+
+  <h1>YM entrelacé → séquence brute (14 registres / frame)</h1>
+
+  <button onclick="selectYM()">Charger un fichier YM</button>
+  <input type="file" id="fileInput" accept=".ym" style="display:none" onchange="loadYM(event)">
+
+  <div id="log">En attente d’un fichier YM…</div>
+
+  <div id="info">
+    <h2>📥 Télécharger des fichiers YM</h2>
+    <p>
+      Vous pouvez récupérer des fichiers YM depuis les dépôts suivants :<br>
+      <a href="https://github.com/nguillaumin/ym-jukebox/tree/master/data" target="_blank">
+        https://github.com/nguillaumin/ym-jukebox/tree/master/data
+      </a><br>
+	  <a href="https://ftp.modland.com/pub/modules/YM/" target="_blank">
+        https://ftp.modland.com/pub/modules/YM/
+      </a>
+	  
+	  
+	  
+	  
+    </p>
+
+    <h3>📌 Instructions importantes</h3>
+    <ul>
+      <li>Les fichiers disponibles dans ce dépôt ne sont pas directement des fichiers <code>.ym</code>.</li>
+      <li>Il faut d’abord les renommer en <code>.lha</code>.</li>
+      <li>Puis les décompresser avec un outil compatible LHA (lha, 7‑Zip, WinRAR…).</li>
+      <li>Le fichier obtenu après décompression est un fichier YM entrelacé.</li>
+      <li>Chargez ce fichier dans l’outil ci‑dessus pour le désentrelacer et obtenir la séquence brute des 14 registres de l’AY‑3‑8910.</li>
+    </ul>
+
+    <p>Une fois désentrelacé, vous obtenez un flux brut de 14 octets par frame, correspondant aux registres matériels du PSG.</p>
+  </div>
+
+</body>
+</html>

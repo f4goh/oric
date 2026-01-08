@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Convertisseur AY brut → compressé Delta+Bitmask</title>
+
+  <script src="ay_to_delta.js"></script>
+
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; background: #f4f4f4; }
+    button { padding: 10px 20px; font-size: 18px; margin-right: 10px; cursor: pointer; }
+    #log { margin-top: 20px; white-space: pre; background: #eee; padding: 10px; border-radius: 6px; }
+  </style>
+</head>
+
+<body>
+
+  <h1>AY brut (14 registres / frame) → compressé Delta+Bitmask</h1>
+
+  <button onclick="selectRaw()">Charger un fichier brut AY</button>
+  <input type="file" id="fileInput" accept="*/*" style="display:none" onchange="loadRaw(event)">
+
+  <div id="log">En attente d’un fichier brut AY…</div>
+
+
+<!-- ============================================================
+     EXPLICATION DE LA COMPRESSION DELTA + BITMASK
+     ============================================================ -->
+<details style="margin-top:20px; background:#fff; padding:10px; border-radius:6px;">
+  <summary style="cursor:pointer; font-size:18px; font-weight:bold;">
+    Explication de la compression Delta + Bitmask (avec exemple réel)
+  </summary>
+
+  <h2>Méthode Delta + Bitmask</h2>
+
+  <p>
+    La compression Delta consiste à stocker :
+  </p>
+
+  <ul>
+    <li><b>Frame 0</b> : les 14 registres bruts (aucune compression)</li>
+    <li><b>Frame N</b> : uniquement les registres qui ont changé</li>
+  </ul>
+
+  <p>
+    Pour chaque frame compressée, on stocke :
+  </p>
+
+  <pre>
+bitmask_low   (1 octet)  → registres R0 à R7
+bitmask_high  (1 octet)  → registres R8 à R13
+valeurs modifiées (0 à 14 octets)
+  </pre>
+
+  <p>
+    Un bit = 1 → le registre a changé  
+    Un bit = 0 → le registre reste identique
+  </p>
+
+  <hr>
+
+  <h2>Exemple avec 3 frames</h2>
+
+  <h3>Frame 0 (stockée brute)</h3>
+  <pre>
+3B 00 00 00 00 00 00 FF 00 00 00 80 01 FF
+  </pre>
+
+  <hr>
+
+  <h3>Frame 1</h3>
+
+  <p><b>Frame originale :</b></p>
+  <pre>
+7F 00 FD 02 00 00 00 F8 0F 0F 00 80 01 FF
+  </pre>
+
+  <p><b>Comparaison avec Frame 0 :</b></p>
+  <pre>
+Changements sur : R0, R2, R3, R7, R8, R9
+  </pre>
+
+  <p><b>Bitmask généré :</b></p>
+  <pre>
+bitmask_low  = 10001101b = 0x8D
+bitmask_high = 00000011b = 0x03
+  </pre>
+
+  <p><b>Valeurs modifiées :</b></p>
+  <pre>
+7F FD 02 F8 0F 0F
+  </pre>
+
+  <p><b>Frame 1 compressée :</b></p>
+  <pre>
+8D 03 7F FD 02 F8 0F 0F
+  </pre>
+
+  <hr>
+
+  <h3>Frame 2</h3>
+
+  <p><b>Frame originale :</b></p>
+  <pre>
+A1 00 FE 02 C0 00 00 F8 0F 0F 0F 80 01 FF
+  </pre>
+
+  <p><b>Comparaison avec Frame 1 :</b></p>
+  <pre>
+Changements sur : R0, R2, R4, R10
+  </pre>
+
+  <p><b>Bitmask généré :</b></p>
+  <pre>
+bitmask_low  = 00010101b = 0x15
+bitmask_high = 00000100b = 0x04
+  </pre>
+
+  <p><b>Valeurs modifiées :</b></p>
+  <pre>
+A1 FE C0 0F
+  </pre>
+
+  <p><b>Frame 2 compressée :</b></p>
+  <pre>
+15 04 A1 FE C0 0F
+  </pre>
+
+  <hr>
+
+  <h2>Résumé</h2>
+
+  <p>
+    Au lieu de stocker 3 × 14 = <b>42 octets</b>,  
+    la compression Delta produit :
+  </p>
+
+  <pre>
+Frame 0 : 14 octets
+Frame 1 : 8 octets
+Frame 2 : 6 octets
+Total   : 28 octets
+  </pre>
+
+  <p>
+    → <b>Gain : 33% d’espace économisé</b> sur cet exemple simple  
+    → Sur une musique complète, le gain est souvent entre <b>×4 et ×10</b>
+  </p>
+
+</details>
+
+
+
+</body>
+</html>

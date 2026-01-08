@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Lecteur AY - Séquence compressée (Delta+Bitmask)</title>
+
+  <script src="ayumi.js"></script>
+  <script src="player_comp.js"></script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f4f4f4;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+    #debug {
+      margin-top: 20px;
+      padding: 10px;
+      background: #222;
+      color: #0f0;
+      font-family: monospace;
+      white-space: pre;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Lecteur AY – Séquence compressée (Delta+Bitmask)</h1>
+
+  <button onclick="selectFile()">Charger séquence compressée</button>
+  <input type="file" id="fileInput" accept="*/*" style="display:none" onchange="loadCompressed(event)">
+
+  <button onclick="startAudio()">Lecture</button>
+  <button onclick="pauseAudio()">Pause</button>
+
+  <div id="debug">Debugger en attente…</div>
+  <!-- ============================================================
+     TABLEAU DES REGISTRES AY-3-8910
+     ============================================================ -->
+<details style="margin-top:20px; background:#fff; padding:10px; border-radius:6px;">
+  <summary style="cursor:pointer; font-size:18px; font-weight:bold;">
+    Afficher le tableau des registres AY-3-8910
+  </summary>
+
+  <table border="1" cellpadding="6" cellspacing="0" style="margin-top:15px; background:white;">
+    <tbody>
+      <tr>
+        <td colspan="2">Register \ bit</td>
+        <td align="center">B7</td><td align="center">B6</td><td align="center">B5</td>
+        <td align="center">B4</td><td align="center">B3</td><td align="center">B2</td>
+        <td align="center">B1</td><td align="center">B0</td>
+      </tr>
+
+      <tr>
+        <td>R0</td><td rowspan="2">Channel A Tone Period</td>
+        <td colspan="8" align="center">8-Bit Fine Tune A</td>
+      </tr>
+      <tr>
+        <td>R1</td><td colspan="4" bgcolor="gray"></td>
+        <td colspan="4" align="center">4-Bit Coarse Tune A</td>
+      </tr>
+
+      <tr>
+        <td>R2</td><td rowspan="2">Channel B Tone Period</td>
+        <td colspan="8" align="center">8-Bit Fine Tune B</td>
+      </tr>
+      <tr>
+        <td>R3</td><td colspan="4" bgcolor="gray"></td>
+        <td colspan="4" align="center">4-Bit Coarse Tune B</td>
+      </tr>
+
+      <tr>
+        <td>R4</td><td rowspan="2">Channel C Tone Period</td>
+        <td colspan="8" align="center">8-Bit Fine Tune C</td>
+      </tr>
+      <tr>
+        <td>R5</td><td colspan="4" bgcolor="gray"></td>
+        <td colspan="4" align="center">4-Bit Coarse Tune C</td>
+      </tr>
+
+      <tr>
+        <td>R6</td><td>Noise period</td>
+        <td colspan="3" bgcolor="gray"></td>
+        <td colspan="5" align="center">5-Bit Period control</td>
+      </tr>
+
+      <tr>
+        <td rowspan="2">R7</td><td rowspan="2">Enable (bit 0 = on, 1 = off)</td>
+        <td colspan="2" align="center">IN/OUT</td>
+        <td colspan="3" align="center">Noise</td>
+        <td colspan="3" align="center">Tone</td>
+      </tr>
+      <tr>
+        <td align="center">IOB</td><td align="center">IOA</td>
+        <td align="center">C</td><td align="center">B</td><td align="center">A</td>
+        <td align="center">C</td><td align="center">B</td><td align="center">A</td>
+      </tr>
+
+      <tr>
+        <td>R8</td><td>Channel A Envelope on/off, Volume</td>
+        <td colspan="2" bgcolor="gray"></td>
+        <td align="center">Env</td>
+        <td colspan="5" align="center">volume</td>
+      </tr>
+
+      <tr>
+        <td>R9</td><td>Channel B Envelope on/off, Volume</td>
+        <td colspan="2" bgcolor="gray"></td>
+        <td align="center">Env</td>
+        <td colspan="5" align="center">volume</td>
+      </tr>
+
+      <tr>
+        <td>R10</td><td>Channel C Envelope on/off, Volume</td>
+        <td colspan="2" bgcolor="gray"></td>
+        <td align="center">Env</td>
+        <td colspan="5" align="center">volume</td>
+      </tr>
+
+      <tr>
+        <td>R11</td><td rowspan="2">Envelope Period</td>
+        <td colspan="8" align="center">8-Bit Fine Tune Envelope</td>
+      </tr>
+      <tr>
+        <td>R12</td><td colspan="4" bgcolor="gray"></td>
+        <td colspan="4" align="center">4-Bit Coarse Tune Envelope</td>
+      </tr>
+
+      <tr>
+        <td>R13</td><td>Envelope Shape/Cycle</td>
+        <td colspan="4" bgcolor="gray"></td>
+        <td>CONT</td><td>ATT</td><td>ALT</td><td>HOLD</td>
+      </tr>
+
+      <tr>
+        <td>R14</td><td>I/O Port A Data Store</td>
+        <td colspan="8" align="center">8-Bit Parallel I/O on Port A</td>
+      </tr>
+
+      <tr>
+        <td>R15</td><td>I/O Port B Data Store</td>
+        <td colspan="8" align="center">8-Bit Parallel I/O on Port B</td>
+      </tr>
+    </tbody>
+  </table>
+</details>
+
+<!-- ============================================================
+     TABLEAU DES FORMES D’ENVELOPPE (R13)
+     ============================================================ -->
+<details style="margin-top:20px; background:#fff; padding:10px; border-radius:6px;">
+  <summary style="cursor:pointer; font-size:18px; font-weight:bold;">
+    Tableau des formes d’enveloppe (R13)
+  </summary>
+
+  <table border="1" cellpadding="6" cellspacing="0" style="margin-top:15px; background:white;">
+    <tbody>
+
+      <tr>
+        <th colspan="5" bgcolor="#31c6c6" width="50%">R13 Bits</th>
+        <th rowspan="3" bgcolor="#31c6c6" width="50%">
+          GRAPHICAL REPRESENTATION OF ENVELOPE GENERATOR OUTPUT (E3 E2 E1 E0)
+        </th>
+      </tr>
+
+      <tr>
+        <th bgcolor="#31c6c6">B3</th>
+        <th bgcolor="#31c6c6">B2</th>
+        <th bgcolor="#31c6c6">B1</th>
+        <th bgcolor="#31c6c6">B0</th>
+        <th bgcolor="#31c6c6" rowspan="2">Decimal<br>representation</th>
+      </tr>
+
+      <tr>
+        <th bgcolor="#31c6c6">Continue</th>
+        <th bgcolor="#31c6c6">Attack</th>
+        <th bgcolor="#31c6c6">Alternate</th>
+        <th bgcolor="#31c6c6">Hold</th>
+      </tr>
+
+      <tr>
+        <td align="center">0</td><td align="center">0</td>
+        <td bgcolor="gray" align="center">x</td><td bgcolor="gray" align="center">x</td>
+        <td align="center">0,1,2,3</td>
+        <td><img src="graphics/env01.gif" alt="[Envelope shape 00xx]"></td>
+      </tr>
+
+      <tr>
+        <td align="center">0</td><td align="center">1</td>
+        <td bgcolor="gray" align="center">x</td><td bgcolor="gray" align="center">x</td>
+        <td align="center">4,5,6,7</td>
+        <td><img src="graphics/env02.gif" alt="[Envelope shape 01xx]"></td>
+      </tr>
+
+      <tr>
+        <td align="center">1</td><td align="center">0</td>
+        <td align="center">0</td><td align="center">0</td>
+        <td align="center">8</td>
+        <td><img src="graphics/env03.gif" alt="[Envelope shape 1000]"></td>
+      </tr>
+
+      <tr>
+        <td align="center">1</td><td align="center">0</td>
+        <td align="center">0</td><td align="center">1</td>
+        <td align="center">9</td>
+        <td><img src="graphics/env04.gif" alt="[Envelope shape 1001]"></td>
+      </tr>
+
+      <tr>
+        <td align="center">1</td><td align="center">0</td>
+        <td align="center">1</td><td align="center">0</td>
+        <td align="center">10</td>
+        <td><img src="graphics/env05.gif" alt="[Envelope shape 1010]"></td>
+      </tr>
+
+      <tr>
+        <td align="center">1</td><td align="center">0</td>
+        <td align="center">1</td><td align="center">1</td>
+        <td align="center">11</td>
+        <td><img src="graphics/env06.gif" alt="[Envelope shape 1011]"></td>
+      </tr>
+
+      <tr>
+        <td align="center">1</td><td align="center">1</td>
+        <td align="center">0</td><td align="center">0</td>
+        <td align="center">12</td>
+        <td><img src="graphics/env07.gif" alt="[Envelope shape 1100]"></td>
+      </tr>
+
+      <tr>
+        <td align="center">1</td><td align="center">1</td>
+        <td align="center">0</td><td align="center">1</td>
+        <td align="center">13</td>
+        <td><img src="graphics/env08.gif" alt="[Envelope shape 1101]"></td>
+      </tr>
+
+      <tr>
+        <td align="center">1</td><td align="center">1</td>
+        <td align="center">1</td><td align="center">0</td>
+        <td align="center">14</td>
+        <td><img src="graphics/env09.gif" alt="[Envelope shape 1110]"></td>
+      </tr>
+
+      <tr>
+        <td align="center">1</td><td align="center">1</td>
+        <td align="center">1</td><td align="center">1</td>
+        <td align="center">15</td>
+        <td><img src="graphics/env10.gif" alt="[Envelope shape 1111]"></td>
+      </tr>
+
+      <tr>
+        <td colspan="5"></td>
+        <td>
+          <img src="graphics/ep.gif" alt="[Envelope Period Note]">
+          EP = R12 × 256 + R11 (durée d’un cycle d’enveloppe)
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+</details>
+
+  <img src="graphics/ay_internal.png" alt="[AY-3-8910 internal]">
+  
+
+
+<!-- ============================================================
+     EXPLICATION DE LA COMPRESSION DELTA + BITMASK
+     ============================================================ -->
+<details style="margin-top:20px; background:#fff; padding:10px; border-radius:6px;">
+  <summary style="cursor:pointer; font-size:18px; font-weight:bold;">
+    Explication de la compression Delta + Bitmask (avec exemple réel)
+  </summary>
+
+  <h2>Méthode Delta + Bitmask</h2>
+
+  <p>
+    La compression Delta consiste à stocker :
+  </p>
+
+  <ul>
+    <li><b>Frame 0</b> : les 14 registres bruts (aucune compression)</li>
+    <li><b>Frame N</b> : uniquement les registres qui ont changé</li>
+  </ul>
+
+  <p>
+    Pour chaque frame compressée, on stocke :
+  </p>
+
+  <pre>
+bitmask_low   (1 octet)  → registres R0 à R7
+bitmask_high  (1 octet)  → registres R8 à R13
+valeurs modifiées (0 à 14 octets)
+  </pre>
+
+  <p>
+    Un bit = 1 → le registre a changé  
+    Un bit = 0 → le registre reste identique
+  </p>
+
+  <hr>
+
+  <h2>Exemple avec 3 frames</h2>
+
+  <h3>Frame 0 (stockée brute)</h3>
+  <pre>
+3B 00 00 00 00 00 00 FF 00 00 00 80 01 FF
+  </pre>
+
+  <hr>
+
+  <h3>Frame 1</h3>
+
+  <p><b>Frame originale :</b></p>
+  <pre>
+7F 00 FD 02 00 00 00 F8 0F 0F 00 80 01 FF
+  </pre>
+
+  <p><b>Comparaison avec Frame 0 :</b></p>
+  <pre>
+Changements sur : R0, R2, R3, R7, R8, R9
+  </pre>
+
+  <p><b>Bitmask généré :</b></p>
+  <pre>
+bitmask_low  = 10001101b = 0x8D
+bitmask_high = 00000011b = 0x03
+  </pre>
+
+  <p><b>Valeurs modifiées :</b></p>
+  <pre>
+7F FD 02 F8 0F 0F
+  </pre>
+
+  <p><b>Frame 1 compressée :</b></p>
+  <pre>
+8D 03 7F FD 02 F8 0F 0F
+  </pre>
+
+  <hr>
+
+  <h3>Frame 2</h3>
+
+  <p><b>Frame originale :</b></p>
+  <pre>
+A1 00 FE 02 C0 00 00 F8 0F 0F 0F 80 01 FF
+  </pre>
+
+  <p><b>Comparaison avec Frame 1 :</b></p>
+  <pre>
+Changements sur : R0, R2, R4, R10
+  </pre>
+
+  <p><b>Bitmask généré :</b></p>
+  <pre>
+bitmask_low  = 00010101b = 0x15
+bitmask_high = 00000100b = 0x04
+  </pre>
+
+  <p><b>Valeurs modifiées :</b></p>
+  <pre>
+A1 FE C0 0F
+  </pre>
+
+  <p><b>Frame 2 compressée :</b></p>
+  <pre>
+15 04 A1 FE C0 0F
+  </pre>
+
+  <hr>
+
+  <h2>Résumé</h2>
+
+  <p>
+    Au lieu de stocker 3 × 14 = <b>42 octets</b>,  
+    la compression Delta produit :
+  </p>
+
+  <pre>
+Frame 0 : 14 octets
+Frame 1 : 8 octets
+Frame 2 : 6 octets
+Total   : 28 octets
+  </pre>
+
+  <p>
+    → <b>Gain : 33% d’espace économisé</b> sur cet exemple simple  
+    → Sur une musique complète, le gain est souvent entre <b>×4 et ×10</b>
+  </p>
+
+</details>
+
+
+</body>
+</html>

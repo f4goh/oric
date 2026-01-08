@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Lecteur AY - Séquence brute 14 registres</title>
+
+  <script src="ayumi.js"></script>
+  <script src="player_raw.js"></script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f4f4f4;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+    #debug {
+      margin-top: 20px;
+      padding: 10px;
+      background: #222;
+      color: #0f0;
+      font-family: monospace;
+      white-space: pre;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Lecteur AY – Séquence brute (14 registres / frame)</h1>
+
+  <button onclick="selectFile()">Charger séquence brute</button>
+  <input type="file" id="fileInput" accept="*/*" style="display:none" onchange="loadRaw(event)">
+
+  <button onclick="startAudio()">Lecture</button>
+  <button onclick="pauseAudio()">Pause</button>
+
+  <div id="debug">Debugger en attente…</div>
+
+</body>
+</html>

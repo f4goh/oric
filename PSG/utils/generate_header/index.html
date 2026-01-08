@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Convertisseur FYM → Header .h</title>
+
+  <!-- Librairies nécessaires -->
+  <script src="pako_inflate.min.js"></script>
+  <script src="convert_fym.js"></script>
+
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    #log { white-space: pre; background: #eee; padding: 10px; margin-top: 20px; }
+    .links { margin-top: 30px; }
+    .links a { display: block; margin-bottom: 5px; }
+  </style>
+</head>
+
+<body>
+
+  <h1>Convertisseur FYM → .h</h1>
+
+  <button onclick="selectFile()">Choisir un fichier FYM</button>
+  <input type="file" id="fileInput" accept=".fym" style="display:none" onchange="loadFYM(event)">
+
+  <div id="log">En attente d’un fichier FYM…</div>
+
+  <div class="links">
+    <h2>Liens utiles</h2>
+    <a href="https://github.com/eqy/ymduino" target="_blank">Projet YMduino sur GitHub</a>
+    <a href="https://diyelectromusic.com/2025/07/05/arduino-and-ay-3-8910/" target="_blank">
+      Article : Arduino et AY-3-8910
+    </a>
+    <a href="https://www.lynn3686.com/ym3456_tidy.html" target="_blank">
+      Article : YM format
+    </a>
+
+  </div>
+
+</body>
+</html>
