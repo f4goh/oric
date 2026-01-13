@@ -1,0 +1,105 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.toolbar {
+    background-color: #e0e0e0;
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.spacer { flex-grow: 1; }
+
+.status-label {
+    margin-left: 10px;
+    font-weight: bold;
+    min-width: 80px;
+}
+
+.content-area {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+}
+
+.sidebar {
+    width: 140px;
+    background-color: #dcdcdc;
+    padding: 10px;
+    border-right: 1px solid #999;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.canvas-wrapper {
+    flex: 1;
+    background-color: #808080;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
+}
+
+canvas {
+    background-color: #000;
+    width: 720px; 
+    height: 600px;
+    image-rendering: pixelated; /* Crucial pour la netteté rétro */
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    cursor: crosshair;
+}
+
+button { padding: 5px 10px; cursor: pointer; }
+.btn-wide { width: 100%; margin-bottom: 2px; }
+select { width: 100%; padding: 4px; }
+
+.color-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4px;
+}
+
+.color-btn {
+    height: 32px;
+    border: 1px solid #000;
+}
+
+.checkbox-label { display: block; margin-top: 5px; }
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.form-row { margin-bottom: 10px; display: flex; justify-content: space-between; }
+.modal-buttons { text-align: right; margin-top: 20px; }

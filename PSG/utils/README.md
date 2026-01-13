@@ -10,6 +10,7 @@
 
 ## ORIC [lecteur_compresse](https://f4goh.github.io/oric/PSG/utils/lecteur_compresse) 
 
+## ORIC [lecteur_compresseV2](https://f4goh.github.io/oric/PSG/utils/lecteur_compresseV2) 
 
 # Tableau des registres
 

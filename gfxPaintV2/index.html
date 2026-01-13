@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oric GFX Editor (Web)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="main-container">
+    <div class="toolbar top-bar">
+        <button id="btnClear">Clear Screen</button>
+        <span id="labelXY" class="status-label">X: 0, Y: 0</span>
+        <div class="spacer"></div>
+        <button id="btnExport">Export ASM</button>
+        <button id="btnLoadPng">Load PNG</button>
+        <button id="btnSavePng">Save PNG</button>
+        <button id="btnLoadBin">Load BIN</button>
+        <label><input type="checkbox" id="checkHeader"> Header</label>
+        <button id="btnSaveTap">Save BIN</button>
+        <button id="btnAbout">About</button>
+    </div>
+
+    <div class="content-area">
+        <div class="sidebar">
+            <div class="group-attrib">
+                <button id="btnNoIp" class="btn-wide">NOIP</button>
+                <button id="btnPaper" class="btn-wide">PAPER</button>
+                <button id="btnInk" class="btn-wide">INK</button>
+            </div>
+
+            <select id="comboPaintSelect">
+                <option value="0">SHOW PIXELS</option>
+                <option value="1">SHOW ATTRIBUTES</option>
+                <option value="2">SHOW PIXELS/ATTRIBUTES</option>
+            </select>
+
+            <select id="comboSelect" disabled>
+                <option value="0">SELECT PIXELS</option>
+                <option value="1">SELECT ATTRIBUTES</option>
+            </select>
+
+            <select id="comboEven">
+                <option value="0">ALL LINES</option>
+                <option value="1">EVEN LINES</option>
+                <option value="2">ODD LINES</option>
+            </select>
+
+            <label class="checkbox-label"><input type="checkbox" id="checkInvert"> Invert</label>
+
+            <div class="color-grid">
+                <button class="color-btn" data-code="0" style="background:rgb(0,0,0)"></button>
+                <button class="color-btn" data-code="1" style="background:rgb(255,0,0)"></button>
+                <button class="color-btn" data-code="2" style="background:rgb(0,255,0)"></button>
+                <button class="color-btn" data-code="3" style="background:rgb(255,255,0)"></button>
+                <button class="color-btn" data-code="4" style="background:rgb(0,0,255)"></button>
+                <button class="color-btn" data-code="5" style="background:rgb(255,0,255)"></button>
+                <button class="color-btn" data-code="6" style="background:rgb(0,255,255)"></button>
+                <button class="color-btn" data-code="7" style="background:rgb(255,255,255)"></button>
+            </div>
+            
+            </div>
+
+        <div class="canvas-wrapper">
+            <canvas id="oricCanvas" width="240" height="200"></canvas>
+        </div>
+    </div>
+</div>
+
+<input type="file" id="fileInputPng" accept=".png" style="display:none">
+<input type="file" id="fileInputBin" accept=".bin,.tap" style="display:none">
+
+<div id="exportModal" class="modal">
+    <div class="modal-content">
+        <h3>Export ASM</h3>
+        <div class="form-row"><label>Start X (byte 0-39):</label><input type="number" id="expX" value="0" min="0" max="39"></div>
+        <div class="form-row"><label>Start Y (line 0-199):</label><input type="number" id="expY" value="0" min="0" max="199"></div>
+        <div class="form-row"><label>Width W (bytes):</label><input type="number" id="expW" value="40" min="1" max="40"></div>
+        <div class="form-row"><label>Height H (lines):</label><input type="number" id="expH" value="200" min="1" max="200"></div>
+        <div class="modal-buttons">
+            <button id="btnExpOk">OK</button>
+            <button id="btnExpCancel">Annuler</button>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
