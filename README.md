@@ -4,9 +4,9 @@
 
 ## ORIC text [simulator](https://f4goh.github.io/oric/simulateurOric/) 
 
-## ORIC [gfxPaint](https://f4goh.github.io/oric/gfxPaintV1) 
+## ORIC [gfxPaintV1](https://f4goh.github.io/oric/gfxPaintV1) 
 
-## ORIC [gfxPaint](https://f4goh.github.io/oric/gfxPaintV2) 
+## ORIC [gfxPaintV2](https://f4goh.github.io/oric/gfxPaintV2) 
 
 
 ![GFXPAINT](gfxPaint/gfxPaint.png)
