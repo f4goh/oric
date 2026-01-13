@@ -4,12 +4,11 @@
 
 ## ORIC text [simulator](https://f4goh.github.io/oric/simulateurOric/) 
 
-## ORIC [gfxPaintV1](https://f4goh.github.io/oric/gfxPaintV1) 
-
 ## ORIC [gfxPaintV2](https://f4goh.github.io/oric/gfxPaintV2) 
 
-
 ![GFXPAINTV2](gfxPaintV2/gfxPaint.png)
+
+## ORIC [gfxPaintV1](https://f4goh.github.io/oric/gfxPaintV1) 
 
 ![GFXPAINTV1](gfxPaintV1/gfxPaint.png)
 
