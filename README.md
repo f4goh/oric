@@ -9,7 +9,9 @@
 ## ORIC [gfxPaintV2](https://f4goh.github.io/oric/gfxPaintV2) 
 
 
-![GFXPAINT](gfxPaint/gfxPaint.png)
+![GFXPAINTV2](gfxPaintV2/gfxPaint.png)
+
+![GFXPAINTV1](gfxPaintV1/gfxPaint.png)
 
 ## Oric hardware
 
