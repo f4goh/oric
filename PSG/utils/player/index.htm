@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AYM·JS Player</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="player.js"></script>
+</head>
+<body>
+  <header>
+    <h1>AYM·JS</h1>
+    <p>A sound chip emulator in JavaScript</p>
+  </header>
+
+  <main>
+    <section id="aymPlayer">
+      <fieldset id="aymPlaybackControls">
+        <legend>Playback</legend>
+
+        <div class="row">
+          <p id="aymDisplay">AYM·Player</p>
+        </div>
+
+        <div class="row">
+          <button id="aymPlay" disabled>Play</button>
+          <button id="aymStop" disabled>Stop</button>
+          <button id="aymPrev" disabled>Prev</button>
+          <button id="aymNext" disabled>Next</button>
+        </div>
+
+        <div class="row">
+          <label for="aymSeek">Seek</label>
+          <input id="aymSeek" type="range" disabled min="0" max="1000" value="0">
+        </div>
+      </fieldset>
+
+      <fieldset id="aymOutputControls">
+        <legend>Output</legend>
+
+        <div class="row">
+          <label for="aymGain">Gain</label>
+          <input id="aymGain" type="range" disabled min="0" max="1000" value="500">
+        </div>
+
+        <div class="row">
+          <button id="aymChip0" disabled>Chip #0</button>
+          <button id="aymMuteA" disabled>Mute A</button>
+          <button id="aymMuteB" disabled>Mute B</button>
+          <button id="aymMuteC" disabled>Mute C</button>
+        </div>
+      </fieldset>
+
+      <fieldset id="aymEmulationControls">
+        <legend>Emulation</legend>
+
+        <div class="row">
+          <button id="aymPower">Power</button>
+          <button id="aymReset" disabled>Reset</button>
+          <button id="aymPause" disabled>Pause</button>
+        </div>
+      </fieldset>
+
+      <fieldset id="aymAnalyserControls">
+        <legend>Spectrum analysis</legend>
+
+        <div class="row">
+          <label for="aymAnalyse">
+            <input id="aymAnalyse" type="checkbox" disabled> Enable
+          </label>
+        </div>
+
+        <div class="row">
+          <canvas id="aymCanvas" width="640" height="200"></canvas>
+        </div>
+      </fieldset>
+    </section>
+  </main>
+</body>
+</html>

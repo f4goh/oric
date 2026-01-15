@@ -12,6 +12,11 @@
 
 ## ORIC [lecteur_compresseV2](https://f4goh.github.io/oric/PSG/utils/lecteur_compresseV2) 
 
+## ORIC [player](https://f4goh.github.io/oric/PSG/utils/player) 
+
+## ORIC [clavier midi avec google chrome](https://aym-js.emaxilde.net/synth/) 
+
+
 # Tableau des registres
 
 | Register \ bit | Description                       | B7 | B6 | B5 | B4 | B3 | B2 | B1 | B0 |
