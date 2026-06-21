@@ -26,6 +26,8 @@ The emulator is built around a Raspberry Pi Pico (RP2040) and provides:
 
 The NES gamepad proved to be an excellent choice. It is comfortable to use with both hands and requires only three signal wires, making integration simple and efficient.
 
+![nes](images/nes.png)
+
 ## Game Loading System
 
 Games are stored on the microSD card using two files per title:
