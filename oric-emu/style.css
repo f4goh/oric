@@ -1,0 +1,170 @@
+
+body {
+    font-family: system-ui, Arial, sans-serif;
+    background: #f4f6fb;
+    margin: 0;
+    padding: 20px;
+    color: #1f2a37; /* texte plus foncé */
+    font-size: 15px;
+}
+
+/* =========================
+   TITRE
+========================= */
+
+h1 {
+    text-align: center;
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #111827; /* très lisible */
+}
+
+/* =========================
+   TOP BAR
+========================= */
+
+.topbar {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+.topbar .group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.topbar label {
+    font-size: 16px;
+    font-weight: 600;
+    color: #111827;
+}
+
+.topbar input {
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 1px solid #cfd6e4;
+    background: #fff;
+    min-width: 220px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 500;
+    color: #111827;
+}
+
+/* =========================
+   LAYOUT
+========================= */
+
+.controller {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+/* =========================
+   PANELS
+========================= */
+
+.panel {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 18px 20px;
+    min-width: 280px;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.05);
+}
+
+.panel h2 {
+    text-align: center;
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 14px;
+    color: #1f2937;
+}
+
+/* =========================
+   ROWS
+========================= */
+
+.panel div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+}
+
+label {
+    width: 110px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #374151;
+}
+
+/* =========================
+   SELECTS
+========================= */
+
+select {
+    width: 150px;
+    padding: 7px 10px;
+    border-radius: 10px;
+    border: 1px solid #d1d5db;
+    background: #fff;
+    color: #111827;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.15s;
+}
+
+select:hover {
+    border-color: #94a3b8;
+}
+
+select:focus {
+    outline: none;
+    border-color: #5b8cff;
+    box-shadow: 0 0 0 3px rgba(91,140,255,0.2);
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+button {
+    display: block;
+    margin: 28px auto;
+    padding: 12px 28px;
+    font-size: 16px;
+    font-weight: 700;
+    border: none;
+    border-radius: 12px;
+    background: #5b8cff;
+    color: white;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #4a7dff;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* =========================
+   PETITS ACCENTS VISUELS
+========================= */
+
+.panel:first-child {
+    border-top: 4px solid #5b8cff;
+}
+
+.panel:last-child {
+    border-top: 4px solid #ff6b9a;
+}

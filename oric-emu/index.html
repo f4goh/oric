@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>NES → ORIC-EMU Mapper</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>NES → ORIC-EMU Mapper</h1>
+
+<div class="topbar">
+    <div class="group">
+        <label>Nom du fichier :</label>
+        <input id="filename" value="mush">
+    </div>
+</div>
+
+<div class="controller">
+
+    <div class="panel">
+        <h2>Direction</h2>
+
+        <div class="row">
+            <label>↑ Haut</label>
+            <select id="btn8"></select>
+        </div>
+
+        <div class="row">
+            <label>↓ Bas</label>
+            <select id="btn4"></select>
+        </div>
+
+        <div class="row">
+            <label>← Gauche</label>
+            <select id="btn2"></select>
+        </div>
+
+        <div class="row">
+            <label>→ Droite</label>
+            <select id="btn1"></select>
+        </div>
+    </div>
+
+    <div class="panel">
+        <h2>Boutons</h2>
+
+        <div class="row">
+            <label>A</label>
+            <select id="btn128"></select>
+        </div>
+
+        <div class="row">
+            <label>B</label>
+            <select id="btn64"></select>
+        </div>
+
+        <div class="row">
+            <label>START</label>
+            <select id="btn16"></select>
+        </div>
+
+        <div class="row">
+            <label>SELECT</label>
+            <select id="btn32"></select>
+        </div>
+    </div>
+
+</div>
+
+<button id="generateBtn">Générer CSV</button>
+
+<script src="app.js"></script>
+
+</body>
+</html>
