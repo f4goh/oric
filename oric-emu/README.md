@@ -28,6 +28,11 @@ The NES gamepad proved to be an excellent choice. It is comfortable to use with 
 
 ![nes](images/nes.png)
 
+## Programming a UF2 File
+
+To program a Raspberry Pi Pico with a UF2 file, press and hold the **BOOTSEL** button while connecting the Pico to your computer with a USB cable. A new USB drive named **RPI-RP2** will appear. Simply drag and drop the **.uf2** file onto this drive. The file will be copied automatically, and the Pico will reboot and start running the new program.
+
+
 ## Game Loading System
 
 Games are stored on the microSD card using two files per title:
@@ -159,4 +164,15 @@ The project demonstrates that a modern RP2040 microcontroller is powerful enough
 | Divers | 1 | J10 | PADS |
 | Divers | 4 | PT1-PT4 | ENTRETOISE |
 
+# pico56 board
+
+There is also a firmware compatible with [pico56 board](https://github.com/visrealm/pico-56)
+but with some change
+
+- No external ORIC keyboard
+- No Serial TRX
+- No I2C Bus
+
+
+![pico56](images/pico56.png)
 
