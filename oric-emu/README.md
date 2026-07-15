@@ -189,7 +189,7 @@ but with some change
 
 - No external ORIC keyboard
 - No Serial TRX
-- No I2C Bus
+- No I²C Bus
 
 
 ![pico56](images/pico56.png)
