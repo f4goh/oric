@@ -112,6 +112,7 @@ The emulator already provides:
 * BMP screen capture
 * I²C bus support
 * CSAVE functionality
+* LLIST and LPRINT to serial output at 115200 bauds
 
 Future work will mainly focus on improving compatibility with a few remaining games and expanding the monitor with dedicated I²C management commands.
 
@@ -140,7 +141,7 @@ The project demonstrates that a modern RP2040 microcontroller is powerful enough
 
 - F1 NMI
 - F2 RESET
-- F3 enter monitor
+- F3 Enter monitor
 
 Several development and debugging tools are integrated directly into the emulator:
 
