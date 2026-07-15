@@ -17,10 +17,11 @@ The emulator is built around a Raspberry Pi Pico (RP2040) and provides:
 * VGA video output
 * PS/2 keyboard support
 * microSD card storage
-* NES controller support
+* NES controller support with online web configuration
 * I²C bus connectivity
+* ACIA 6551 on Serial TX/TX Bus
 * Audio output generated entirely in software
-* Real Atmos keyboard
+* Real Atmos keyboard connector
 
 ![clavier](images/clavier.jpg)
 
@@ -134,6 +135,22 @@ The project demonstrates that a modern RP2040 microcontroller is powerful enough
 ![sch](schematics/oric_emu.png)
 
 ![board](images/oric-emu-board.png)
+
+## Built-in Development and Debugging Tools
+
+- F1 NMI
+- F2 RESET
+- F3 enter monitor
+
+Several development and debugging tools are integrated directly into the emulator:
+
+- **Memory Dump**: `M <addr>`
+- **6502 Disassembler**: `D <addr>`
+- **Save Memory Block to microSD Card**: `FW <addr> <len> <file>`
+- **Snapshot Save/Load**:
+  - Save: `SNS <file>`
+  - Load: `SNL <file>`
+- **Export Screenshot as BMP Image**: `BMP <file>`
 
 ## BOM
 
