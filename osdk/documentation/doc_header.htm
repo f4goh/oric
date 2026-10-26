@@ -1,0 +1,140 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+
+<HTML lang=fr dir=ltr>
+	<HEAD>
+		<meta name="robots" content="noindex">
+		<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
+		<title>OSDK - Header</title>
+		<link href="documentation.css" rel="stylesheet" type="text/css">
+	</HEAD>
+
+	<BODY>
+
+<hr>
+<A href="documentation.htm"><img src="arrow_back.gif"></A>
+<img src="pics/osdk_logo_small.png">
+<hr>
+
+		<h1>Header</h1>
+
+<p id=chapter>Description</p>
+
+<p>Add a header to a raw binary file in order to make it loadable by an Oric 
+using the CLOAD command. 
+This operation is necessary because the result of the compilation process is
+a raw binary file without any loading information.
+</p>
+
+<p id=chapter>Utilisation</p>
+
+<p>To add or remove a header on a tape file:
+</p>
+<pre>
+	%OSDK%\bin\Header [switches] source_file destination_file load_adress
+</pre>
+
+<p>Please note that for the load adress, hexadecimal adresses should be 
+prefixed by a $ symbol.
+</p>
+
+<p id=chapter>Switches</p>
+
+<p>The -a switch control the autorun flag:
+</p>
+<pre>
+-a0 => program simply load and stop
+-a1 => program automaticaly executes after loading
+</pre>
+
+<p>The -h switch controls fact that the header is present or removed
+</p>
+<pre>
+-h0 => Remove the header
+-h1 => Output a file with a header
+</pre>
+
+<p>The -s switch controls the display of file size information. 
+This switch is particularly interesting for people coding size limited programs, like roms, minigames or 256 bytes demos.
+</p>
+<pre>
+-s0 => No size information is displayed
+-s1 => Display size informations in the output
+</pre>
+<p>To enable this feature in your own programs, just modify your OSDK_CONFIG.BAT file, and add the following:
+</p>
+
+<p>The -b switch sets the value exposed in the tape header to indicate whether the file is a BASIC or binary program.
+This switch is particularly important if you are planning to convert a BASIC tape program to a text file, in which case you need to pass -b0
+</p>
+<pre>
+-b0 => Expose 00 (BASIC) in the header
+-b1 => Expose 80 (Binary) in the header
+</pre>
+
+<p>The -3 and -4 switches control how many times the sync byte $16 is written in the tape header:
+</p>
+<pre>
+-3 => Write $16 three times in the tape header
+-4 => Write $16 four times in the tape header [default]
+</pre>
+
+<p>The -n switch specifies the filename to embed in the internal tape header:
+</p>
+<pre>
+-nMYFILE => Write MYFILE as the filename in the tape header
+</pre>
+
+<p>Any of the above parameters can be passed to the Header tool automatically during the OSDK build process by setting the <b>OSDKHEAD</b> variable in your OSDK configuration file:
+</p>
+<pre>
+	SET OSDKHEAD=-S1
+</pre>
+
+
+
+<p id=chapter>Historic</p>
+
+<p>Here is the list of all releases with a short description of things that changed:
+</p>
+
+<p id=dateentry>Version 1.2</p>
+<ul>
+<li>Added the -3 and -4 flag to specify if the tape header should have 3 or 4 times the value $16</li>
+<li>Added a -nName option to specify the filename to write in the internal tape header</li>
+</ul>
+
+<p id=dateentry>Version 1.1</p>
+<ul>
+<li>If the source file starts by SEDORIC then the 12 first bytes are automatically ignored when the tape is converted</li>
+</ul>
+
+<p id=dateentry>Version 1.0</p>
+<ul>
+<li>Added the flag -b to specify if the converted file should expose 00 (BASIC) or 80 (Binary) in the header</li>
+</ul>
+
+<p id=dateentry>Version 0.2</p>
+<ul>
+<li>The address can now be specified with either $ or 0x as an hexadecimal prefix</li>
+</ul>
+
+<p id=dateentry>Version 0.1</p>
+<ul>
+<li>Added s0/s1 mode to display file size information. Very usefull when you want to know the size of your game in a size compo...</li>
+</ul>
+
+<p id=dateentry>Non numbered version</p>
+<ul>
+<li>First released version had no version number</li>
+</ul>
+
+
+<hr>
+<A href="documentation.htm"><img src="arrow_back.gif"></A>
+<img src="pics/osdk_logo_small.png">
+<hr>
+
+	</BODY>
+</HTML>
+
+

@@ -1,0 +1,728 @@
+#SYM V2
+0050 zp_compiler_save_start /home/ale/osdk/lib/header.s:11
+0050 ap zp_crt.inc:7
+0052 fp zp_crt.inc:8
+0054 sp zp_crt.inc:9
+0056 tmp0 zp_crt.inc:11
+0058 tmp1 zp_crt.inc:12
+005a tmp2 zp_crt.inc:13
+005c tmp3 zp_crt.inc:14
+005e tmp4 zp_crt.inc:15
+0060 tmp5 zp_crt.inc:16
+0062 tmp6 zp_crt.inc:17
+0064 tmp7 zp_crt.inc:18
+0066 op1 zp_crt.inc:20
+0068 op2 zp_crt.inc:21
+006a tmp zp_crt.inc:23
+006c reg0 zp_crt.inc:25
+006e reg1 zp_crt.inc:26
+0070 reg2 zp_crt.inc:27
+0072 reg3 zp_crt.inc:28
+0074 reg4 zp_crt.inc:29
+0076 reg5 zp_crt.inc:30
+0078 reg6 zp_crt.inc:31
+007a reg7 zp_crt.inc:32
+007c zp_compiler_save_end /home/ale/osdk/lib/header.s:13
+0800 osdk_start /home/ale/osdk/lib/header.s:18
+0d00 osdk_stack /home/ale/osdk/lib/tail.s:17
+0811 exitldx /home/ale/osdk/lib/header.s:91
+0ca4 _main /home/ale/osdk/TMP/main:562
+0811 _exit /home/ale/osdk/lib/header.s:90
+0815 _hires /home/ale/osdk/lib/grsimple.s:8
+0818 _text /home/ale/osdk/lib/grsimple.s:9
+081b _ping /home/ale/osdk/lib/grsimple.s:10
+081e _shoot /home/ale/osdk/lib/grsimple.s:11
+0821 _zap /home/ale/osdk/lib/grsimple.s:12
+0824 _explode /home/ale/osdk/lib/grsimple.s:13
+0827 _kbdclick1 /home/ale/osdk/lib/grsimple.s:14
+082a _kbdclick2 /home/ale/osdk/lib/grsimple.s:15
+082d _cls /home/ale/osdk/lib/grsimple.s:16
+0830 _lores0 /home/ale/osdk/lib/grsimple.s:17
+0833 _lores1 /home/ale/osdk/lib/grsimple.s:18
+0836 _key /home/ale/osdk/lib/grsimple.s:21
+083e key001 /home/ale/osdk/lib/grsimple.s:25
+086a grexit2 /home/ale/osdk/lib/ggeneral.s:25
+0843 _get /home/ale/osdk/lib/grsimple.s:30
+084b getXparm /home/ale/osdk/lib/ggeneral.s:4
+0854 getXloop /home/ale/osdk/lib/ggeneral.s:9
+0867 grexit /home/ale/osdk/lib/ggeneral.s:23
+086e _curset /home/ale/osdk/lib/graphics.s:3
+0879 _curmov /home/ale/osdk/lib/graphics.s:10
+0884 _draw /home/ale/osdk/lib/graphics.s:16
+088f _hchar /home/ale/osdk/lib/graphics.s:22
+089a _fill /home/ale/osdk/lib/graphics.s:28
+08a5 _paper /home/ale/osdk/lib/graphics.s:34
+08b0 _ink /home/ale/osdk/lib/graphics.s:40
+08bb _circle /home/ale/osdk/lib/graphics.s:46
+08c6 _point /home/ale/osdk/lib/graphics.s:52
+08d4 _pattern /home/ale/osdk/lib/graphics.s:59
+08df enter /home/ale/osdk/lib/frame.s:20
+08f1 noregstosave /home/ale/osdk/lib/frame.s:36
+08e9 savereg /home/ale/osdk/lib/frame.s:29
+092e leave /home/ale/osdk/lib/frame.s:85
+094e noregstorestore /home/ale/osdk/lib/frame.s:111
+0946 restorereg /home/ale/osdk/lib/frame.s:104
+096b _draw_rectangle /home/ale/osdk/TMP/main:3
+0b27 _draw_rectangles /home/ale/osdk/TMP/main:288
+0be2 Lmain134 /home/ale/osdk/TMP/main:421
+0b45 Lmain131 /home/ale/osdk/TMP/main:310
+0bd8 Lmain132 /home/ale/osdk/TMP/main:412
+0bef skip /home/ale/osdk/TMP/main:431
+0bf2 _draw_circles /home/ale/osdk/TMP/main:435
+0c94 Lmain138 /home/ale/osdk/TMP/main:548
+0c0c Lmain135 /home/ale/osdk/TMP/main:454
+0c8a Lmain136 /home/ale/osdk/TMP/main:539
+0ca1 skip /home/ale/osdk/TMP/main:558
+0e00 osdk_end /home/ale/osdk/lib/tail.s:22
+0800 __text_start /home/ale/osdk/lib/tail.s:32
+0cb4 __text_end /home/ale/osdk/lib/tail.s:32
+04b4 __text_size /home/ale/osdk/lib/tail.s:32
+0cb4 __data_start /home/ale/osdk/lib/tail.s:32
+0cb4 __data_end /home/ale/osdk/lib/tail.s:32
+0000 __data_size /home/ale/osdk/lib/tail.s:32
+0d00 __bss_start /home/ale/osdk/lib/tail.s:32
+0e00 __bss_end /home/ale/osdk/lib/tail.s:32
+0100 __bss_size /home/ale/osdk/lib/tail.s:32
+0d00 __bss_clear_start /home/ale/osdk/lib/tail.s:32
+0e00 __bss_clear_end /home/ale/osdk/lib/tail.s:32
+0100 __bss_clear_size /home/ale/osdk/lib/tail.s:32
+0004 __zero_start /home/ale/osdk/lib/tail.s:32
+0030 __zero_end /home/ale/osdk/lib/tail.s:32
+002c __zero_size /home/ale/osdk/lib/tail.s:32
+#FILES
+0 /home/ale/osdk/lib/header.s
+1 zp_crt.inc
+2 /home/ale/osdk/lib/grsimple.s
+3 /home/ale/osdk/lib/ggeneral.s
+4 /home/ale/osdk/lib/graphics.s
+5 /home/ale/osdk/lib/frame.s
+6 /home/ale/osdk/TMP/main
+7 /home/ale/osdk/lib/tail.s
+#LINES
+0004 0:9
+0050 1:7
+0052 1:8
+0054 1:9
+0056 1:11
+0058 1:12
+005a 1:13
+005c 1:14
+005e 1:15
+0060 1:16
+0062 1:17
+0064 1:18
+0066 1:20
+0068 1:21
+006a 1:23
+006c 1:25
+006e 1:26
+0070 1:27
+0072 1:28
+0074 1:29
+0076 1:30
+0078 1:31
+007a 1:32
+007c 0:16
+0800 0:80
+0801 0:81
+0803 0:82
+0805 0:83
+0807 0:84
+0809 0:85
+080b 0:86
+080e 0:88
+0811 0:92
+0813 0:93
+0814 0:94
+0815 2:8
+0818 2:9
+081b 2:10
+081e 2:11
+0821 2:12
+0824 2:13
+0827 2:14
+082a 2:15
+082d 2:16
+0830 2:17
+0833 2:18
+0836 2:22
+0839 2:23
+083b 2:24
+083e 2:26
+0840 2:27
+0843 2:31
+0846 2:32
+0848 2:33
+084b 3:5
+084d 3:6
+0850 3:7
+0852 3:8
+0854 3:10
+0856 3:11
+0859 3:12
+085a 3:13
+085b 3:14
+085d 3:15
+0860 3:16
+0861 3:17
+0862 3:18
+0864 3:19
+0866 3:20
+0867 3:24
+086a 3:26
+086b 3:27
+086d 3:28
+086e 4:5
+0870 4:6
+0873 4:7
+0876 4:8
+0879 4:11
+087b 4:12
+087e 4:13
+0881 4:14
+0884 4:17
+0886 4:18
+0889 4:19
+088c 4:20
+088f 4:23
+0891 4:24
+0894 4:25
+0897 4:26
+089a 4:29
+089c 4:30
+089f 4:31
+08a2 4:32
+08a5 4:35
+08a7 4:36
+08aa 4:37
+08ad 4:38
+08b0 4:41
+08b2 4:42
+08b5 4:43
+08b8 4:44
+08bb 4:47
+08bd 4:48
+08c0 4:49
+08c3 4:50
+08c6 4:53
+08c8 4:54
+08cb 4:55
+08ce 4:56
+08d1 4:57
+08d4 4:60
+08d6 4:61
+08d8 4:62
+08db 4:63
+08dc 4:64
+08df 5:21
+08e1 5:22
+08e3 5:25
+08e4 5:26
+08e6 5:27
+08e7 5:28
+08e9 5:30
+08eb 5:31
+08ed 5:32
+08ee 5:33
+08ef 5:34
+08f1 5:37
+08f3 5:40
+08f5 5:41
+08f7 5:42
+08f8 5:43
+08fa 5:44
+08fc 5:45
+08fd 5:48
+08ff 5:49
+0901 5:50
+0902 5:51
+0904 5:52
+0906 5:53
+0907 5:56
+0909 5:57
+090b 5:58
+090c 5:59
+090e 5:60
+0910 5:65
+0911 5:66
+0913 5:67
+0915 5:68
+0917 5:69
+0919 5:70
+091b 5:71
+091d 5:72
+091f 5:73
+0921 5:76
+0923 5:77
+0925 5:78
+0927 5:79
+0929 5:80
+092b 5:81
+092d 5:82
+092e 5:86
+0930 5:87
+0932 5:90
+0934 5:91
+0936 5:92
+0938 5:93
+093a 5:95
+093c 5:96
+093e 5:97
+093f 5:98
+0940 5:99
+0942 5:100
+0943 5:101
+0944 5:102
+0946 5:105
+0948 5:106
+094a 5:107
+094b 5:108
+094c 5:109
+094e 5:113
+0950 5:114
+0952 5:115
+0954 5:116
+0955 5:117
+0957 5:118
+0959 5:121
+095a 5:122
+095c 5:123
+095e 5:124
+095f 5:125
+0960 5:126
+0962 5:127
+0964 5:128
+0966 5:130
+0968 5:131
+096a 5:132
+096b 6:5
+096d 6:6
+096f 6:7
+0972 6:9
+0974 6:10
+0976 6:11
+0978 6:12
+0979 6:13
+097b 6:14
+097d 6:16
+097f 6:17
+0981 6:19
+0983 6:20
+0985 6:21
+0987 6:22
+0988 6:23
+098a 6:24
+098c 6:26
+098e 6:27
+0990 6:29
+0992 6:30
+0994 6:31
+0996 6:32
+0997 6:33
+0999 6:34
+099b 6:36
+099d 6:37
+099f 6:38
+09a1 6:40
+09a3 6:41
+09a5 6:42
+09a7 6:43
+09a8 6:44
+09aa 6:45
+09ac 6:47
+09ae 6:48
+09b0 6:49
+09b2 6:51
+09b4 6:52
+09b6 6:54
+09b8 6:55
+09ba 6:56
+09bc 6:57
+09be 6:59
+09c0 6:60
+09c2 6:61
+09c4 6:62
+09c5 6:63
+09c7 6:64
+09c9 6:66
+09cb 6:67
+09cd 6:69
+09cf 6:70
+09d1 6:71
+09d3 6:72
+09d5 6:74
+09d7 6:75
+09d9 6:76
+09db 6:77
+09dc 6:78
+09de 6:79
+09e0 6:81
+09e2 6:82
+09e4 6:83
+09e6 6:84
+09e7 6:85
+09e9 6:86
+09eb 6:88
+09ed 6:89
+09f0 6:91
+09f2 6:92
+09f4 6:93
+09f6 6:95
+09f8 6:96
+09fa 6:97
+09fc 6:98
+09fe 6:100
+0a00 6:101
+0a02 6:103
+0a04 6:104
+0a06 6:105
+0a08 6:106
+0a0a 6:108
+0a0b 6:109
+0a0d 6:110
+0a0f 6:111
+0a11 6:112
+0a13 6:113
+0a15 6:114
+0a17 6:116
+0a19 6:117
+0a1b 6:118
+0a1d 6:119
+0a1e 6:120
+0a20 6:121
+0a22 6:123
+0a24 6:124
+0a26 6:125
+0a28 6:126
+0a29 6:127
+0a2b 6:128
+0a2d 6:130
+0a2f 6:131
+0a31 6:132
+0a33 6:133
+0a34 6:134
+0a36 6:135
+0a38 6:137
+0a3a 6:138
+0a3d 6:140
+0a3f 6:141
+0a41 6:142
+0a43 6:143
+0a44 6:144
+0a46 6:145
+0a48 6:147
+0a4a 6:148
+0a4c 6:149
+0a4e 6:151
+0a50 6:152
+0a52 6:153
+0a54 6:154
+0a56 6:156
+0a58 6:157
+0a5a 6:159
+0a5c 6:160
+0a5e 6:161
+0a60 6:162
+0a62 6:164
+0a63 6:165
+0a65 6:166
+0a67 6:167
+0a69 6:168
+0a6b 6:169
+0a6d 6:170
+0a6f 6:172
+0a71 6:173
+0a73 6:174
+0a75 6:175
+0a76 6:176
+0a78 6:177
+0a7a 6:179
+0a7c 6:180
+0a7e 6:181
+0a80 6:182
+0a81 6:183
+0a83 6:184
+0a85 6:186
+0a87 6:187
+0a8a 6:189
+0a8c 6:190
+0a8e 6:192
+0a90 6:193
+0a92 6:194
+0a94 6:195
+0a96 6:197
+0a98 6:198
+0a9a 6:199
+0a9c 6:201
+0a9e 6:202
+0aa0 6:203
+0aa2 6:204
+0aa4 6:206
+0aa5 6:207
+0aa7 6:208
+0aa9 6:209
+0aab 6:210
+0aad 6:211
+0aaf 6:212
+0ab1 6:214
+0ab3 6:215
+0ab5 6:216
+0ab7 6:217
+0ab8 6:218
+0aba 6:219
+0abc 6:221
+0abe 6:222
+0ac0 6:223
+0ac2 6:224
+0ac3 6:225
+0ac5 6:226
+0ac7 6:228
+0ac9 6:229
+0acb 6:230
+0acd 6:231
+0ace 6:232
+0ad0 6:233
+0ad2 6:235
+0ad4 6:236
+0ad7 6:238
+0ad9 6:239
+0adb 6:240
+0add 6:241
+0ade 6:242
+0ae0 6:243
+0ae2 6:245
+0ae4 6:246
+0ae6 6:248
+0ae8 6:249
+0aea 6:250
+0aec 6:251
+0aee 6:253
+0af0 6:254
+0af2 6:255
+0af4 6:257
+0af6 6:258
+0af8 6:259
+0afa 6:260
+0afc 6:262
+0afd 6:263
+0aff 6:264
+0b01 6:265
+0b03 6:266
+0b05 6:267
+0b07 6:268
+0b09 6:270
+0b0b 6:271
+0b0d 6:272
+0b0f 6:273
+0b10 6:274
+0b12 6:275
+0b14 6:277
+0b16 6:278
+0b18 6:279
+0b1a 6:280
+0b1b 6:281
+0b1d 6:282
+0b1f 6:284
+0b21 6:285
+0b24 6:287
+0b27 6:290
+0b29 6:291
+0b2b 6:292
+0b2e 6:294
+0b30 6:295
+0b32 6:297
+0b34 6:298
+0b36 6:300
+0b38 6:301
+0b3a 6:303
+0b3c 6:304
+0b3e 6:306
+0b40 6:307
+0b42 6:309
+0b45 6:312
+0b47 6:313
+0b49 6:315
+0b4b 6:316
+0b4d 6:317
+0b4f 6:318
+0b51 6:320
+0b53 6:321
+0b55 6:322
+0b57 6:323
+0b58 6:324
+0b5a 6:325
+0b5c 6:327
+0b5e 6:328
+0b60 6:330
+0b62 6:331
+0b64 6:332
+0b66 6:333
+0b68 6:335
+0b6a 6:336
+0b6c 6:337
+0b6e 6:338
+0b6f 6:339
+0b71 6:340
+0b73 6:342
+0b75 6:343
+0b77 6:345
+0b79 6:346
+0b7b 6:347
+0b7d 6:348
+0b7f 6:350
+0b81 6:351
+0b83 6:352
+0b85 6:353
+0b86 6:354
+0b88 6:355
+0b8a 6:357
+0b8c 6:358
+0b8e 6:360
+0b90 6:361
+0b92 6:362
+0b94 6:363
+0b96 6:365
+0b98 6:366
+0b9a 6:367
+0b9c 6:368
+0b9d 6:369
+0b9f 6:370
+0ba1 6:372
+0ba3 6:373
+0ba6 6:375
+0ba8 6:376
+0baa 6:378
+0bac 6:380
+0bae 6:381
+0bb0 6:383
+0bb2 6:384
+0bb4 6:386
+0bb6 6:388
+0bb8 6:389
+0bba 6:391
+0bbc 6:392
+0bbe 6:394
+0bbf 6:395
+0bc1 6:396
+0bc3 6:397
+0bc5 6:399
+0bc7 6:400
+0bc9 6:402
+0bcb 6:403
+0bcd 6:405
+0bce 6:406
+0bd0 6:407
+0bd2 6:408
+0bd4 6:410
+0bd6 6:411
+0bd8 6:414
+0bda 6:415
+0bdc 6:417
+0bde 6:419
+0be0 6:420
+0be2 6:423
+0be4 6:424
+0be6 6:426
+0be8 6:427
+0bea 6:429
+0bec 6:430
+0bef 6:434
+0bf2 6:437
+0bf4 6:438
+0bf6 6:439
+0bf9 6:441
+0bfb 6:442
+0bfd 6:444
+0bff 6:445
+0c01 6:447
+0c03 6:448
+0c05 6:450
+0c07 6:451
+0c09 6:453
+0c0c 6:456
+0c0e 6:457
+0c10 6:459
+0c12 6:460
+0c14 6:461
+0c16 6:462
+0c18 6:464
+0c1a 6:465
+0c1c 6:466
+0c1e 6:467
+0c1f 6:468
+0c21 6:469
+0c23 6:471
+0c25 6:472
+0c27 6:474
+0c29 6:475
+0c2b 6:476
+0c2d 6:477
+0c2f 6:479
+0c31 6:480
+0c33 6:481
+0c35 6:482
+0c36 6:483
+0c38 6:484
+0c3a 6:486
+0c3c 6:487
+0c3e 6:488
+0c40 6:489
+0c41 6:490
+0c43 6:491
+0c45 6:493
+0c47 6:494
+0c4a 6:496
+0c4c 6:497
+0c4e 6:499
+0c50 6:500
+0c52 6:501
+0c54 6:502
+0c56 6:504
+0c58 6:505
+0c5a 6:506
+0c5c 6:507
+0c5d 6:508
+0c5f 6:509
+0c61 6:511
+0c63 6:512
+0c65 6:513
+0c67 6:514
+0c68 6:515
+0c6a 6:516
+0c6c 6:518
+0c6e 6:519
+0c71 6:521
+0c73 6:522
+0c75 6:524
+0c76 6:525
+0c78 6:526
+0c7a 6:527
+0c7c 6:529
+0c7e 6:530
+0c80 6:532
+0c82 6:533
+0c84 6:535
+0c86 6:537
+0c88 6:538
+0c8a 6:541
+0c8c 6:542
+0c8e 6:544
+0c90 6:546
+0c92 6:547
+0c94 6:550
+0c96 6:551
+0c98 6:553
+0c9a 6:554
+0c9c 6:556
+0c9e 6:557
+0ca1 6:561
+0ca4 6:564
+0ca6 6:565
+0ca9 6:567
+0cab 6:568
+0cae 6:570
+0cb0 6:571
+0cb3 6:573
+0cb4 7:15
+0d00 7:18
+0e00 7:31

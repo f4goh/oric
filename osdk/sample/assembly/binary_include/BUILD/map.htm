@@ -1,0 +1,165 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML lang=fr dir=ltr>
+	<HEAD>
+		<meta name="robots" content="noindex">
+		<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
+		<title>BININCL</title>
+		<link href="/home/ale/osdk/documentation/documentation.css" rel="stylesheet" type="text/css">
+	</HEAD>
+	<BODY>
+<hr>
+<center>BININCL</center>
+<hr>
+<table>
+<tr>
+<td valign=top>
+<a name="Normal"></a>
+<h1>Normal memory</h1>
+<table class='memmap'>
+<thead>
+<tr>
+<th colspan=4>Section layout</th>
+</tr>
+<tr>
+<th>Address</th><th colspan="2">Size</th><th>Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><b>$100</b></td><td align="right" id='__bss_clear_size'>1280</td><td align="right">1280</td><td>__bss_clear_size, __bss_size</td></tr>
+<tr>
+<td><b>$600</b></td><td align="right" id='__text_start'>17</td><td align="right">17</td><td>__text_start, osdk_start</td></tr>
+<tr>
+<td>$611</td><td align="right" id='_exit'>4</td><td align="right">4</td><td>_exit, exitldx</td></tr>
+<tr>
+<td>$615</td><td align="right" id='_hires'>3</td><td align="right">3</td><td>_hires</td></tr>
+<tr>
+<td>$618</td><td align="right" id='_text'>3</td><td align="right">3</td><td>_text</td></tr>
+<tr>
+<td>$61b</td><td align="right" id='_ping'>3</td><td align="right">3</td><td>_ping</td></tr>
+<tr>
+<td>$61e</td><td align="right" id='_shoot'>3</td><td align="right">3</td><td>_shoot</td></tr>
+<tr>
+<td>$621</td><td align="right" id='_zap'>3</td><td align="right">3</td><td>_zap</td></tr>
+<tr>
+<td>$624</td><td align="right" id='_explode'>3</td><td align="right">3</td><td>_explode</td></tr>
+<tr>
+<td>$627</td><td align="right" id='_kbdclick1'>3</td><td align="right">3</td><td>_kbdclick1</td></tr>
+<tr>
+<td>$62a</td><td align="right" id='_kbdclick2'>3</td><td align="right">3</td><td>_kbdclick2</td></tr>
+<tr>
+<td>$62d</td><td align="right" id='_cls'>3</td><td align="right">3</td><td>_cls</td></tr>
+<tr>
+<td>$630</td><td align="right" id='_lores0'>3</td><td align="right">3</td><td>_lores0</td></tr>
+<tr>
+<td>$633</td><td align="right" id='_lores1'>3</td><td align="right">3</td><td>_lores1</td></tr>
+<tr>
+<td>$636</td><td align="right" id='_key'>13</td><td align="right">8</td><td>_key</td></tr>
+<tr>
+<td>$63e</td><td colspan="2" align="right">5</td><td>key001</td></tr>
+<tr>
+<td>$643</td><td align="right" id='_get'>43</td><td align="right">8</td><td>_get</td></tr>
+<tr>
+<td>$64b</td><td colspan="2" align="right">9</td><td>getXparm</td></tr>
+<tr>
+<td>$654</td><td colspan="2" align="right">19</td><td>getXloop</td></tr>
+<tr>
+<td>$667</td><td colspan="2" align="right">3</td><td>grexit</td></tr>
+<tr>
+<td>$66a</td><td colspan="2" align="right">4</td><td>grexit2</td></tr>
+<tr>
+<td>$66e</td><td align="right" id='_main'>3142</td><td align="right">21</td><td>_main</td></tr>
+<tr>
+<td>$683</td><td colspan="2" align="right">2</td><td>loop_outer</td></tr>
+<tr>
+<td>$685</td><td colspan="2" align="right">15</td><td>loop_inner</td></tr>
+<tr>
+<td>$694</td><td colspan="2" align="right">3104</td><td>ImageData</td></tr>
+<tr>
+<td>$12b4</td><td align="right" id='__text_size'>1536</td><td align="right">1536</td><td>__text_size</td></tr>
+<tr>
+<td>$18b4</td><td align="right" id='__data_end'>76</td><td align="right">76</td><td>__data_end, __data_start, __text_end</td></tr>
+<tr>
+<td><b>$1900</b></td><td align="right" id='__bss_clear_start'>256</td><td align="right">256</td><td>__bss_clear_start, __bss_start, osdk_stack</td></tr>
+<tr>
+<td><b>$1a00</b></td><td align="right" id='__bss_clear_end'>42495</td><td align="right">42495</td><td>__bss_clear_end, __bss_end, osdk_end</td></tr>
+</tbody>
+</table>
+</td>
+<td valign=top>
+<a name="Zero"></a>
+<h1>Zero page</h1>
+<table class='memmap'>
+<thead>
+<tr>
+<th colspan=4>Section layout</th>
+</tr>
+<tr>
+<th>Address</th><th colspan="2">Size</th><th>Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><b>$00</b></td><td align="right" id='__data_size'>4</td><td align="right">4</td><td>__data_size</td></tr>
+<tr>
+<td>$04</td><td align="right" id='__zero_start'>40</td><td align="right">40</td><td>__zero_start</td></tr>
+<tr>
+<td>$2c</td><td align="right" id='__zero_size'>4</td><td align="right">4</td><td>__zero_size</td></tr>
+<tr>
+<td>$30</td><td align="right" id='__zero_end'>207</td><td align="right">32</td><td>__zero_end</td></tr>
+<tr>
+<td>$50</td><td colspan="2" align="right">2</td><td>ap, zp_compiler_save_start</td></tr>
+<tr>
+<td>$52</td><td colspan="2" align="right">2</td><td>fp</td></tr>
+<tr>
+<td>$54</td><td colspan="2" align="right">2</td><td>sp</td></tr>
+<tr>
+<td>$56</td><td colspan="2" align="right">2</td><td>tmp0</td></tr>
+<tr>
+<td>$58</td><td colspan="2" align="right">2</td><td>tmp1</td></tr>
+<tr>
+<td>$5a</td><td colspan="2" align="right">2</td><td>tmp2</td></tr>
+<tr>
+<td>$5c</td><td colspan="2" align="right">2</td><td>tmp3</td></tr>
+<tr>
+<td>$5e</td><td colspan="2" align="right">2</td><td>tmp4</td></tr>
+<tr>
+<td>$60</td><td colspan="2" align="right">2</td><td>tmp5</td></tr>
+<tr>
+<td>$62</td><td colspan="2" align="right">2</td><td>tmp6</td></tr>
+<tr>
+<td>$64</td><td colspan="2" align="right">2</td><td>tmp7</td></tr>
+<tr>
+<td>$66</td><td colspan="2" align="right">2</td><td>op1</td></tr>
+<tr>
+<td>$68</td><td colspan="2" align="right">2</td><td>op2</td></tr>
+<tr>
+<td>$6a</td><td colspan="2" align="right">2</td><td>tmp</td></tr>
+<tr>
+<td>$6c</td><td colspan="2" align="right">2</td><td>reg0</td></tr>
+<tr>
+<td>$6e</td><td colspan="2" align="right">2</td><td>reg1</td></tr>
+<tr>
+<td>$70</td><td colspan="2" align="right">2</td><td>reg2</td></tr>
+<tr>
+<td>$72</td><td colspan="2" align="right">2</td><td>reg3</td></tr>
+<tr>
+<td>$74</td><td colspan="2" align="right">2</td><td>reg4</td></tr>
+<tr>
+<td>$76</td><td colspan="2" align="right">2</td><td>reg5</td></tr>
+<tr>
+<td>$78</td><td colspan="2" align="right">2</td><td>reg6</td></tr>
+<tr>
+<td>$7a</td><td colspan="2" align="right">2</td><td>reg7</td></tr>
+<tr>
+<td>$7c</td><td colspan="2" align="right">131</td><td>zp_compiler_save_end</td></tr>
+</tbody>
+</table>
+</td>
+</tr>
+</table>
+<hr>
+<center>Generated by MemMap version 1.1</center>
+<hr>
+	</BODY>
+</HTML>

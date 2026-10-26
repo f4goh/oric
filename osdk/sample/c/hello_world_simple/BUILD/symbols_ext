@@ -1,0 +1,393 @@
+#SYM V2
+0050 zp_compiler_save_start /home/ale/osdk/lib/header.s:11
+0050 ap zp_crt.inc:7
+0052 fp zp_crt.inc:8
+0054 sp zp_crt.inc:9
+0056 tmp0 zp_crt.inc:11
+0058 tmp1 zp_crt.inc:12
+005a tmp2 zp_crt.inc:13
+005c tmp3 zp_crt.inc:14
+005e tmp4 zp_crt.inc:15
+0060 tmp5 zp_crt.inc:16
+0062 tmp6 zp_crt.inc:17
+0064 tmp7 zp_crt.inc:18
+0066 op1 zp_crt.inc:20
+0068 op2 zp_crt.inc:21
+006a tmp zp_crt.inc:23
+006c reg0 zp_crt.inc:25
+006e reg1 zp_crt.inc:26
+0070 reg2 zp_crt.inc:27
+0072 reg3 zp_crt.inc:28
+0074 reg4 zp_crt.inc:29
+0076 reg5 zp_crt.inc:30
+0078 reg6 zp_crt.inc:31
+007a reg7 zp_crt.inc:32
+007c zp_compiler_save_end /home/ale/osdk/lib/header.s:13
+0800 osdk_start /home/ale/osdk/lib/header.s:18
+0b00 osdk_stack /home/ale/osdk/lib/tail.s:17
+0811 exitldx /home/ale/osdk/lib/header.s:91
+0a03 _main /home/ale/osdk/TMP/main:3
+0811 _exit /home/ale/osdk/lib/header.s:90
+0815 _printf /home/ale/osdk/lib/printf.s:4
+09f4 putchar /home/ale/osdk/lib/gpchar.s:10
+0833 printvect /home/ale/osdk/lib/printf.s:27
+085a printf /home/ale/osdk/lib/printf.s:53
+0824 _fprintf /home/ale/osdk/lib/printf.s:19
+0836 storechar /home/ale/osdk/lib/printf.s:29
+0842 _sprintf /home/ale/osdk/lib/printf.s:39
+0953 saveptrarg /home/ale/osdk/lib/printf.s:194
+0869 formloop /home/ale/osdk/lib/printf.s:63
+0878 endform /home/ale/osdk/lib/printf.s:73
+08b5 formfield /home/ale/osdk/lib/printf.s:108
+0872 charput /home/ale/osdk/lib/printf.s:69
+088b endform_done /home/ale/osdk/lib/printf.s:84
+088c printfloat /home/ale/osdk/lib/printf.s:86
+0950 saveptrform /home/ale/osdk/lib/printf.s:190
+08fd prtsloop /home/ale/osdk/lib/printf.s:146
+0913 printint /home/ale/osdk/lib/printf.s:159
+0926 printuint /home/ale/osdk/lib/printf.s:169
+08e7 printstr /home/ale/osdk/lib/printf.s:134
+08d3 printchar /home/ale/osdk/lib/printf.s:124
+0939 printhex /home/ale/osdk/lib/printf.s:179
+090d endprts /home/ale/osdk/lib/printf.s:155
+096b nextarg /home/ale/osdk/lib/printf.s:215
+0987 itoa /home/ale/osdk/lib/itoa.s:12
+09c8 uitoa /home/ale/osdk/lib/itoa.s:52
+0954 hexbyte /home/ale/osdk/lib/printf.s:197
+0951 saveform /home/ale/osdk/lib/printf.s:192
+095f nibble /home/ale/osdk/lib/printf.s:206
+0965 chiffre /home/ale/osdk/lib/printf.s:210
+097c _itoa /home/ale/osdk/lib/itoa.s:4
+09d0 bufconv /home/ale/osdk/lib/itoa.s:57
+09a2 itoaloop /home/ale/osdk/lib/itoa.s:27
+09dc udiv10 /home/ale/osdk/lib/itoa.s:63
+09b3 poploop /home/ale/osdk/lib/itoa.s:38
+09e1 udiv10lp /home/ale/osdk/lib/itoa.s:67
+09ec contdiv /home/ale/osdk/lib/itoa.s:74
+09f4 __putc /home/ale/osdk/lib/gpchar.s:8
+09f4 _putchar /home/ale/osdk/lib/gpchar.s:9
+09ff putchar2 /home/ale/osdk/lib/gpchar.s:17
+0a14 Lmain132 /home/ale/osdk/TMP/main:17
+0c00 osdk_end /home/ale/osdk/lib/tail.s:22
+0800 __text_start /home/ale/osdk/lib/tail.s:32
+0a23 __text_end /home/ale/osdk/lib/tail.s:32
+0223 __text_size /home/ale/osdk/lib/tail.s:32
+0a23 __data_start /home/ale/osdk/lib/tail.s:32
+0a23 __data_end /home/ale/osdk/lib/tail.s:32
+0000 __data_size /home/ale/osdk/lib/tail.s:32
+0b00 __bss_start /home/ale/osdk/lib/tail.s:32
+0c00 __bss_end /home/ale/osdk/lib/tail.s:32
+0100 __bss_size /home/ale/osdk/lib/tail.s:32
+0b00 __bss_clear_start /home/ale/osdk/lib/tail.s:32
+0c00 __bss_clear_end /home/ale/osdk/lib/tail.s:32
+0100 __bss_clear_size /home/ale/osdk/lib/tail.s:32
+0004 __zero_start /home/ale/osdk/lib/tail.s:32
+0030 __zero_end /home/ale/osdk/lib/tail.s:32
+002c __zero_size /home/ale/osdk/lib/tail.s:32
+#FILES
+0 /home/ale/osdk/lib/header.s
+1 zp_crt.inc
+2 /home/ale/osdk/lib/printf.s
+3 /home/ale/osdk/lib/itoa.s
+4 /home/ale/osdk/lib/gpchar.s
+5 /home/ale/osdk/TMP/main
+6 /home/ale/osdk/lib/tail.s
+#LINES
+0004 0:9
+0050 1:7
+0052 1:8
+0054 1:9
+0056 1:11
+0058 1:12
+005a 1:13
+005c 1:14
+005e 1:15
+0060 1:16
+0062 1:17
+0064 1:18
+0066 1:20
+0068 1:21
+006a 1:23
+006c 1:25
+006e 1:26
+0070 1:27
+0072 1:28
+0074 1:29
+0076 1:30
+0078 1:31
+007a 1:32
+007c 0:16
+0800 0:80
+0801 0:81
+0803 0:82
+0805 0:83
+0807 0:84
+0809 0:85
+080b 0:86
+080e 0:88
+0811 0:92
+0813 0:93
+0814 0:94
+0815 2:5
+0817 2:6
+081a 2:7
+081c 2:8
+081f 2:9
+0821 2:10
+0824 2:20
+0826 2:21
+0829 2:22
+082b 2:23
+082e 2:24
+0830 2:25
+0833 2:27
+0836 2:30
+0839 2:31
+083c 2:32
+083e 2:33
+0841 2:34
+0842 2:40
+0844 2:41
+0847 2:42
+0849 2:43
+084c 2:45
+084e 2:46
+0850 2:47
+0853 2:48
+0854 2:49
+0856 2:50
+0859 2:51
+085a 2:54
+085c 2:55
+085e 2:56
+085f 2:57
+0861 2:58
+0863 2:59
+0864 2:60
+0867 2:62
+0869 2:64
+086b 2:65
+086c 2:66
+086e 2:67
+0870 2:68
+0872 2:70
+0875 2:71
+0876 2:72
+0878 2:76
+087b 2:77
+087d 2:78
+087f 2:79
+0882 2:80
+0884 2:81
+0886 2:82
+0888 2:83
+088b 2:85
+088c 2:87
+088d 2:88
+0890 2:89
+0891 2:90
+0893 2:91
+0896 2:92
+0897 2:93
+0899 2:94
+089b 2:95
+089c 2:96
+089d 2:97
+08a0 2:98
+08a3 2:99
+08a5 2:100
+08a7 2:101
+08a8 2:102
+08ab 2:103
+08ad 2:104
+08b0 2:105
+08b2 2:106
+08b5 2:109
+08b6 2:110
+08b8 2:111
+08ba 2:112
+08bc 2:113
+08be 2:114
+08c0 2:115
+08c2 2:116
+08c4 2:117
+08c6 2:118
+08c8 2:119
+08ca 2:120
+08cc 2:121
+08ce 2:122
+08d0 2:123
+08d3 2:125
+08d6 2:126
+08d9 2:127
+08db 2:128
+08dc 2:129
+08dd 2:130
+08de 2:131
+08e1 2:132
+08e4 2:133
+08e7 2:135
+08e8 2:136
+08eb 2:137
+08ee 2:138
+08f0 2:139
+08f2 2:140
+08f3 2:141
+08f5 2:142
+08f7 2:143
+08f8 2:144
+08fb 2:145
+08fd 2:147
+08ff 2:148
+0900 2:149
+0902 2:150
+0905 2:151
+0906 2:152
+0908 2:153
+090a 2:154
+090d 2:156
+0910 2:157
+0913 2:160
+0914 2:161
+0917 2:162
+091a 2:163
+091d 2:164
+091f 2:165
+0921 2:166
+0923 2:167
+0926 2:170
+0927 2:171
+092a 2:172
+092d 2:173
+0930 2:174
+0932 2:175
+0934 2:176
+0936 2:177
+0939 2:180
+093a 2:181
+093d 2:182
+0940 2:183
+0942 2:184
+0945 2:185
+0947 2:186
+094a 2:187
+094d 2:188
+0950 2:191
+0951 2:193
+0953 2:195
+0954 2:198
+0955 2:199
+0956 2:200
+0957 2:201
+0958 2:202
+0959 2:203
+095c 2:204
+095d 2:205
+095f 2:207
+0961 2:208
+0963 2:209
+0965 2:211
+0967 2:212
+0968 2:213
+096b 2:216
+096e 2:217
+0970 2:218
+0972 2:219
+0973 2:220
+0975 2:221
+0977 2:222
+0978 2:223
+097b 2:224
+097c 3:5
+097e 3:6
+0980 3:7
+0982 3:8
+0983 3:9
+0985 3:10
+0987 3:13
+0989 3:14
+098c 3:15
+098e 3:16
+0990 3:17
+0992 3:18
+0995 3:19
+0996 3:20
+0998 3:21
+099a 3:22
+099c 3:23
+099e 3:24
+09a0 3:25
+09a2 3:28
+09a5 3:29
+09a6 3:30
+09a7 3:31
+09a9 3:32
+09ab 3:33
+09ad 3:35
+09b0 3:36
+09b2 3:37
+09b3 3:39
+09b4 3:40
+09b5 3:41
+09b7 3:42
+09ba 3:43
+09bb 3:44
+09bc 3:45
+09be 3:46
+09c0 3:47
+09c3 3:48
+09c5 3:49
+09c7 3:50
+09c8 3:53
+09ca 3:54
+09cd 3:55
+09d0 3:58
+09dc 3:64
+09de 3:65
+09e0 3:66
+09e1 3:68
+09e3 3:69
+09e5 3:70
+09e6 3:71
+09e8 3:72
+09ea 3:73
+09ec 3:75
+09ed 3:76
+09ef 3:77
+09f1 3:78
+09f3 3:79
+09f4 4:11
+09f6 4:12
+09f8 4:13
+09f9 4:14
+09fb 4:15
+09fe 4:16
+09ff 4:18
+0a00 4:19
+0a03 5:5
+0a05 5:6
+0a07 5:7
+0a09 5:8
+0a0a 5:9
+0a0c 5:10
+0a0e 5:12
+0a10 5:13
+0a13 5:15
+0a14 5:19
+0a15 5:21
+0a16 5:23
+0a17 5:25
+0a18 5:27
+0a19 5:29
+0a1a 5:31
+0a1b 5:33
+0a1c 5:35
+0a1d 5:37
+0a1e 5:39
+0a1f 5:41
+0a20 5:43
+0a21 5:45
+0a22 5:47
+0a23 6:15
+0b00 6:18
+0c00 6:31

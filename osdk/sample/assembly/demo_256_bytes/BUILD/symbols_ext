@@ -1,0 +1,178 @@
+#SYM V2
+0050 _zp_start_ /home/ale/osdk/TMP/main.s:81
+0050 circle_ray /home/ale/osdk/TMP/main.s:83
+0051 tmp0 /home/ale/osdk/TMP/main.s:85
+0052 tmp1 /home/ale/osdk/TMP/main.s:86
+0053 ptr_src /home/ale/osdk/TMP/main.s:88
+0055 ptr_src2 /home/ale/osdk/TMP/main.s:89
+0057 ptr_dst /home/ale/osdk/TMP/main.s:91
+0059 param /home/ale/osdk/TMP/main.s:94
+005a param_x /home/ale/osdk/TMP/main.s:95
+005c param_y /home/ale/osdk/TMP/main.s:96
+005e param_fb /home/ale/osdk/TMP/main.s:97
+0060 _zp_end_ /home/ale/osdk/TMP/main.s:101
+0600 _main /home/ale/osdk/TMP/main.s:108
+0607 loop /home/ale/osdk/TMP/main.s:122
+0623 loop_y /home/ale/osdk/TMP/main.s:158
+0625 loop_x /home/ale/osdk/TMP/main.s:160
+062b skip /home/ale/osdk/TMP/main.s:166
+064d skip /home/ale/osdk/TMP/main.s:197
+06de IncPtrSrc /home/ale/osdk/TMP/main.s:333
+065a BigLoop /home/ale/osdk/TMP/main.s:214
+0664 loop_circle /home/ale/osdk/TMP/main.s:229
+06ea CircleData /home/ale/osdk/TMP/main.s:345
+0692 loop_x /home/ale/osdk/TMP/main.s:271
+0696 loop_y /home/ale/osdk/TMP/main.s:275
+06c6 skip /home/ale/osdk/TMP/main.s:310
+06e9 skip /home/ale/osdk/TMP/main.s:341
+0600 __text_start /home/ale/osdk/TMP/main.s:347
+06ec __text_end /home/ale/osdk/TMP/main.s:347
+00ec __text_size /home/ale/osdk/TMP/main.s:347
+06ec __data_start /home/ale/osdk/TMP/main.s:347
+06ec __data_end /home/ale/osdk/TMP/main.s:347
+0000 __data_size /home/ale/osdk/TMP/main.s:347
+0700 __bss_start /home/ale/osdk/TMP/main.s:347
+0700 __bss_end /home/ale/osdk/TMP/main.s:347
+0000 __bss_size /home/ale/osdk/TMP/main.s:347
+0700 __bss_clear_start /home/ale/osdk/TMP/main.s:347
+0700 __bss_clear_end /home/ale/osdk/TMP/main.s:347
+0000 __bss_clear_size /home/ale/osdk/TMP/main.s:347
+0004 __zero_start /home/ale/osdk/TMP/main.s:347
+0014 __zero_end /home/ale/osdk/TMP/main.s:347
+0010 __zero_size /home/ale/osdk/TMP/main.s:347
+#FILES
+0 /home/ale/osdk/TMP/main.s
+#LINES
+0004 0:78
+0050 0:83
+0051 0:85
+0052 0:86
+0053 0:88
+0055 0:89
+0057 0:91
+0059 0:94
+005a 0:95
+005c 0:96
+005e 0:97
+0060 0:106
+0600 0:113
+0603 0:120
+0605 0:121
+0607 0:123
+060a 0:124
+060b 0:125
+060d 0:132
+060f 0:133
+0612 0:138
+0613 0:148
+0615 0:149
+0617 0:150
+0619 0:152
+061b 0:153
+061d 0:154
+061f 0:155
+0621 0:157
+0623 0:159
+0625 0:163
+0627 0:164
+0629 0:165
+062b 0:167
+062c 0:168
+062e 0:169
+0630 0:172
+0631 0:173
+0633 0:174
+0635 0:175
+0637 0:178
+0639 0:180
+063a 0:181
+063c 0:183
+063e 0:187
+0640 0:188
+0642 0:191
+0643 0:192
+0645 0:193
+0647 0:194
+0649 0:195
+064b 0:196
+064d 0:198
+064f 0:201
+0652 0:203
+0653 0:204
+0655 0:212
+0657 0:213
+065a 0:219
+065c 0:220
+065d 0:221
+065e 0:222
+0660 0:223
+0662 0:228
+0664 0:230
+0666 0:232
+0669 0:233
+066c 0:234
+066f 0:236
+0671 0:237
+0672 0:238
+0675 0:240
+0678 0:242
+067a 0:243
+067b 0:244
+067d 0:249
+0680 0:260
+0682 0:261
+0684 0:262
+0686 0:263
+0688 0:265
+068a 0:266
+068c 0:267
+068e 0:268
+0690 0:270
+0692 0:272
+0694 0:274
+0696 0:278
+0697 0:279
+0699 0:280
+069b 0:281
+069d 0:282
+069f 0:283
+06a1 0:284
+06a3 0:286
+06a5 0:287
+06a7 0:288
+06a9 0:289
+06ab 0:290
+06ad 0:291
+06af 0:294
+06b1 0:297
+06b3 0:298
+06b5 0:299
+06b7 0:300
+06b9 0:301
+06bb 0:302
+06bd 0:304
+06c0 0:307
+06c2 0:308
+06c4 0:309
+06c6 0:313
+06c7 0:314
+06c9 0:317
+06ca 0:318
+06cc 0:319
+06ce 0:320
+06d0 0:321
+06d2 0:322
+06d4 0:323
+06d6 0:326
+06d8 0:327
+06d9 0:328
+06db 0:330
+06de 0:335
+06df 0:336
+06e1 0:337
+06e3 0:338
+06e5 0:339
+06e7 0:340
+06e9 0:343
+06ea 0:345
+06ec 0:346

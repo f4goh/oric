@@ -1,0 +1,90 @@
+#SYM V2
+8000 _EntryPoint /home/ale/osdk/TMP/scrolling.s:8
+8001 _ScrollUp /home/ale/osdk/TMP/scrolling.s:14
+8003 loop /home/ale/osdk/TMP/scrolling.s:16
+80b9 end /home/ale/osdk/TMP/scrolling.s:80
+8000 __text_start /home/ale/osdk/TMP/scrolling.s:83
+80ba __text_end /home/ale/osdk/TMP/scrolling.s:83
+00ba __text_size /home/ale/osdk/TMP/scrolling.s:83
+80ba __data_start /home/ale/osdk/TMP/scrolling.s:83
+80ba __data_end /home/ale/osdk/TMP/scrolling.s:83
+0000 __data_size /home/ale/osdk/TMP/scrolling.s:83
+8100 __bss_start /home/ale/osdk/TMP/scrolling.s:83
+8100 __bss_end /home/ale/osdk/TMP/scrolling.s:83
+0000 __bss_size /home/ale/osdk/TMP/scrolling.s:83
+8100 __bss_clear_start /home/ale/osdk/TMP/scrolling.s:83
+8100 __bss_clear_end /home/ale/osdk/TMP/scrolling.s:83
+0000 __bss_clear_size /home/ale/osdk/TMP/scrolling.s:83
+0004 __zero_start /home/ale/osdk/TMP/scrolling.s:83
+0004 __zero_end /home/ale/osdk/TMP/scrolling.s:83
+0000 __zero_size /home/ale/osdk/TMP/scrolling.s:83
+#FILES
+0 /home/ale/osdk/TMP/scrolling.s
+#LINES
+8000 0:9
+8001 0:15
+8003 0:17
+8006 0:18
+8007 0:19
+800a 0:20
+800d 0:21
+8010 0:22
+8013 0:23
+8016 0:24
+8019 0:25
+801c 0:26
+801f 0:27
+8022 0:28
+8025 0:29
+8028 0:30
+802b 0:31
+802e 0:32
+8031 0:33
+8034 0:34
+8037 0:35
+803a 0:36
+803d 0:37
+8040 0:38
+8043 0:39
+8046 0:40
+8049 0:41
+804c 0:42
+804f 0:43
+8052 0:44
+8055 0:45
+8058 0:46
+805b 0:47
+805e 0:48
+8061 0:49
+8064 0:50
+8067 0:51
+806a 0:52
+806d 0:53
+8070 0:54
+8073 0:55
+8076 0:56
+8079 0:57
+807c 0:58
+807f 0:59
+8082 0:60
+8085 0:61
+8088 0:62
+808b 0:63
+808e 0:64
+8091 0:65
+8094 0:66
+8097 0:67
+809a 0:68
+809d 0:69
+80a0 0:70
+80a3 0:71
+80a6 0:72
+80a9 0:73
+80ac 0:74
+80af 0:75
+80b0 0:76
+80b3 0:77
+80b4 0:78
+80b6 0:79
+80b9 0:81
+80ba 0:82

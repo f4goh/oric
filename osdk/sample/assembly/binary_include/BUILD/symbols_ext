@@ -1,0 +1,173 @@
+#SYM V2
+0050 zp_compiler_save_start /home/ale/osdk/lib/header.s:11
+0050 ap zp_crt.inc:7
+0052 fp zp_crt.inc:8
+0054 sp zp_crt.inc:9
+0056 tmp0 zp_crt.inc:11
+0058 tmp1 zp_crt.inc:12
+005a tmp2 zp_crt.inc:13
+005c tmp3 zp_crt.inc:14
+005e tmp4 zp_crt.inc:15
+0060 tmp5 zp_crt.inc:16
+0062 tmp6 zp_crt.inc:17
+0064 tmp7 zp_crt.inc:18
+0066 op1 zp_crt.inc:20
+0068 op2 zp_crt.inc:21
+006a tmp zp_crt.inc:23
+006c reg0 zp_crt.inc:25
+006e reg1 zp_crt.inc:26
+0070 reg2 zp_crt.inc:27
+0072 reg3 zp_crt.inc:28
+0074 reg4 zp_crt.inc:29
+0076 reg5 zp_crt.inc:30
+0078 reg6 zp_crt.inc:31
+007a reg7 zp_crt.inc:32
+007c zp_compiler_save_end /home/ale/osdk/lib/header.s:13
+0600 osdk_start /home/ale/osdk/lib/header.s:18
+1900 osdk_stack /home/ale/osdk/lib/tail.s:17
+0611 exitldx /home/ale/osdk/lib/header.s:91
+066e _main /home/ale/osdk/TMP/main.s:10
+0611 _exit /home/ale/osdk/lib/header.s:90
+0615 _hires /home/ale/osdk/lib/grsimple.s:8
+0618 _text /home/ale/osdk/lib/grsimple.s:9
+061b _ping /home/ale/osdk/lib/grsimple.s:10
+061e _shoot /home/ale/osdk/lib/grsimple.s:11
+0621 _zap /home/ale/osdk/lib/grsimple.s:12
+0624 _explode /home/ale/osdk/lib/grsimple.s:13
+0627 _kbdclick1 /home/ale/osdk/lib/grsimple.s:14
+062a _kbdclick2 /home/ale/osdk/lib/grsimple.s:15
+062d _cls /home/ale/osdk/lib/grsimple.s:16
+0630 _lores0 /home/ale/osdk/lib/grsimple.s:17
+0633 _lores1 /home/ale/osdk/lib/grsimple.s:18
+0636 _key /home/ale/osdk/lib/grsimple.s:21
+063e key001 /home/ale/osdk/lib/grsimple.s:25
+066a grexit2 /home/ale/osdk/lib/ggeneral.s:25
+0643 _get /home/ale/osdk/lib/grsimple.s:30
+064b getXparm /home/ale/osdk/lib/ggeneral.s:4
+0654 getXloop /home/ale/osdk/lib/ggeneral.s:9
+0667 grexit /home/ale/osdk/lib/ggeneral.s:23
+0694 ImageData /home/ale/osdk/TMP/main.s:43
+0683 loop_outer /home/ale/osdk/TMP/main.s:26
+0685 loop_inner /home/ale/osdk/TMP/main.s:28
+1a00 osdk_end /home/ale/osdk/lib/tail.s:22
+0600 __text_start /home/ale/osdk/lib/tail.s:32
+18b4 __text_end /home/ale/osdk/lib/tail.s:32
+12b4 __text_size /home/ale/osdk/lib/tail.s:32
+18b4 __data_start /home/ale/osdk/lib/tail.s:32
+18b4 __data_end /home/ale/osdk/lib/tail.s:32
+0000 __data_size /home/ale/osdk/lib/tail.s:32
+1900 __bss_start /home/ale/osdk/lib/tail.s:32
+1a00 __bss_end /home/ale/osdk/lib/tail.s:32
+0100 __bss_size /home/ale/osdk/lib/tail.s:32
+1900 __bss_clear_start /home/ale/osdk/lib/tail.s:32
+1a00 __bss_clear_end /home/ale/osdk/lib/tail.s:32
+0100 __bss_clear_size /home/ale/osdk/lib/tail.s:32
+0004 __zero_start /home/ale/osdk/lib/tail.s:32
+0030 __zero_end /home/ale/osdk/lib/tail.s:32
+002c __zero_size /home/ale/osdk/lib/tail.s:32
+#FILES
+0 /home/ale/osdk/lib/header.s
+1 zp_crt.inc
+2 /home/ale/osdk/lib/grsimple.s
+3 /home/ale/osdk/lib/ggeneral.s
+4 /home/ale/osdk/TMP/main.s
+5 /home/ale/osdk/lib/tail.s
+#LINES
+0004 0:9
+0050 1:7
+0052 1:8
+0054 1:9
+0056 1:11
+0058 1:12
+005a 1:13
+005c 1:14
+005e 1:15
+0060 1:16
+0062 1:17
+0064 1:18
+0066 1:20
+0068 1:21
+006a 1:23
+006c 1:25
+006e 1:26
+0070 1:27
+0072 1:28
+0074 1:29
+0076 1:30
+0078 1:31
+007a 1:32
+007c 0:16
+0600 0:80
+0601 0:81
+0603 0:82
+0605 0:83
+0607 0:84
+0609 0:85
+060b 0:86
+060e 0:88
+0611 0:92
+0613 0:93
+0614 0:94
+0615 2:8
+0618 2:9
+061b 2:10
+061e 2:11
+0621 2:12
+0624 2:13
+0627 2:14
+062a 2:15
+062d 2:16
+0630 2:17
+0633 2:18
+0636 2:22
+0639 2:23
+063b 2:24
+063e 2:26
+0640 2:27
+0643 2:31
+0646 2:32
+0648 2:33
+064b 3:5
+064d 3:6
+0650 3:7
+0652 3:8
+0654 3:10
+0656 3:11
+0659 3:12
+065a 3:13
+065b 3:14
+065d 3:15
+0660 3:16
+0661 3:17
+0662 3:18
+0664 3:19
+0666 3:20
+0667 3:24
+066a 3:26
+066b 3:27
+066d 3:28
+066e 4:12
+0671 4:15
+0673 4:16
+0675 4:17
+0677 4:18
+0679 4:20
+067b 4:21
+067d 4:22
+067f 4:23
+0681 4:25
+0683 4:27
+0685 4:29
+0687 4:30
+0689 4:31
+068a 4:32
+068c 4:33
+068e 4:34
+0690 4:35
+0691 4:36
+0693 4:37
+0694 4:44
+188c 4:45
+18b4 5:15
+1900 5:18
+1a00 5:31

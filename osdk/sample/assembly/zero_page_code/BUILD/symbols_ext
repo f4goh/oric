@@ -1,0 +1,44 @@
+#SYM V2
+0800 _main /home/ale/osdk/TMP/main.s:4
+0814 CopyZeroPageRoutine /home/ale/osdk/TMP/main.s:25
+0050 ZeroPageRoutine /home/ale/osdk/TMP/main.s:11
+0806 StartZeroPageRoutine /home/ale/osdk/TMP/main.s:8
+0051 loop /home/ale/osdk/TMP/main.s:14
+005e EndZeroPageRoutine /home/ale/osdk/TMP/main.s:21
+0816 loop /home/ale/osdk/TMP/main.s:28
+0800 __text_start /home/ale/osdk/TMP/main.s:38
+0821 __text_end /home/ale/osdk/TMP/main.s:38
+0021 __text_size /home/ale/osdk/TMP/main.s:38
+0821 __data_start /home/ale/osdk/TMP/main.s:38
+0821 __data_end /home/ale/osdk/TMP/main.s:38
+0000 __data_size /home/ale/osdk/TMP/main.s:38
+0900 __bss_start /home/ale/osdk/TMP/main.s:38
+0900 __bss_end /home/ale/osdk/TMP/main.s:38
+0000 __bss_size /home/ale/osdk/TMP/main.s:38
+0900 __bss_clear_start /home/ale/osdk/TMP/main.s:38
+0900 __bss_clear_end /home/ale/osdk/TMP/main.s:38
+0000 __bss_clear_size /home/ale/osdk/TMP/main.s:38
+0004 __zero_start /home/ale/osdk/TMP/main.s:38
+0004 __zero_end /home/ale/osdk/TMP/main.s:38
+0000 __zero_size /home/ale/osdk/TMP/main.s:38
+#FILES
+0 /home/ale/osdk/TMP/main.s
+#LINES
+0050 0:13
+0051 0:15
+0053 0:16
+0056 0:17
+0058 0:18
+005b 0:19
+005e 0:23
+0800 0:5
+0803 0:6
+0806 0:9
+0814 0:27
+0816 0:29
+0819 0:30
+081b 0:31
+081c 0:32
+081e 0:33
+0820 0:34
+0821 0:37

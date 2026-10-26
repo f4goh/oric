@@ -1,0 +1,42 @@
+#SYM V2
+0800 _main /home/ale/osdk/TMP/main.s:25
+0823 message /home/ale/osdk/TMP/main.s:63
+0816 read /home/ale/osdk/TMP/main.s:47
+081b write /home/ale/osdk/TMP/main.s:52
+0816 loop_char /home/ale/osdk/TMP/main.s:44
+0822 end_loop_char /home/ale/osdk/TMP/main.s:60
+0800 __text_start /home/ale/osdk/TMP/main.s:67
+0831 __text_end /home/ale/osdk/TMP/main.s:67
+0031 __text_size /home/ale/osdk/TMP/main.s:67
+0831 __data_start /home/ale/osdk/TMP/main.s:67
+0831 __data_end /home/ale/osdk/TMP/main.s:67
+0000 __data_size /home/ale/osdk/TMP/main.s:67
+0900 __bss_start /home/ale/osdk/TMP/main.s:67
+0900 __bss_end /home/ale/osdk/TMP/main.s:67
+0000 __bss_size /home/ale/osdk/TMP/main.s:67
+0900 __bss_clear_start /home/ale/osdk/TMP/main.s:67
+0900 __bss_clear_end /home/ale/osdk/TMP/main.s:67
+0000 __bss_clear_size /home/ale/osdk/TMP/main.s:67
+0004 __zero_start /home/ale/osdk/TMP/main.s:67
+0004 __zero_end /home/ale/osdk/TMP/main.s:67
+0000 __zero_size /home/ale/osdk/TMP/main.s:67
+#FILES
+0 /home/ale/osdk/TMP/main.s
+#LINES
+0800 0:29
+0802 0:30
+0805 0:31
+0807 0:32
+080a 0:37
+080c 0:38
+080f 0:39
+0811 0:40
+0814 0:43
+0816 0:48
+0819 0:49
+081b 0:53
+081e 0:56
+081f 0:57
+0822 0:61
+0823 0:64
+0831 0:66

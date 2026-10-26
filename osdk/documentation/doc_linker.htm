@@ -1,0 +1,235 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+
+<HTML lang=fr dir=ltr>
+	<HEAD>
+		<meta name="robots" content="noindex">
+		<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
+		<title>OSDK - Linker</title>
+		<link href="documentation.css" rel="stylesheet" type="text/css">
+	</HEAD>
+
+	<BODY>
+
+<hr>
+<A href="documentation.htm"><img src="arrow_back.gif"></A>
+<img src="pics/osdk_logo_small.png">
+<hr>
+
+		<h1>Linker</h1>
+
+<p id=chapter>Description</p>
+
+<p>The linker is responsible to solve the referencement of labels, and eventually 
+append library source codes to the build process.
+</p>
+
+<p>To disable the automatic inclusion of 'header.s' and 'tail.s', just modify your OSDK_CONFIG.BAT file, and add the following:
+</p>
+
+<pre>
+	SET OSDKLINK=-B
+</pre>
+
+
+<p id=chapter>Switches</p>
+
+<p>The -d defines the location of the library files. It must be followed by a path:
+</p>
+<pre>
+	-d /usr/oric/lib/
+</pre>
+
+<p>The -s defines the location of the sources files. It must be followed by a path:
+</p>
+<pre>
+	-s /sources/oric/demo/
+</pre>
+
+<p>The -o defines the name of the outputed file. It must be followed by the file name.
+By default the output name will be 'go.s':
+</p>
+<pre>
+	-o final.s
+</pre>
+
+<p>The -l switch prints out defined labels.Usefull when building lib index files.
+</p>
+
+<p>The -v switch activates the verbose mode.
+</p>
+
+<p>The -q switch enables the quiet mode.
+</p>
+
+<p>The -b switch disables the automatic inclusion of 'header.s' and 'tail.s
+</p>
+
+<p>The -f inserts a #file directives before each linked file.
+</p>
+
+<p>The -i defines an additional path to search for include files. It must be followed by a path:
+</p>
+<pre>
+	-i /usr/oric/include/
+</pre>
+
+<p>The -r defines the language tag used for conditional character replacement (see #pragma osdk replace_characters_if below). It must be followed by a tag string:
+</p>
+<pre>
+	-r french
+</pre>
+
+<p>The -S imports symbols from an XA symbol file (-l output). Imported symbols are written as equates
+in the output file and marked as defined, preventing library files that define those symbols from being pulled in.
+If the module source redefines an imported symbol, the module's definition wins. It must be followed by a filename:
+</p>
+<pre>
+	-S symbols_Kernel
+</pre>
+
+<p>The -t injects a .text origin from an imported symbol. When used with -S, Link65 emits
+".text / * = symbolname" at the top of the output, setting the assembly origin for the module
+without needing -bt or OSDKADDR. It must be followed by a symbol name:
+</p>
+<pre>
+	-t _KernelEndText
+</pre>
+
+<p>The -g filters -S symbol imports using an XA equates file (from XA -E output).
+Only symbols present in the filter file are imported, preventing local labels from causing
+name collisions in modules. It must be followed by a filename:
+</p>
+<pre>
+	-g kernel_exports.h
+</pre>
+
+
+<p id=chapter>Pragma directives</p>
+
+<p>The linker supports special pragma directives embedded in the source files to control its behaviour:
+</p>
+
+<p><b>#pragma osdk replace_characters</b> defines a set of search/replace pairs to apply to all filtered output lines.
+This is used to perform text localization when the assembler source contains characters that need to be mapped differently depending on the target platform.
+The syntax uses a separator character of your choice, followed by pairs of tokens separated by that character:
+</p>
+<pre>
+	#pragma osdk replace_characters | sourcechar|replacementchar ...
+</pre>
+<p><b>Important limitation:</b> each <b>replace_characters</b> directive unconditionally replaces the previously active replacement table.
+This means it only works correctly if there is no other <b>replace_characters</b> directive appearing earlier in the linked files that would override it before the texts to localize are reached.
+For any project targeting more than one language, using <b>replace_characters_if</b> is strongly recommended instead.
+</p>
+
+<p><b>#pragma osdk replace_characters_if LANGUAGE_TAG</b> works identically to replace_characters, but only takes effect if the tag passed to the <b>-r</b> command line option matches LANGUAGE_TAG.
+This allows multiple language-specific replacement tables to coexist in a single source file:
+</p>
+<pre>
+	#pragma osdk replace_characters_if french | e|&#233; a|&#224;
+	#pragma osdk replace_characters_if spanish | n|&#241;
+</pre>
+<p>Only the pragma whose tag matches the <b>-r</b> argument will be applied; the others are silently ignored.
+</p>
+
+<p><b>#pragma osdk import</b> forces the linker to import specific library symbols without requiring dead code references in the source.
+Symbols listed after the pragma (space, tab, or comma separated) are treated as label references, causing Link65 to pull in the library files that define them:
+</p>
+<pre>
+	#pragma osdk import _memset, _memcpy, mul16i, mul16u
+</pre>
+
+
+<p id=chapter>Historic</p>
+
+<p>Here is the list of all releases with a short description of things that changed:
+</p>
+
+<p id=dateentry>Version 1.5</p>
+<li>Fixed the statement scanner corrupting lines that hold several colon separated statements. It poked string terminators into the shared line buffer, which hid every statement after the first and produced errors such as "Label 'mul16i' not defined" on -O3 struct code. Each statement is now parsed in its own copy, and preprocessor lines are kept whole so a drive letter colon in an #include path still works</li>
+<ul>
+<li>Annotation driven dead code stripping: a library module can mark its routines with <b>@function</b> and <b>@endfunction</b> comments, and only the routines actually referenced get linked. Previously, referencing one function pulled in the whole file it lived in. <b>@keep</b> marks a routine that must survive even when nothing appears to reference it, such as an interrupt handler</li>
+<li>The <b>-d</b> option can now be repeated. The library directories are searched in command line order, each with its own library.ndx, and when several define the same symbol the first directory wins. This lets a project override a default library function with its own without modifying the OSDK library. header.s and tail.s are likewise taken from the first directory providing them</li>
+<li>Library resolution is deferred until every command line file has been parsed. Previously a symbol referenced by an early file but defined by a later user file already pulled in the library implementation, and the two definitions then collided at assembly time</li>
+<li>The pulled library modules are emitted before the last user file. A project whose final module publishes an "end of my code" label, and loads its other modules at that address, needs the libraries to sit before it. Emitting them at the very end left library code beyond the marker, where the next module loaded would overwrite it at run time</li>
+<li>Each emitted library module is prefixed with an explicit <b>.text</b>, so it can never inherit whatever segment the previous module happened to leave active</li>
+<li>Writes <b>#define OSDK_HAS_BSS</b> at the top of the linked file when any module reserves .bss, so the C runtime can decide whether to emit a startup clear at all. The linker is the only stage that sees the whole program before the runtime is assembled</li>
+<li>Handles label definitions inside conditionals, which lets the C runtime carry a debugger module id stamp guarded by #ifdef without breaking programs that never define it</li>
+</ul>
+
+<p id=dateentry>Version 1.4</p>
+<ul>
+<li>Added "-S" option to import symbols from an XA symbol file (-l output)</li>
+<li>Added "-t symbolname" option to inject a .text origin from an imported symbol</li>
+<li>Added "#pragma osdk import" directive to force-import library symbols without requiring dead code references</li>
+<li>Added an error message for unrecognized "#pragma osdk" directives (previously silently ignored)</li>
+<li>Fixed false "Unresolved external" errors caused by C preprocessor macros in assembly files</li>
+<li>Added "-g" option to filter -S symbol imports using an XA equates file</li>
+<li>Fixed "#pragma osdk" directives reporting the wrong filename after a #include</li>
+<li>Added support for XA extended label syntax in the label tokenizer (&amp; block escape, : unnamed labels)</li>
+</ul>
+
+<p id=dateentry>Version 1.3</p>
+- Fixed a bug where a comment on a line containing a string requiring localization would prevent the character replacement from being applied
+
+<p id=dateentry>Version 1.2</p>
+- Added support for a "#pragma osdk replace_characters_if LANGUAGE_TAG" directive and a "-r LANGUAGE_TAG" command line option
+  to perform conditional character replacement: only the pragma whose tag matches the -r argument is applied.
+  This allows multiple language pragmas to coexist in a single file without the last one overriding all others.
+
+<p id=dateentry>Version 1.1</p>
+- Added support for a "#pragma osdk replace_characters" directive used to perform localization of texts (experimental)
+
+<p id=dateentry>Version 1.0</p>
+- Added a "-i" option to provide alternative include file paths
+
+<p id=dateentry>Version 0.68</p>
+- The 'Unresolved external: <name>' now also specify the filename and line number of the first place where the symbol was requested, as well as the total number of references.
+
+<p id=dateentry>Version 0.67</p>
+- Error messages now indicate that they came from the Linker, because a generic "Error, can't load xxxx" was not very informative
+            
+<p id=dateentry>Version 0.66</p>
+ - The new macro file generate lines that contain multiple instructions, the linker stopped at the first encountered instruction, this new version correctly parses that
+
+<p id=dateentry>Version 0.65</p>
+ - Fixed some issues in the token pattern matching used to detect labels resulting in #includes containing relative paths to be incorrectly parsed<br>
+
+<p id=dateentry>Version 0.64</p>
+ - Fixed the age old problem if includes from assembler sources leading to Unresolved External errors<br>
+
+<p id=dateentry>Version 0.63</p>
+Fixed a number of issues in the linker:<br>
+- (WIP) The old linked filtered out comments, need to implement this feature as well<br>
+- removed some test code<br>
+- fixed the loading of symbols from the library index  file<br>
+- Fixed a problem of text file parsings. Mixed unix/dos carriage return would result in very long lines (containing many lines), leading to some crashes later on.<br>
+- Also fixed a problem in reporting the parsed files.<br>
+
+<p id=dateentry>Version 0.059</p>
+ - Corrected a bug that made it impossible to "link" only one source file<br>
+
+<p id=dateentry>Version 0.058</p>
+ - Added filtering of all '#' directives<br>
+ - Added an icon to the executable file to make it more 'OSDK' integrated :)<br>
+ - Added '-F' option to enable #file directive (requires modified XA assembler)<br>
+ - Modified the handling of comments to avoid crashes on C and C++ comments<br>
+ 
+<p id=dateentry>Version 0.057</p>
+ - Added '-B' option to suppress inclusion of HEADER and TAIL<br>
+
+<p id=dateentry>Version 0.056</p>
+ - Handling of lines that have more than 180 characters<br>
+
+<p id=dateentry>Before that...</p>
+ - This program was created and maintained by somebody else :)
+
+
+<hr>
+<A href="documentation.htm"><img src="arrow_back.gif"></A>
+<img src="pics/osdk_logo_small.png">
+<hr>
+
+	</BODY>
+</HTML>
+
+

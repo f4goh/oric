@@ -1,0 +1,54 @@
+#SYM V2
+0050 _zp_start_ /home/ale/osdk/TMP/main.s:18
+0050 playerP1State /home/ale/osdk/TMP/main.s:20
+0051 _zp_end_ /home/ale/osdk/TMP/main.s:24
+0800 _main /home/ale/osdk/TMP/main.s:31
+080c loop /home/ale/osdk/TMP/main.s:38
+081b sendChar /home/ale/osdk/TMP/main.s:51
+0826 getChar /home/ale/osdk/TMP/main.s:60
+0831 tableMasque /home/ale/osdk/TMP/main.s:72
+0800 __text_start /home/ale/osdk/TMP/main.s:77
+0837 __text_end /home/ale/osdk/TMP/main.s:77
+0037 __text_size /home/ale/osdk/TMP/main.s:77
+0837 __data_start /home/ale/osdk/TMP/main.s:77
+0837 __data_end /home/ale/osdk/TMP/main.s:77
+0000 __data_size /home/ale/osdk/TMP/main.s:77
+0900 __bss_start /home/ale/osdk/TMP/main.s:77
+0900 __bss_end /home/ale/osdk/TMP/main.s:77
+0000 __bss_size /home/ale/osdk/TMP/main.s:77
+0900 __bss_clear_start /home/ale/osdk/TMP/main.s:77
+0900 __bss_clear_end /home/ale/osdk/TMP/main.s:77
+0000 __bss_clear_size /home/ale/osdk/TMP/main.s:77
+0004 __zero_start /home/ale/osdk/TMP/main.s:77
+0005 __zero_end /home/ale/osdk/TMP/main.s:77
+0001 __zero_size /home/ale/osdk/TMP/main.s:77
+#FILES
+0 /home/ale/osdk/TMP/main.s
+#LINES
+0004 0:15
+0050 0:21
+0051 0:29
+0800 0:33
+0802 0:34
+0805 0:35
+0807 0:36
+080a 0:37
+080c 0:39
+080e 0:40
+0811 0:41
+0813 0:42
+0816 0:43
+0817 0:45
+081a 0:48
+081b 0:53
+081e 0:54
+0820 0:55
+0822 0:56
+0825 0:57
+0826 0:62
+0829 0:63
+082b 0:64
+082d 0:65
+0830 0:66
+0831 0:74
+0837 0:76

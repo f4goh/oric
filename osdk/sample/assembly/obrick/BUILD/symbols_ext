@@ -1,0 +1,1299 @@
+#SYM V2
+0050 _zp_start_ /home/ale/osdk/TMP/main.s:65
+0050 posBlocX /home/ale/osdk/TMP/main.s:68
+0051 posBlocY /home/ale/osdk/TMP/main.s:70
+0052 checkPosBlocX /home/ale/osdk/TMP/main.s:73
+0053 checkPosBlocY /home/ale/osdk/TMP/main.s:75
+0054 collisionState /home/ale/osdk/TMP/main.s:77
+0055 posx /home/ale/osdk/TMP/main.s:79
+0056 posy /home/ale/osdk/TMP/main.s:81
+0057 setCoul /home/ale/osdk/TMP/main.s:83
+0058 getCoul /home/ale/osdk/TMP/main.s:85
+0059 offsetBloc /home/ale/osdk/TMP/main.s:88
+005a blocSelect /home/ale/osdk/TMP/main.s:90
+005b blocBuffer /home/ale/osdk/TMP/main.s:93
+006b timerLow /home/ale/osdk/TMP/main.s:96
+006c timerHighGame /home/ale/osdk/TMP/main.s:98
+006d timerHighScroll /home/ale/osdk/TMP/main.s:100
+006e ligneEnCours /home/ale/osdk/TMP/main.s:103
+006f lignePtrDest /home/ale/osdk/TMP/main.s:105
+0070 lignePtrSource /home/ale/osdk/TMP/main.s:107
+0071 gameState /home/ale/osdk/TMP/main.s:110
+0072 charPtrLow /home/ale/osdk/TMP/main.s:113
+0073 charPtrHigh /home/ale/osdk/TMP/main.s:115
+0074 cptScore /home/ale/osdk/TMP/main.s:118
+0075 vitesseJeu /home/ale/osdk/TMP/main.s:121
+0076 rand_low /home/ale/osdk/TMP/main.s:126
+0077 rand_high /home/ale/osdk/TMP/main.s:127
+0078 b_tmp1 /home/ale/osdk/TMP/main.s:128
+0079 last_key_press /home/ale/osdk/TMP/main.s:130
+007a ptr_dst /home/ale/osdk/TMP/main.s:132
+007a pl_dst /home/ale/osdk/TMP/main.s:133
+007b ph_dst /home/ale/osdk/TMP/main.s:134
+007c joy_Left /home/ale/osdk/TMP/main.s:136
+007d joy_Left_back /home/ale/osdk/TMP/main.s:139
+007e joy_Right /home/ale/osdk/TMP/main.s:141
+007f joy_Right_back /home/ale/osdk/TMP/main.s:144
+0080 jreg0 /home/ale/osdk/TMP/main.s:151
+0081 jreg1 /home/ale/osdk/TMP/main.s:153
+0082 jreg2 /home/ale/osdk/TMP/main.s:155
+0083 jreg3 /home/ale/osdk/TMP/main.s:157
+0084 jreg4 /home/ale/osdk/TMP/main.s:159
+0085 jreg5 /home/ale/osdk/TMP/main.s:161
+0086 _zp_end_ /home/ale/osdk/TMP/main.s:166
+0800 _main /home/ale/osdk/TMP/main.s:173
+0805 suite /home/ale/osdk/TMP/main.s:193
+09cc initTeris /home/ale/osdk/TMP/main.s:533
+0b37 printReturn /home/ale/osdk/TMP/main.s:753
+080b loop /home/ale/osdk/TMP/main.s:197
+0811 timer /home/ale/osdk/TMP/main.s:203
+0838 fin /home/ale/osdk/TMP/main.s:229
+0d43 handle_keyboard /home/ale/osdk/TMP/main.s:1094
+081c suite /home/ale/osdk/TMP/main.s:214
+082d scroll_only /home/ale/osdk/TMP/main.s:223
+0882 deplaceVersLeBas /home/ale/osdk/TMP/main.s:288
+0839 scrollText /home/ale/osdk/TMP/main.s:233
+0840 decaleLigne /home/ale/osdk/TMP/main.s:240
+0851 placeCar /home/ale/osdk/TMP/main.s:254
+0844 loop /home/ale/osdk/TMP/main.s:244
+085b read /home/ale/osdk/TMP/main.s:260
+086b suite /home/ale/osdk/TMP/main.s:268
+1014 scrTxt /home/ale/osdk/TMP/main.s:1509
+0862 reinit /home/ale/osdk/TMP/main.s:263
+0862 ptr /home/ale/osdk/TMP/main.s:263
+0878 notSpace /home/ale/osdk/TMP/main.s:275
+0e2e GetRand /home/ale/osdk/TMP/main.s:1266
+0881 cont /home/ale/osdk/TMP/main.s:280
+0c3f checkCollision /home/ale/osdk/TMP/main.s:932
+0897 fin /home/ale/osdk/TMP/main.s:301
+08af verifieGameOver /home/ale/osdk/TMP/main.s:324
+0898 deplaceVersLeBasDirect /home/ale/osdk/TMP/main.s:306
+089c again /home/ale/osdk/TMP/main.s:310
+08cd gameOver /home/ale/osdk/TMP/main.s:344
+08bf suite /home/ale/osdk/TMP/main.s:333
+0cac copyBloc /home/ale/osdk/TMP/main.s:999
+0906 checkLines /home/ale/osdk/TMP/main.s:388
+08d9 tirage /home/ale/osdk/TMP/main.s:357
+08d8 fin /home/ale/osdk/TMP/main.s:351
+0b1b printGameOver /home/ale/osdk/TMP/main.s:732
+08e6 suite /home/ale/osdk/TMP/main.s:366
+0b7f traceLigneVerticale /home/ale/osdk/TMP/main.s:802
+090a loop /home/ale/osdk/TMP/main.s:392
+091b checkOneLine /home/ale/osdk/TMP/main.s:406
+0923 loop /home/ale/osdk/TMP/main.s:412
+0d2a getPosXY /home/ale/osdk/TMP/main.s:1077
+093e fin /home/ale/osdk/TMP/main.s:425
+098c decallageTotale /home/ale/osdk/TMP/main.s:486
+094e afficheScore /home/ale/osdk/TMP/main.s:443
+0941 updateVitesse /home/ale/osdk/TMP/main.s:430
+1438 tableVitesse /home/ale/osdk/TMP/main.s:1678
+13c2 score_adr_low /home/ale/osdk/TMP/main.s:1624
+0988 writescore /home/ale/osdk/TMP/main.s:478
+13c3 score_adr_high /home/ale/osdk/TMP/main.s:1628
+0994 loop /home/ale/osdk/TMP/main.s:492
+09a2 decallageUneLigne /home/ale/osdk/TMP/main.s:503
+09a6 loop /home/ale/osdk/TMP/main.s:507
+0d11 setPosXY /home/ale/osdk/TMP/main.s:1061
+09c1 reinitTimer /home/ale/osdk/TMP/main.s:523
+0cef efface /home/ale/osdk/TMP/main.s:1042
+0b92 traceLigneHorizontale /home/ale/osdk/TMP/main.s:817
+0aa5 init_logo /home/ale/osdk/TMP/main.s:641
+0acd init_rules /home/ale/osdk/TMP/main.s:671
+1251 cornerUP_LEFT /home/ale/osdk/TMP/main.s:1520
+0a99 readCharDef /home/ale/osdk/TMP/main.s:632
+0a9c writeCharDef /home/ale/osdk/TMP/main.s:634
+0a97 charDef /home/ale/osdk/TMP/main.s:630
+1259 cornerUP_RIGHT /home/ale/osdk/TMP/main.s:1530
+1261 cornerDOWN_LEFT /home/ale/osdk/TMP/main.s:1540
+1269 cornerDOWN_RIGHT /home/ale/osdk/TMP/main.s:1550
+1271 intersection /home/ale/osdk/TMP/main.s:1560
+1279 smiley /home/ale/osdk/TMP/main.s:1571
+0aa9 lignes /home/ale/osdk/TMP/main.s:645
+1305 obrick_logo_adr_low /home/ale/osdk/TMP/main.s:1592
+0abc write /home/ale/osdk/TMP/main.s:655
+130b obrick_logo_adr_high /home/ale/osdk/TMP/main.s:1600
+0ab9 loop /home/ale/osdk/TMP/main.s:653
+1281 obrick_logo /home/ale/osdk/TMP/main.s:1582
+0ad1 loop /home/ale/osdk/TMP/main.s:675
+13c4 rulesCmd_adr_low /home/ale/osdk/TMP/main.s:1633
+0aed writeRules /home/ale/osdk/TMP/main.s:693
+13ce rulesCmd_adr_high /home/ale/osdk/TMP/main.s:1645
+0ae6 cpy_rules /home/ale/osdk/TMP/main.s:687
+0aea cpyAgain /home/ale/osdk/TMP/main.s:691
+1311 rulesCmdTxt /home/ale/osdk/TMP/main.s:1608
+0af9 effaceGamePlay /home/ale/osdk/TMP/main.s:703
+0aff loopy /home/ale/osdk/TMP/main.s:708
+0b03 loopx /home/ale/osdk/TMP/main.s:711
+13ef gameOverTxt /home/ale/osdk/TMP/main.s:1660
+0b73 readAll /home/ale/osdk/TMP/main.s:792
+0b53 prepareMessage /home/ale/osdk/TMP/main.s:774
+0b29 printPaused /home/ale/osdk/TMP/main.s:742
+1406 gamePausedTxt /home/ale/osdk/TMP/main.s:1663
+13d8 pressReturnTxt /home/ale/osdk/TMP/main.s:1657
+0b45 printSpaces /home/ale/osdk/TMP/main.s:763
+141d cleanTxt /home/ale/osdk/TMP/main.s:1666
+1434 msg_adr_low /home/ale/osdk/TMP/main.s:1670
+0b76 writeAll /home/ale/osdk/TMP/main.s:794
+1436 msg_adr_high /home/ale/osdk/TMP/main.s:1674
+0b71 printAll /home/ale/osdk/TMP/main.s:790
+0b85 loop /home/ale/osdk/TMP/main.s:807
+0b98 loop /home/ale/osdk/TMP/main.s:822
+0ba5 rotateBloc /home/ale/osdk/TMP/main.s:833
+0f7e bloc_AddrLow /home/ale/osdk/TMP/main.s:1412
+0bbb read /home/ale/osdk/TMP/main.s:843
+0bd9 write /home/ale/osdk/TMP/main.s:861
+0f86 bloc_AddrHigh /home/ale/osdk/TMP/main.s:1422
+0f4e rotSequence /home/ale/osdk/TMP/main.s:1398
+0c1d checkCollisionRotation /home/ale/osdk/TMP/main.s:907
+0be8 fin /home/ale/osdk/TMP/main.s:869
+0be9 deleteBloc /home/ale/osdk/TMP/main.s:874
+0bd7 loop /home/ale/osdk/TMP/main.s:859
+0bf5 loop /home/ale/osdk/TMP/main.s:882
+0c03 suite /home/ale/osdk/TMP/main.s:889
+0f5e blocIncXSeq /home/ale/osdk/TMP/main.s:1406
+0f6e blocIncYSeq /home/ale/osdk/TMP/main.s:1408
+0c2b read /home/ale/osdk/TMP/main.s:916
+0c83 detect /home/ale/osdk/TMP/main.s:971
+0c3e fin /home/ale/osdk/TMP/main.s:927
+0c5b read /home/ale/osdk/TMP/main.s:946
+0c82 fin /home/ale/osdk/TMP/main.s:966
+0c99 fin /home/ale/osdk/TMP/main.s:984
+0cc6 read /home/ale/osdk/TMP/main.s:1012
+0cd5 pasteBlocXY /home/ale/osdk/TMP/main.s:1023
+0cdc fin /home/ale/osdk/TMP/main.s:1028
+0cf1 writeEfface /home/ale/osdk/TMP/main.s:1044
+0f16 ScreenAdressLow /home/ale/osdk/TMP/main.s:1391
+0d26 wsetPosXY /home/ale/osdk/TMP/main.s:1072
+0f32 ScreenAdressHigh /home/ale/osdk/TMP/main.s:1394
+0d3d wgetPosXY /home/ale/osdk/TMP/main.s:1087
+0d4f key_pressed /home/ale/osdk/TMP/main.s:1104
+0d58 end_keyboard /home/ale/osdk/TMP/main.s:1109
+0d59 HandleKeys /home/ale/osdk/TMP/main.s:1112
+0d5b loop_scan /home/ale/osdk/TMP/main.s:1115
+0ffe KeyboardRouter_ScanCode /home/ale/osdk/TMP/main.s:1480
+0d75 end_of_scan /home/ale/osdk/TMP/main.s:1129
+0d68 execute_key /home/ale/osdk/TMP/main.s:1123
+1006 KeyboardRouter_AddrLow /home/ale/osdk/TMP/main.s:1490
+100d KeyboardRouter_AddrHigh /home/ale/osdk/TMP/main.s:1500
+0d76 gestionJoystick /home/ale/osdk/TMP/main.s:1133
+0e56 joystick_detect_ijk /home/ale/osdk/TMP/main.s:1292
+0d98 test_joy_right /home/ale/osdk/TMP/main.s:1153
+0db5 moveLeft /home/ale/osdk/TMP/main.s:1172
+0dcb moveRight /home/ale/osdk/TMP/main.s:1189
+0df5 moveSpace /home/ale/osdk/TMP/main.s:1224
+0dfc pauseKey /home/ale/osdk/TMP/main.s:1230
+0de1 moveUpRotate /home/ale/osdk/TMP/main.s:1206
+0db4 fin /home/ale/osdk/TMP/main.s:1168
+0dca fin /home/ale/osdk/TMP/main.s:1184
+0de0 fin /home/ale/osdk/TMP/main.s:1201
+0df3 fin /home/ale/osdk/TMP/main.s:1216
+0df4 moveDown /home/ale/osdk/TMP/main.s:1220
+0e0a suite /home/ale/osdk/TMP/main.s:1238
+0e0f fin /home/ale/osdk/TMP/main.s:1241
+0e12 returnKey /home/ale/osdk/TMP/main.s:1247
+0e2d fin /home/ale/osdk/TMP/main.s:1260
+0ed9 suite /home/ale/osdk/TMP/main.s:1357
+0ef6 GenericIJKBits /home/ale/osdk/TMP/main.s:1378
+0ee3 fin /home/ale/osdk/TMP/main.s:1363
+0f8e bloc0 /home/ale/osdk/TMP/main.s:1432
+0f9e bloc1 /home/ale/osdk/TMP/main.s:1438
+0fae bloc2 /home/ale/osdk/TMP/main.s:1444
+0fbe bloc3 /home/ale/osdk/TMP/main.s:1450
+0fce bloc4 /home/ale/osdk/TMP/main.s:1456
+0fde bloc5 /home/ale/osdk/TMP/main.s:1462
+0fee bloc6 /home/ale/osdk/TMP/main.s:1468
+135e joyNotFound /home/ale/osdk/TMP/main.s:1612
+13bc joyFound /home/ale/osdk/TMP/main.s:1621
+0800 __text_start /home/ale/osdk/TMP/main.s:1682
+1442 __text_end /home/ale/osdk/TMP/main.s:1682
+0c42 __text_size /home/ale/osdk/TMP/main.s:1682
+1442 __data_start /home/ale/osdk/TMP/main.s:1682
+1442 __data_end /home/ale/osdk/TMP/main.s:1682
+0000 __data_size /home/ale/osdk/TMP/main.s:1682
+1500 __bss_start /home/ale/osdk/TMP/main.s:1682
+1500 __bss_end /home/ale/osdk/TMP/main.s:1682
+0000 __bss_size /home/ale/osdk/TMP/main.s:1682
+1500 __bss_clear_start /home/ale/osdk/TMP/main.s:1682
+1500 __bss_clear_end /home/ale/osdk/TMP/main.s:1682
+0000 __bss_clear_size /home/ale/osdk/TMP/main.s:1682
+0004 __zero_start /home/ale/osdk/TMP/main.s:1682
+003a __zero_end /home/ale/osdk/TMP/main.s:1682
+0036 __zero_size /home/ale/osdk/TMP/main.s:1682
+#FILES
+0 /home/ale/osdk/TMP/main.s
+#LINES
+0004 0:62
+0050 0:69
+0051 0:71
+0052 0:74
+0053 0:76
+0054 0:78
+0055 0:80
+0056 0:82
+0057 0:84
+0058 0:86
+0059 0:89
+005a 0:91
+005b 0:94
+006b 0:97
+006c 0:99
+006d 0:101
+006e 0:104
+006f 0:106
+0070 0:108
+0071 0:111
+0072 0:114
+0073 0:116
+0074 0:119
+0075 0:122
+0076 0:126
+0077 0:127
+0078 0:128
+0079 0:130
+007a 0:133
+007b 0:134
+007c 0:138
+007d 0:140
+007e 0:143
+007f 0:145
+0080 0:152
+0081 0:154
+0082 0:156
+0083 0:158
+0084 0:160
+0085 0:162
+0086 0:170
+0800 0:174
+0802 0:175
+0805 0:194
+0808 0:195
+080b 0:198
+080e 0:199
+0811 0:205
+0813 0:206
+0815 0:207
+0817 0:208
+0819 0:209
+081c 0:215
+081e 0:216
+0820 0:217
+0822 0:218
+0824 0:219
+0826 0:220
+0828 0:221
+082a 0:222
+082d 0:224
+082f 0:225
+0831 0:226
+0833 0:227
+0835 0:228
+0838 0:230
+0839 0:235
+083c 0:236
+083f 0:237
+0840 0:242
+0842 0:243
+0844 0:245
+0847 0:246
+084a 0:247
+084b 0:248
+084c 0:249
+084e 0:250
+0850 0:251
+0851 0:256
+0853 0:257
+0856 0:258
+0858 0:259
+085b 0:261
+085e 0:262
+0860 0:263
+0862 0:264
+0864 0:265
+0866 0:266
+0868 0:267
+086b 0:269
+086d 0:270
+086f 0:271
+0872 0:272
+0874 0:273
+0876 0:274
+0878 0:276
+087b 0:277
+087d 0:278
+087f 0:279
+0881 0:281
+0882 0:290
+0884 0:291
+0885 0:292
+0887 0:293
+0889 0:294
+088b 0:295
+088e 0:296
+0890 0:297
+0892 0:298
+0894 0:300
+0897 0:302
+0898 0:308
+089a 0:309
+089c 0:311
+089e 0:312
+08a0 0:313
+08a2 0:314
+08a5 0:315
+08a7 0:316
+08a9 0:317
+08ab 0:318
+08ae 0:320
+08af 0:326
+08b2 0:327
+08b5 0:328
+08b7 0:329
+08b9 0:330
+08bb 0:331
+08bd 0:332
+08bf 0:335
+08c1 0:336
+08c3 0:337
+08c6 0:338
+08c9 0:339
+08cc 0:340
+08cd 0:346
+08cf 0:347
+08d1 0:348
+08d3 0:349
+08d5 0:350
+08d8 0:352
+08d9 0:360
+08dc 0:361
+08de 0:362
+08e0 0:363
+08e2 0:364
+08e4 0:365
+08e6 0:367
+08e8 0:368
+08eb 0:370
+08ee 0:371
+08f0 0:372
+08f2 0:374
+08f4 0:375
+08f6 0:376
+08f8 0:377
+08fa 0:378
+08fc 0:379
+08fe 0:380
+0900 0:381
+0902 0:382
+0905 0:383
+0906 0:390
+0908 0:391
+090a 0:393
+090d 0:394
+090f 0:395
+0911 0:396
+0913 0:397
+0914 0:398
+0916 0:399
+0918 0:400
+091a 0:401
+091b 0:408
+091d 0:409
+091f 0:410
+0921 0:411
+0923 0:413
+0926 0:414
+0928 0:415
+092a 0:416
+092c 0:417
+092e 0:418
+0930 0:419
+0932 0:420
+0935 0:421
+0938 0:422
+093b 0:423
+093d 0:424
+093e 0:426
+0940 0:427
+0941 0:432
+0943 0:433
+0944 0:434
+0945 0:435
+0946 0:436
+0947 0:437
+0948 0:438
+094b 0:439
+094d 0:440
+094e 0:445
+094f 0:446
+0950 0:447
+0952 0:448
+0954 0:449
+0956 0:450
+0957 0:451
+095a 0:452
+095d 0:453
+0960 0:454
+0963 0:456
+0965 0:457
+0967 0:458
+0968 0:459
+0969 0:460
+096a 0:461
+096b 0:462
+096c 0:463
+096e 0:464
+0971 0:465
+0973 0:466
+0976 0:468
+0978 0:469
+097a 0:470
+097c 0:471
+097d 0:472
+097f 0:473
+0982 0:474
+0984 0:475
+0987 0:476
+0988 0:479
+098b 0:480
+098c 0:488
+098e 0:489
+0990 0:490
+0992 0:491
+0994 0:493
+0997 0:494
+0999 0:495
+099b 0:496
+099d 0:497
+099f 0:498
+09a1 0:499
+09a2 0:505
+09a4 0:506
+09a6 0:508
+09a8 0:509
+09aa 0:510
+09ad 0:511
+09af 0:512
+09b1 0:513
+09b3 0:514
+09b5 0:515
+09b8 0:516
+09ba 0:517
+09bc 0:518
+09be 0:519
+09c0 0:520
+09c1 0:524
+09c3 0:525
+09c5 0:526
+09c7 0:527
+09c9 0:528
+09cb 0:529
+09cc 0:534
+09ce 0:535
+09d0 0:536
+09d2 0:537
+09d4 0:539
+09d7 0:541
+09d9 0:542
+09db 0:544
+09dd 0:545
+09df 0:547
+09e1 0:548
+09e3 0:549
+09e5 0:550
+09e7 0:552
+09ea 0:553
+09ec 0:554
+09ee 0:555
+09f1 0:556
+09f3 0:557
+09f5 0:558
+09f8 0:559
+09fa 0:560
+09fc 0:561
+09ff 0:562
+0a01 0:563
+0a03 0:564
+0a06 0:565
+0a09 0:566
+0a0c 0:568
+0a0e 0:569
+0a11 0:570
+0a13 0:571
+0a16 0:572
+0a18 0:573
+0a1b 0:574
+0a1d 0:575
+0a20 0:576
+0a23 0:578
+0a25 0:579
+0a28 0:580
+0a2a 0:581
+0a2d 0:582
+0a2f 0:583
+0a32 0:584
+0a34 0:585
+0a37 0:586
+0a3a 0:588
+0a3c 0:589
+0a3f 0:590
+0a41 0:591
+0a44 0:592
+0a46 0:593
+0a49 0:594
+0a4b 0:595
+0a4e 0:596
+0a51 0:598
+0a53 0:599
+0a56 0:600
+0a58 0:601
+0a5b 0:602
+0a5d 0:603
+0a60 0:604
+0a62 0:605
+0a65 0:606
+0a68 0:608
+0a6a 0:609
+0a6d 0:610
+0a6f 0:611
+0a72 0:612
+0a74 0:613
+0a77 0:614
+0a79 0:615
+0a7c 0:616
+0a7f 0:618
+0a81 0:619
+0a84 0:620
+0a86 0:621
+0a89 0:622
+0a8b 0:623
+0a8e 0:624
+0a90 0:625
+0a93 0:626
+0a96 0:628
+0a97 0:631
+0a99 0:633
+0a9c 0:635
+0a9f 0:636
+0aa0 0:637
+0aa2 0:638
+0aa4 0:639
+0aa5 0:643
+0aa7 0:644
+0aa9 0:646
+0aac 0:647
+0aaf 0:648
+0ab2 0:649
+0ab5 0:650
+0ab6 0:651
+0ab7 0:652
+0ab9 0:654
+0abc 0:656
+0abf 0:657
+0ac0 0:658
+0ac1 0:659
+0ac3 0:660
+0ac5 0:661
+0ac6 0:662
+0ac7 0:663
+0ac8 0:664
+0aca 0:665
+0acc 0:666
+0acd 0:673
+0acf 0:674
+0ad1 0:676
+0ad4 0:677
+0ad7 0:678
+0ada 0:679
+0add 0:680
+0ae0 0:681
+0ae1 0:682
+0ae3 0:683
+0ae5 0:684
+0ae6 0:688
+0ae7 0:689
+0ae8 0:690
+0aea 0:692
+0aed 0:694
+0af0 0:695
+0af1 0:696
+0af2 0:697
+0af4 0:698
+0af6 0:699
+0af7 0:700
+0af8 0:701
+0af9 0:705
+0afb 0:706
+0afd 0:707
+0aff 0:709
+0b01 0:710
+0b03 0:712
+0b05 0:713
+0b06 0:714
+0b07 0:715
+0b08 0:716
+0b09 0:717
+0b0c 0:718
+0b0d 0:719
+0b0e 0:720
+0b0f 0:721
+0b10 0:722
+0b11 0:723
+0b13 0:724
+0b15 0:725
+0b16 0:726
+0b18 0:727
+0b1a 0:728
+0b1b 0:734
+0b1d 0:735
+0b20 0:736
+0b22 0:737
+0b25 0:738
+0b28 0:739
+0b29 0:744
+0b2b 0:745
+0b2e 0:746
+0b30 0:747
+0b33 0:748
+0b36 0:749
+0b37 0:755
+0b39 0:756
+0b3c 0:757
+0b3e 0:758
+0b41 0:759
+0b44 0:760
+0b45 0:765
+0b47 0:766
+0b4a 0:767
+0b4c 0:768
+0b4f 0:769
+0b52 0:770
+0b53 0:776
+0b56 0:777
+0b59 0:778
+0b5c 0:779
+0b5f 0:780
+0b62 0:781
+0b65 0:782
+0b68 0:783
+0b6b 0:784
+0b6e 0:785
+0b71 0:791
+0b73 0:793
+0b76 0:795
+0b79 0:796
+0b7a 0:797
+0b7c 0:798
+0b7e 0:799
+0b7f 0:804
+0b81 0:805
+0b83 0:806
+0b85 0:808
+0b87 0:809
+0b8a 0:810
+0b8c 0:811
+0b8d 0:812
+0b8f 0:813
+0b91 0:814
+0b92 0:819
+0b94 0:820
+0b96 0:821
+0b98 0:823
+0b9a 0:824
+0b9d 0:825
+0b9f 0:826
+0ba0 0:827
+0ba2 0:828
+0ba4 0:829
+0ba5 0:835
+0ba7 0:836
+0baa 0:837
+0bad 0:838
+0bb0 0:839
+0bb3 0:840
+0bb6 0:841
+0bb9 0:842
+0bbb 0:844
+0bbe 0:845
+0bc1 0:846
+0bc4 0:847
+0bc5 0:848
+0bc7 0:849
+0bc9 0:851
+0bcc 0:852
+0bce 0:853
+0bd0 0:854
+0bd2 0:856
+0bd5 0:858
+0bd7 0:860
+0bd9 0:862
+0bdc 0:863
+0bdd 0:864
+0bdf 0:865
+0be1 0:866
+0be3 0:867
+0be5 0:868
+0be8 0:870
+0be9 0:876
+0beb 0:877
+0bed 0:878
+0bef 0:879
+0bf1 0:880
+0bf3 0:881
+0bf5 0:883
+0bf8 0:884
+0bfa 0:885
+0bfc 0:886
+0bfe 0:887
+0c00 0:888
+0c03 0:890
+0c05 0:891
+0c07 0:892
+0c08 0:893
+0c0b 0:894
+0c0d 0:895
+0c0f 0:896
+0c10 0:897
+0c13 0:898
+0c15 0:899
+0c16 0:900
+0c18 0:901
+0c1a 0:902
+0c1c 0:903
+0c1d 0:909
+0c1f 0:910
+0c21 0:911
+0c23 0:912
+0c25 0:913
+0c27 0:914
+0c29 0:915
+0c2b 0:917
+0c2d 0:918
+0c30 0:919
+0c32 0:920
+0c34 0:921
+0c36 0:922
+0c38 0:923
+0c3a 0:924
+0c3c 0:925
+0c3e 0:928
+0c3f 0:934
+0c41 0:935
+0c44 0:936
+0c47 0:937
+0c4a 0:938
+0c4d 0:939
+0c4f 0:940
+0c51 0:941
+0c53 0:942
+0c55 0:943
+0c57 0:944
+0c59 0:945
+0c5b 0:947
+0c5e 0:948
+0c61 0:949
+0c63 0:950
+0c65 0:951
+0c67 0:952
+0c69 0:953
+0c6a 0:954
+0c6c 0:955
+0c6e 0:956
+0c70 0:958
+0c73 0:959
+0c75 0:960
+0c77 0:961
+0c79 0:962
+0c7b 0:963
+0c7d 0:964
+0c7f 0:965
+0c82 0:967
+0c83 0:973
+0c85 0:974
+0c87 0:975
+0c8a 0:976
+0c8c 0:977
+0c8e 0:978
+0c90 0:979
+0c92 0:980
+0c94 0:981
+0c96 0:982
+0c98 0:983
+0c99 0:985
+0c9b 0:986
+0c9d 0:987
+0c9e 0:988
+0ca1 0:989
+0ca3 0:990
+0ca5 0:991
+0ca6 0:992
+0ca9 0:993
+0cab 0:994
+0cac 0:1001
+0cae 0:1002
+0cb1 0:1003
+0cb4 0:1004
+0cb7 0:1005
+0cba 0:1006
+0cbc 0:1007
+0cbe 0:1008
+0cc0 0:1009
+0cc2 0:1010
+0cc4 0:1011
+0cc6 0:1013
+0cc9 0:1014
+0ccc 0:1015
+0cce 0:1016
+0cd0 0:1017
+0cd2 0:1018
+0cd4 0:1019
+0cd5 0:1025
+0cd7 0:1026
+0cd9 0:1027
+0cdc 0:1029
+0cde 0:1030
+0ce0 0:1031
+0ce1 0:1032
+0ce4 0:1033
+0ce6 0:1034
+0ce8 0:1035
+0ce9 0:1036
+0cec 0:1037
+0cee 0:1038
+0cef 0:1043
+0cf1 0:1045
+0cf4 0:1046
+0cf7 0:1047
+0cf8 0:1048
+0cfa 0:1049
+0cfd 0:1050
+0d00 0:1051
+0d02 0:1052
+0d05 0:1053
+0d07 0:1054
+0d09 0:1055
+0d0c 0:1056
+0d0e 0:1057
+0d10 0:1058
+0d11 0:1063
+0d13 0:1064
+0d16 0:1065
+0d17 0:1066
+0d19 0:1067
+0d1c 0:1068
+0d1f 0:1069
+0d21 0:1070
+0d24 0:1071
+0d26 0:1073
+0d29 0:1074
+0d2a 0:1079
+0d2c 0:1080
+0d2f 0:1081
+0d30 0:1082
+0d32 0:1083
+0d35 0:1084
+0d38 0:1085
+0d3a 0:1086
+0d3d 0:1088
+0d40 0:1089
+0d42 0:1090
+0d43 0:1099
+0d46 0:1100
+0d48 0:1101
+0d4a 0:1102
+0d4c 0:1103
+0d4f 0:1105
+0d51 0:1106
+0d53 0:1107
+0d55 0:1108
+0d58 0:1110
+0d59 0:1114
+0d5b 0:1116
+0d5e 0:1117
+0d60 0:1118
+0d62 0:1119
+0d64 0:1120
+0d65 0:1121
+0d68 0:1124
+0d6b 0:1125
+0d6d 0:1126
+0d70 0:1127
+0d72 0:1128
+0d75 0:1130
+0d76 0:1136
+0d79 0:1138
+0d7b 0:1139
+0d7d 0:1140
+0d7f 0:1141
+0d81 0:1142
+0d83 0:1143
+0d85 0:1144
+0d87 0:1145
+0d89 0:1146
+0d8b 0:1147
+0d8d 0:1148
+0d8f 0:1149
+0d91 0:1150
+0d93 0:1151
+0d95 0:1152
+0d98 0:1154
+0d9a 0:1155
+0d9c 0:1156
+0d9e 0:1157
+0da0 0:1158
+0da2 0:1159
+0da4 0:1160
+0da6 0:1161
+0da8 0:1162
+0daa 0:1163
+0dac 0:1164
+0dae 0:1165
+0db0 0:1166
+0db2 0:1167
+0db4 0:1169
+0db5 0:1174
+0db7 0:1175
+0db9 0:1176
+0dbb 0:1177
+0dbd 0:1178
+0dbe 0:1179
+0dc0 0:1180
+0dc2 0:1181
+0dc4 0:1182
+0dc7 0:1183
+0dca 0:1185
+0dcb 0:1191
+0dcd 0:1192
+0dcf 0:1193
+0dd1 0:1194
+0dd3 0:1195
+0dd4 0:1196
+0dd6 0:1197
+0dd8 0:1198
+0dda 0:1199
+0ddd 0:1200
+0de0 0:1202
+0de1 0:1208
+0de3 0:1209
+0de5 0:1210
+0de7 0:1211
+0de9 0:1212
+0deb 0:1213
+0ded 0:1214
+0df0 0:1215
+0df3 0:1217
+0df4 0:1222
+0df5 0:1225
+0df8 0:1226
+0dfb 0:1227
+0dfc 0:1232
+0dfe 0:1233
+0e00 0:1234
+0e02 0:1235
+0e05 0:1236
+0e07 0:1237
+0e0a 0:1239
+0e0d 0:1240
+0e0f 0:1242
+0e11 0:1244
+0e12 0:1249
+0e14 0:1250
+0e16 0:1251
+0e18 0:1252
+0e1a 0:1253
+0e1c 0:1254
+0e1e 0:1255
+0e21 0:1256
+0e24 0:1257
+0e27 0:1258
+0e2a 0:1259
+0e2d 0:1262
+0e2e 0:1267
+0e30 0:1268
+0e32 0:1269
+0e34 0:1270
+0e35 0:1271
+0e37 0:1272
+0e38 0:1273
+0e3a 0:1274
+0e3b 0:1275
+0e3d 0:1276
+0e3e 0:1277
+0e40 0:1278
+0e41 0:1279
+0e43 0:1280
+0e44 0:1281
+0e46 0:1282
+0e48 0:1283
+0e4a 0:1284
+0e4b 0:1285
+0e4d 0:1286
+0e4f 0:1287
+0e51 0:1288
+0e53 0:1289
+0e55 0:1290
+0e56 0:1294
+0e57 0:1295
+0e58 0:1296
+0e5b 0:1297
+0e5c 0:1298
+0e5f 0:1299
+0e60 0:1300
+0e63 0:1301
+0e64 0:1302
+0e67 0:1303
+0e68 0:1304
+0e6a 0:1305
+0e6d 0:1306
+0e6f 0:1307
+0e72 0:1308
+0e75 0:1309
+0e77 0:1310
+0e79 0:1311
+0e7c 0:1312
+0e7f 0:1313
+0e81 0:1314
+0e83 0:1315
+0e85 0:1316
+0e87 0:1317
+0e89 0:1318
+0e8b 0:1319
+0e8d 0:1320
+0e90 0:1321
+0e92 0:1322
+0e95 0:1323
+0e97 0:1324
+0e9a 0:1325
+0e9c 0:1326
+0e9f 0:1327
+0ea2 0:1328
+0ea4 0:1330
+0ea6 0:1331
+0ea8 0:1332
+0ea9 0:1333
+0eac 0:1334
+0eae 0:1336
+0eb0 0:1337
+0eb3 0:1338
+0eb6 0:1339
+0eb8 0:1341
+0eba 0:1342
+0ebc 0:1343
+0ebd 0:1344
+0ec0 0:1345
+0ec2 0:1348
+0ec4 0:1349
+0ec7 0:1350
+0eca 0:1351
+0ecc 0:1352
+0ece 0:1353
+0ed1 0:1354
+0ed4 0:1355
+0ed6 0:1356
+0ed9 0:1358
+0edb 0:1359
+0edd 0:1360
+0edf 0:1361
+0ee1 0:1362
+0ee3 0:1364
+0ee4 0:1365
+0ee7 0:1366
+0ee8 0:1367
+0eeb 0:1368
+0eec 0:1369
+0eef 0:1370
+0ef0 0:1371
+0ef3 0:1372
+0ef4 0:1373
+0ef5 0:1374
+0ef6 0:1379
+0f06 0:1380
+0f16 0:1392
+0f26 0:1393
+0f32 0:1395
+0f42 0:1396
+0f4e 0:1399
+0f5e 0:1407
+0f6e 0:1409
+0f7e 0:1413
+0f7f 0:1414
+0f80 0:1415
+0f81 0:1416
+0f82 0:1417
+0f83 0:1418
+0f84 0:1419
+0f85 0:1420
+0f86 0:1423
+0f87 0:1424
+0f88 0:1425
+0f89 0:1426
+0f8a 0:1427
+0f8b 0:1428
+0f8c 0:1429
+0f8d 0:1430
+0f8e 0:1433
+0f92 0:1434
+0f96 0:1435
+0f9a 0:1436
+0f9e 0:1439
+0fa2 0:1440
+0fa6 0:1441
+0faa 0:1442
+0fae 0:1445
+0fb2 0:1446
+0fb6 0:1447
+0fba 0:1448
+0fbe 0:1451
+0fc2 0:1452
+0fc6 0:1453
+0fca 0:1454
+0fce 0:1457
+0fd2 0:1458
+0fd6 0:1459
+0fda 0:1460
+0fde 0:1463
+0fe2 0:1464
+0fe6 0:1465
+0fea 0:1466
+0fee 0:1469
+0ff2 0:1470
+0ff6 0:1471
+0ffa 0:1472
+0ffe 0:1481
+0fff 0:1482
+1000 0:1483
+1001 0:1484
+1002 0:1485
+1003 0:1486
+1004 0:1487
+1005 0:1488
+1006 0:1491
+1007 0:1492
+1008 0:1493
+1009 0:1494
+100a 0:1495
+100b 0:1496
+100c 0:1497
+100d 0:1501
+100e 0:1502
+100f 0:1503
+1010 0:1504
+1011 0:1505
+1012 0:1506
+1013 0:1507
+1014 0:1510
+1068 0:1511
+108f 0:1512
+10d3 0:1513
+1122 0:1514
+1174 0:1515
+11a6 0:1516
+11f6 0:1517
+1251 0:1521
+1252 0:1522
+1253 0:1523
+1254 0:1524
+1255 0:1525
+1256 0:1526
+1257 0:1527
+1258 0:1528
+1259 0:1531
+125a 0:1532
+125b 0:1533
+125c 0:1534
+125d 0:1535
+125e 0:1536
+125f 0:1537
+1260 0:1538
+1261 0:1541
+1262 0:1542
+1263 0:1543
+1264 0:1544
+1265 0:1545
+1266 0:1546
+1267 0:1547
+1268 0:1548
+1269 0:1551
+126a 0:1552
+126b 0:1553
+126c 0:1554
+126d 0:1555
+126e 0:1556
+126f 0:1557
+1270 0:1558
+1271 0:1561
+1272 0:1562
+1273 0:1563
+1274 0:1564
+1275 0:1565
+1276 0:1566
+1277 0:1567
+1278 0:1568
+1279 0:1572
+127a 0:1573
+127b 0:1574
+127c 0:1575
+127d 0:1576
+127e 0:1577
+127f 0:1578
+1280 0:1579
+1281 0:1583
+1297 0:1584
+12ad 0:1585
+12c3 0:1586
+12d9 0:1587
+12ef 0:1588
+12f0 0:1589
+1305 0:1593
+1306 0:1594
+1307 0:1595
+1308 0:1596
+1309 0:1597
+130a 0:1598
+130b 0:1601
+130c 0:1602
+130d 0:1603
+130e 0:1604
+130f 0:1605
+1310 0:1606
+1311 0:1609
+132b 0:1610
+1345 0:1611
+135e 0:1613
+1377 0:1614
+1390 0:1615
+1392 0:1616
+1394 0:1617
+1396 0:1618
+13a9 0:1619
+13bc 0:1622
+13c2 0:1625
+13c3 0:1629
+13c4 0:1634
+13c5 0:1635
+13c6 0:1636
+13c7 0:1637
+13c8 0:1638
+13c9 0:1639
+13ca 0:1640
+13cb 0:1641
+13cc 0:1642
+13cd 0:1643
+13ce 0:1646
+13cf 0:1647
+13d0 0:1648
+13d1 0:1649
+13d2 0:1650
+13d3 0:1651
+13d4 0:1652
+13d5 0:1653
+13d6 0:1654
+13d7 0:1655
+13d8 0:1658
+13ef 0:1661
+1406 0:1664
+141d 0:1667
+1434 0:1671
+1435 0:1672
+1436 0:1675
+1437 0:1676
+1438 0:1680
+1442 0:1681

@@ -1,0 +1,270 @@
+#SYM V2
+0050 zp_compiler_save_start /home/ale/osdk/lib/header.s:11
+0050 ap zp_crt.inc:7
+0052 fp zp_crt.inc:8
+0054 sp zp_crt.inc:9
+0056 tmp0 zp_crt.inc:11
+0058 tmp1 zp_crt.inc:12
+005a tmp2 zp_crt.inc:13
+005c tmp3 zp_crt.inc:14
+005e tmp4 zp_crt.inc:15
+0060 tmp5 zp_crt.inc:16
+0062 tmp6 zp_crt.inc:17
+0064 tmp7 zp_crt.inc:18
+0066 op1 zp_crt.inc:20
+0068 op2 zp_crt.inc:21
+006a tmp zp_crt.inc:23
+006c reg0 zp_crt.inc:25
+006e reg1 zp_crt.inc:26
+0070 reg2 zp_crt.inc:27
+0072 reg3 zp_crt.inc:28
+0074 reg4 zp_crt.inc:29
+0076 reg5 zp_crt.inc:30
+0078 reg6 zp_crt.inc:31
+007a reg7 zp_crt.inc:32
+007c zp_compiler_save_end /home/ale/osdk/lib/header.s:13
+0800 osdk_start /home/ale/osdk/lib/header.s:18
+0a00 osdk_stack /home/ale/osdk/lib/tail.s:17
+0811 exitldx /home/ale/osdk/lib/header.s:91
+0815 _main /home/ale/osdk/TMP/main:3
+0811 _exit /home/ale/osdk/lib/header.s:90
+088e enter /home/ale/osdk/lib/frame.s:20
+0880 Lmain130 /home/ale/osdk/TMP/main:80
+091a _SimplePrint /home/ale/osdk/TMP/print.s:30
+085c Lmain134 /home/ale/osdk/TMP/main:50
+0838 Lmain131 /home/ale/osdk/TMP/main:24
+0842 Lmain132 /home/ale/osdk/TMP/main:26
+0850 skip /home/ale/osdk/TMP/main:37
+0858 skip /home/ale/osdk/TMP/main:45
+086a skip /home/ale/osdk/TMP/main:61
+0878 noflip /home/ale/osdk/TMP/main:72
+087d skip /home/ale/osdk/TMP/main:75
+08dd leave /home/ale/osdk/lib/frame.s:85
+08a0 noregstosave /home/ale/osdk/lib/frame.s:36
+0898 savereg /home/ale/osdk/lib/frame.s:29
+08fd noregstorestore /home/ale/osdk/lib/frame.s:111
+08f5 restorereg /home/ale/osdk/lib/frame.s:104
+0933 read /home/ale/osdk/TMP/print.s:55
+0938 write /home/ale/osdk/TMP/print.s:60
+0933 loop_char /home/ale/osdk/TMP/print.s:52
+093f end_loop_char /home/ale/osdk/TMP/print.s:68
+0b00 osdk_end /home/ale/osdk/lib/tail.s:22
+0800 __text_start /home/ale/osdk/lib/tail.s:32
+0940 __text_end /home/ale/osdk/lib/tail.s:32
+0140 __text_size /home/ale/osdk/lib/tail.s:32
+0940 __data_start /home/ale/osdk/lib/tail.s:32
+0940 __data_end /home/ale/osdk/lib/tail.s:32
+0000 __data_size /home/ale/osdk/lib/tail.s:32
+0a00 __bss_start /home/ale/osdk/lib/tail.s:32
+0b00 __bss_end /home/ale/osdk/lib/tail.s:32
+0100 __bss_size /home/ale/osdk/lib/tail.s:32
+0a00 __bss_clear_start /home/ale/osdk/lib/tail.s:32
+0b00 __bss_clear_end /home/ale/osdk/lib/tail.s:32
+0100 __bss_clear_size /home/ale/osdk/lib/tail.s:32
+0004 __zero_start /home/ale/osdk/lib/tail.s:32
+0030 __zero_end /home/ale/osdk/lib/tail.s:32
+002c __zero_size /home/ale/osdk/lib/tail.s:32
+#FILES
+0 /home/ale/osdk/lib/header.s
+1 zp_crt.inc
+2 /home/ale/osdk/TMP/main
+3 /home/ale/osdk/lib/frame.s
+4 /home/ale/osdk/TMP/print.s
+5 /home/ale/osdk/lib/tail.s
+#LINES
+0004 0:9
+0050 1:7
+0052 1:8
+0054 1:9
+0056 1:11
+0058 1:12
+005a 1:13
+005c 1:14
+005e 1:15
+0060 1:16
+0062 1:17
+0064 1:18
+0066 1:20
+0068 1:21
+006a 1:23
+006c 1:25
+006e 1:26
+0070 1:27
+0072 1:28
+0074 1:29
+0076 1:30
+0078 1:31
+007a 1:32
+007c 0:16
+0800 0:80
+0801 0:81
+0803 0:82
+0805 0:83
+0807 0:84
+0809 0:85
+080b 0:86
+080e 0:88
+0811 0:92
+0813 0:93
+0814 0:94
+0815 2:5
+0817 2:6
+0819 2:7
+081c 2:8
+0821 2:10
+0823 2:11
+0825 2:12
+0827 2:13
+0828 2:14
+082a 2:15
+082c 2:17
+082e 2:18
+0831 2:20
+0833 2:21
+0835 2:23
+0838 2:25
+0842 2:28
+0844 2:29
+0846 2:31
+0848 2:32
+084a 2:33
+084c 2:35
+084e 2:36
+0850 2:39
+0852 2:41
+0854 2:43
+0856 2:44
+0858 2:48
+085a 2:49
+085c 2:52
+085e 2:53
+0860 2:55
+0862 2:56
+0864 2:57
+0866 2:59
+0868 2:60
+086a 2:63
+086c 2:65
+086e 2:66
+0870 2:67
+0872 2:68
+0874 2:70
+0876 2:71
+0878 2:73
+087a 2:74
+087d 2:78
+0880 2:82
+0881 2:84
+0882 2:86
+0883 2:88
+0884 2:90
+0885 2:92
+0886 2:94
+0887 2:96
+0888 2:98
+0889 2:100
+088a 2:102
+088b 2:104
+088c 2:106
+088d 2:108
+088e 3:21
+0890 3:22
+0892 3:25
+0893 3:26
+0895 3:27
+0896 3:28
+0898 3:30
+089a 3:31
+089c 3:32
+089d 3:33
+089e 3:34
+08a0 3:37
+08a2 3:40
+08a4 3:41
+08a6 3:42
+08a7 3:43
+08a9 3:44
+08ab 3:45
+08ac 3:48
+08ae 3:49
+08b0 3:50
+08b1 3:51
+08b3 3:52
+08b5 3:53
+08b6 3:56
+08b8 3:57
+08ba 3:58
+08bb 3:59
+08bd 3:60
+08bf 3:65
+08c0 3:66
+08c2 3:67
+08c4 3:68
+08c6 3:69
+08c8 3:70
+08ca 3:71
+08cc 3:72
+08ce 3:73
+08d0 3:76
+08d2 3:77
+08d4 3:78
+08d6 3:79
+08d8 3:80
+08da 3:81
+08dc 3:82
+08dd 3:86
+08df 3:87
+08e1 3:90
+08e3 3:91
+08e5 3:92
+08e7 3:93
+08e9 3:95
+08eb 3:96
+08ed 3:97
+08ee 3:98
+08ef 3:99
+08f1 3:100
+08f2 3:101
+08f3 3:102
+08f5 3:105
+08f7 3:106
+08f9 3:107
+08fa 3:108
+08fb 3:109
+08fd 3:113
+08ff 3:114
+0901 3:115
+0903 3:116
+0904 3:117
+0906 3:118
+0908 3:121
+0909 3:122
+090b 3:123
+090d 3:124
+090e 3:125
+090f 3:126
+0911 3:127
+0913 3:128
+0915 3:130
+0917 3:131
+0919 3:132
+091a 4:35
+091c 4:36
+091e 4:37
+0921 4:38
+0922 4:39
+0924 4:40
+0927 4:45
+0929 4:46
+092c 4:47
+092e 4:48
+0931 4:51
+0933 4:56
+0936 4:57
+0938 4:61
+093b 4:64
+093c 4:65
+093f 4:69
+0940 5:15
+0a00 5:18
+0b00 5:31

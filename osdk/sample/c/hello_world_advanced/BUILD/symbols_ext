@@ -1,0 +1,254 @@
+#SYM V2
+0050 zp_compiler_save_start /home/ale/osdk/lib/header.s:11
+0050 ap zp_crt.inc:7
+0052 fp zp_crt.inc:8
+0054 sp zp_crt.inc:9
+0056 tmp0 zp_crt.inc:11
+0058 tmp1 zp_crt.inc:12
+005a tmp2 zp_crt.inc:13
+005c tmp3 zp_crt.inc:14
+005e tmp4 zp_crt.inc:15
+0060 tmp5 zp_crt.inc:16
+0062 tmp6 zp_crt.inc:17
+0064 tmp7 zp_crt.inc:18
+0066 op1 zp_crt.inc:20
+0068 op2 zp_crt.inc:21
+006a tmp zp_crt.inc:23
+006c reg0 zp_crt.inc:25
+006e reg1 zp_crt.inc:26
+0070 reg2 zp_crt.inc:27
+0072 reg3 zp_crt.inc:28
+0074 reg4 zp_crt.inc:29
+0076 reg5 zp_crt.inc:30
+0078 reg6 zp_crt.inc:31
+007a reg7 zp_crt.inc:32
+007c zp_compiler_save_end /home/ale/osdk/lib/header.s:13
+0800 osdk_start /home/ale/osdk/lib/header.s:18
+0a00 osdk_stack /home/ale/osdk/lib/tail.s:17
+0811 exitldx /home/ale/osdk/lib/header.s:91
+0815 _main /home/ale/osdk/TMP/main:3
+0811 _exit /home/ale/osdk/lib/header.s:90
+0888 Lmain130 /home/ale/osdk/TMP/main:79
+08ce _AdvancedPrint /home/ale/osdk/TMP/print.s:95
+0896 ScreenAdressLow /home/ale/osdk/TMP/print.s:25
+08b2 ScreenAdressHigh /home/ale/osdk/TMP/print.s:56
+08fa write /home/ale/osdk/TMP/print.s:142
+08f5 read /home/ale/osdk/TMP/print.s:137
+08f5 loop_char /home/ale/osdk/TMP/print.s:134
+0901 end_loop_char /home/ale/osdk/TMP/print.s:150
+0b00 osdk_end /home/ale/osdk/lib/tail.s:22
+0800 __text_start /home/ale/osdk/lib/tail.s:32
+0902 __text_end /home/ale/osdk/lib/tail.s:32
+0102 __text_size /home/ale/osdk/lib/tail.s:32
+0902 __data_start /home/ale/osdk/lib/tail.s:32
+0902 __data_end /home/ale/osdk/lib/tail.s:32
+0000 __data_size /home/ale/osdk/lib/tail.s:32
+0a00 __bss_start /home/ale/osdk/lib/tail.s:32
+0b00 __bss_end /home/ale/osdk/lib/tail.s:32
+0100 __bss_size /home/ale/osdk/lib/tail.s:32
+0a00 __bss_clear_start /home/ale/osdk/lib/tail.s:32
+0b00 __bss_clear_end /home/ale/osdk/lib/tail.s:32
+0100 __bss_clear_size /home/ale/osdk/lib/tail.s:32
+0004 __zero_start /home/ale/osdk/lib/tail.s:32
+0030 __zero_end /home/ale/osdk/lib/tail.s:32
+002c __zero_size /home/ale/osdk/lib/tail.s:32
+#FILES
+0 /home/ale/osdk/lib/header.s
+1 zp_crt.inc
+2 /home/ale/osdk/TMP/main
+3 /home/ale/osdk/TMP/print.s
+4 /home/ale/osdk/lib/tail.s
+#LINES
+0004 0:9
+0050 1:7
+0052 1:8
+0054 1:9
+0056 1:11
+0058 1:12
+005a 1:13
+005c 1:14
+005e 1:15
+0060 1:16
+0062 1:17
+0064 1:18
+0066 1:20
+0068 1:21
+006a 1:23
+006c 1:25
+006e 1:26
+0070 1:27
+0072 1:28
+0074 1:29
+0076 1:30
+0078 1:31
+007a 1:32
+007c 0:16
+0800 0:80
+0801 0:81
+0803 0:82
+0805 0:83
+0807 0:84
+0809 0:85
+080b 0:86
+080e 0:88
+0811 0:92
+0813 0:93
+0814 0:94
+0815 2:5
+0817 2:6
+0819 2:7
+081b 2:8
+081c 2:9
+081e 2:10
+0820 2:12
+0822 2:13
+0824 2:14
+0826 2:15
+0827 2:16
+0829 2:17
+082b 2:19
+082d 2:20
+082f 2:21
+0831 2:22
+0832 2:23
+0834 2:24
+0836 2:26
+0838 2:27
+083b 2:29
+083d 2:30
+083f 2:31
+0841 2:32
+0842 2:33
+0844 2:34
+0846 2:36
+0848 2:37
+084a 2:38
+084c 2:39
+084d 2:40
+084f 2:41
+0851 2:43
+0853 2:44
+0855 2:45
+0857 2:46
+0858 2:47
+085a 2:48
+085c 2:50
+085e 2:51
+0861 2:53
+0863 2:54
+0865 2:55
+0867 2:56
+0868 2:57
+086a 2:58
+086c 2:60
+086e 2:61
+0870 2:62
+0872 2:63
+0873 2:64
+0875 2:65
+0877 2:67
+0879 2:68
+087b 2:69
+087d 2:70
+087e 2:71
+0880 2:72
+0882 2:74
+0884 2:75
+0887 2:77
+0888 2:81
+0889 2:83
+088a 2:85
+088b 2:87
+088c 2:89
+088d 2:91
+088e 2:93
+088f 2:95
+0890 2:97
+0891 2:99
+0892 2:101
+0893 2:103
+0894 2:105
+0895 2:107
+0896 3:26
+0897 3:27
+0898 3:28
+0899 3:29
+089a 3:30
+089b 3:31
+089c 3:32
+089d 3:33
+089e 3:34
+089f 3:35
+08a0 3:36
+08a1 3:37
+08a2 3:38
+08a3 3:39
+08a4 3:40
+08a5 3:41
+08a6 3:42
+08a7 3:43
+08a8 3:44
+08a9 3:45
+08aa 3:46
+08ab 3:47
+08ac 3:48
+08ad 3:49
+08ae 3:50
+08af 3:51
+08b0 3:52
+08b1 3:53
+08b2 3:57
+08b3 3:58
+08b4 3:59
+08b5 3:60
+08b6 3:61
+08b7 3:62
+08b8 3:63
+08b9 3:64
+08ba 3:65
+08bb 3:66
+08bc 3:67
+08bd 3:68
+08be 3:69
+08bf 3:70
+08c0 3:71
+08c1 3:72
+08c2 3:73
+08c3 3:74
+08c4 3:75
+08c5 3:76
+08c6 3:77
+08c7 3:78
+08c8 3:79
+08c9 3:80
+08ca 3:81
+08cb 3:82
+08cc 3:83
+08cd 3:84
+08ce 3:106
+08d0 3:107
+08d2 3:108
+08d3 3:110
+08d6 3:111
+08d7 3:112
+08d9 3:113
+08db 3:114
+08de 3:115
+08e1 3:116
+08e3 3:117
+08e6 3:124
+08e8 3:125
+08ea 3:126
+08ed 3:127
+08ee 3:128
+08f0 3:129
+08f3 3:133
+08f5 3:138
+08f8 3:139
+08fa 3:143
+08fd 3:146
+08fe 3:147
+0901 3:151
+0902 4:15
+0a00 4:18
+0b00 4:31

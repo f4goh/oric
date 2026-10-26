@@ -1,0 +1,26 @@
+;
+; conio-style console output, as used by portable 6502 test/benchmark code
+; (e.g. the ISS MOS6502 compiler benchmark):
+;   void _putc(char c);        print one character
+;   void _puts(const char* s); print a string, WITHOUT the trailing newline
+;                              that the standard puts() appends
+; Both route through putchar (gpchar.s) so LF handling matches the rest of
+; the console output.
+;
+
+; __putc is a zero-cost alias of _putchar (see gpchar.s)
+
+__puts
+	sta tmp			; __fastcall: string pointer arrives in A:X (low:high)
+	stx tmp+1
+	ldy #0
+cputs_loop
+	lda (tmp),y
+	beq cputs_done
+	jsr putchar
+	iny
+	bne cputs_loop
+	inc tmp+1
+	jmp cputs_loop
+cputs_done
+	rts
