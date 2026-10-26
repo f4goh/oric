@@ -1,12 +1,23 @@
 # Guide de Configuration OSDK et Compilation Oricutron
 
-Ce document regroupe les procédures pour configurer les variables d'environnement de l'OSDK selon la plateforme (PC ou Raspberry Pi) ainsi que les étapes de compilation de l'émulateur Oricutron sur Raspberry Pi 4.
+Ce document regroupe les procédures pour configurer les variables d'environnement de l'OSDK selon la plateforme (PC Linux Mint 64 bits 22.3 ou Raspberry Pi4 64 Bits) ainsi que les étapes de compilation de l'émulateur Oricutron sur Raspberry Pi 4.
+meme si les fichier binaires sont tous compilé pour les deux plateformes
 
 ---
 
 ## 1. Configuration de l'OSDK selon la plateforme
 
-### Pour un PC at RPI
+### Pour un PC et RPI4 64bits
+
+# Récupérer le sous-dossier osdk du dépôt GitHub
+
+```bash
+git clone --depth 1 --filter=blob:none --sparse --branch main https://github.com/f4goh/oric.git
+cd oric
+git sparse-checkout set osdk
+mv osdk ~/
+```
+
 
 ```bash
 # Installation des bibliothèques de développement additionnelles
