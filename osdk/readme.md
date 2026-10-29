@@ -1,7 +1,7 @@
 # Guide de Configuration OSDK et Compilation Oricutron
 
 Ce document regroupe les procédures pour configurer les variables d'environnement de l'OSDK selon la plateforme (PC Linux Mint 64 bits 22.3 ou Raspberry Pi4 64 Bits) ainsi que les étapes de compilation de l'émulateur Oricutron sur Raspberry Pi 4.
-meme si les fichier binaires sont tous compilé pour les deux plateformes
+meme si les fichiers binaires sont tous compilés pour les deux plateformes
 
 ---
 
@@ -149,7 +149,7 @@ Lancement d'Oricutron (SDL2) avec le fichier : BUILD/HWASM.tap...
 
 Une fenêtre graphique **Oricutron** va s'ouvrir automatiquement à l'écran de votre machine (PC ou bureau Armbian) pour charger l'image cassette virtuelle et exécuter votre code machine.
 
-![Logo Oricutron](oricutron/images/oricuton.png)
+![Logo Oricutron](oricutron/images/oricutron.png)
 
 ## 5. Exemple Pratique : Compilation d'un Programme Mixte (C / BASIC / Assembleur)
 
