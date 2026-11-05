@@ -142,7 +142,7 @@ Pour intercepter le flux généré sur votre ordinateur moderne :
 
 ## 🚀 Évolutions futures & Perspectives
 
-### 1. Avantages d'une migration vers un Arduino Mega
+### 💡 Avantages d'une migration vers un Arduino Mega
 Bien que l'Arduino Uno soit parfaitement adapté, migrer vers un **Arduino Mega 2560** offrirait des opportunités majeures pour pousser le projet plus loin :
 * **Lecture directe de l'octet :** L'Arduino Mega dispose de ports complets de 8 bits accessibles sur des broches alignées (comme le `PORTA` ou le `PORTC`). Cela permettrait de lire l'intégralité de l'octet envoyé par l'Oric en une seule instruction processeur (ex: `receivedByte = PINA;`), simplifiant le code et éliminant les manipulations de bits (masques et décalages).
 * **Ressources et connectivité accrues :** Grâce à sa mémoire Flash supérieure et ses nombreuses broches disponibles, l'Arduino peut traiter le signal `LPRINT` tout en pilotant simultanément d'autres périphériques.
@@ -151,6 +151,9 @@ Bien que l'Arduino Uno soit parfaitement adapté, migrer vers un **Arduino Mega 
 * **Boîtier d'affichage déporté :** Intercepter les commandes `LPRINT` pour afficher du texte, des scores ou des variables en temps réel sur un écran LCD I2C, un afficheur OLED SPI ou une matrice de LED.
 * **Imprimante Virtuelle Graphique :** Convertir les flux de texte ou d'échappement d'impression reçus en un fichier image ou PDF stocké directement sur un module de carte SD ou transmis via un shield Ethernet/Wi-Fi.
 * **Générateur de sons ou d'effets visuels secondaires :** Déclencher des bruitages (via un module MP3/SPI) ou des animations lumineuses (bandes de LED NeoPixel) sur des critères textuels spécifiques reçus depuis l'Oric.
+* **Imprimante Virtuelle sur Carte SD :** Réceptionner le flux d'impression pour l'enregistrer directement sous forme de fichier texte ou d'image sur un module de carte SD.
+* **Convertisseur Centronics vers Wi-Fi / Ethernet :** Envoyer les données d'impression de l'Oric directement sur votre réseau domestique pour les afficher sur un PC moderne ou les imprimer sur une vraie imprimante réseau.
+* **Module d'effets secondaires pour les jeux :** Analyser le texte envoyé par l'Oric (ex: "BOOM", "GAME OVER") pour déclencher des sons physiques via un module MP3 SPI ou des animations lumineuses avec des bandes de LED NeoPixel.
 
 ---
 
@@ -165,10 +168,6 @@ Contrairement à l'Arduino Uno où le bus de données doit être séparé sur de
 Grâce à sa mémoire accrue et son grand nombre de broches libres, l'Arduino Mega peut intercepter les commandes `LPRINT` envoyées par l'Oric Atmos pour piloter une grande variété de périphériques modernes (en I2C, SPI, etc.). 
 
 Voici quelques exemples de projets réalisables :
-* **Afficheur déporté / Écran virtuel :** Connecter un afficheur LCD I2C, un écran OLED SPI ou une matrice de LED pour afficher en temps réel les textes, scores ou données de débogage envoyés par l'Oric via `LPRINT`.
-* **Imprimante Virtuelle sur Carte SD :** Réceptionner le flux d'impression pour l'enregistrer directement sous forme de fichier texte ou d'image sur un module de carte SD.
-* **Convertisseur Centronics vers Wi-Fi / Ethernet :** Envoyer les données d'impression de l'Oric directement sur votre réseau domestique pour les afficher sur un PC moderne ou les imprimer sur une vraie imprimante réseau.
-* **Module d'effets secondaires pour les jeux :** Analyser le texte envoyé par l'Oric (ex: "BOOM", "GAME OVER") pour déclencher des sons physiques via un module MP3 SPI ou des animations lumineuses avec des bandes de LED NeoPixel.
 
 ---
 
