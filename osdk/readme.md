@@ -37,7 +37,7 @@ Sur un ordinateur de bureau, les terminaux graphiques lisent le fichier de confi
 nano ~/.bashrc
 
 # Ajouter la ligne suivante à la fin du fichier :
-export OSDK="\$HOME/osdk"
+export OSDK="$HOME/osdk"
 
 # Recharger la configuration pour l'appliquer immédiatement
 source ~/.bashrc
@@ -51,13 +51,34 @@ Sur Raspberry Pi, l'environnement graphique nécessite que la variable soit déc
 nano ~/.profile
 
 # Ajouter la ligne suivante à la fin du fichier :
-export OSDK="\$HOME/osdk"
+export OSDK="$HOME/osdk"
 
 # Recharger le profil pour l'appliquer immédiatement
 source ~/.profile
 ```
 *Note : Un redémarrage ou une reconnexion de la session graphique peut être nécessaire pour que le terminal du bureau l'active.*
 
+### Pour un Raspberry Pi (Armbian / Raspberry Pi OS)
+Mettre tous les fichier *.sh exécutables
+
+```bash
+cd ~/osdk
+find . -type f -name "*.sh" -exec chmod +x {} +
+```
+mettre tous les fichiers du répertoire bin éxécutable
+```bash
+cd ~/osdk/bin
+chmod +x *
+```
+mettre l'oricutron exécutable
+```bash
+cd ~/osdk/oricutron
+chmod +x oricutron
+chmod +x oricutron-rpi
+chmod +x oricutron-sdl2
+chmod +x oric1-emu
+```
+[oric1-emu](https://github.com/benedictemarty/Phosphoric) est l'émulateur de benedictemarty compilé sur PC x64
 ---
 
 ## 2. Compilation d'Oricutron sur Raspberry Pi 4
