@@ -2,6 +2,7 @@
 
 Émulateur de lecteur de cassette (K7) pour **Oric 1 / Oric Atmos** basé sur **ESP32 (WEMOS LOLIN32)** avec interface Web intégrée en mémoire Flash (`PROGMEM`), écran OLED SSD1306, encodeur rotatif et pont Telnet ↔ ACIA 6551.
 
+## Automatic installation in esp32 [firmwares](https://f4goh.github.io/oric/index.html) with chrome browser
 ---
 ![webui](webui.png)
 
