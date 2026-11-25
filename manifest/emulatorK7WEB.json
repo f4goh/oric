@@ -1,0 +1,16 @@
+{
+  "name": "EmulatorK7 WEB",
+  "version": "2026.11.0-dev",
+  "home_assistant_domain": "oric K7 emulator WEB",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32",      
+      "parts": [
+        { "path": "../firmwares/emulatorK7WEB/bootloader.bin", "offset": 4096 },
+        { "path": "../firmwares/emulatorK7WEB/partitions.bin", "offset": 32768 },
+        { "path": "../firmwares/emulatorK7WEB/firmware.bin", "offset": 65536 }
+      ]
+    }
+  ]
+}
